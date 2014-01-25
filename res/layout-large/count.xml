@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/radiogro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp" >
+
+        <RadioButton
+            android:id="@+id/yes1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:textColor="#ffffff"
+              android:button="@drawable/custom_radiobutton"
+            android:text="@string/yes" />
+
+        <RadioButton
+            android:id="@+id/no1"
+             android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+               android:button="@drawable/custom_radiobutton"
+            android:layout_height="wrap_content"
+            android:text="@string/no" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="70sp"
+        android:layout_height="40sp"
+        android:layout_alignRight="@+id/radiogro"
+        android:layout_below="@+id/radiogro"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/buttonback"
+        android:text="@string/next2"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/countt"
+        android:layout_width="300sp"
+        android:layout_height="150sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="83dp"
+        android:background="@drawable/edittext"
+        android:text="@string/reinf" />
+
+</RelativeLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/next"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70sp"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/firstnam"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/buttonback"
+        android:text="@string/next2"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/cler"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70sp"
+        android:layout_height="40sp"
+        android:layout_alignBaseline="@+id/next"
+        android:layout_alignBottom="@+id/next"
+        android:layout_alignLeft="@+id/mob"
+        android:background="@drawable/buttonback"
+        android:text="@string/reset"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firstname"
+        android:layout_alignTop="@+id/frstname"
+        android:text="@string/fname"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/firstnam"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignLeft="@+id/frstname"
+        android:layout_alignTop="@+id/firstname"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textPersonName" ><requestFocus /></EditText>
+
+    <TextView
+        android:id="@+id/firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/firname"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/mob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/fname"
+        android:layout_below="@+id/frstname"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="47dp"
+        android:text="@string/mobile"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/frstname"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignLeft="@+id/mobile"
+        android:layout_below="@+id/firstnam"
+        android:layout_marginTop="47dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textPersonName" ></EditText>
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/mob"
+        android:layout_below="@+id/mobile"
+        android:layout_marginTop="31dp"
+        android:text="@string/mail"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/mail"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignTop="@+id/email"
+        android:layout_marginLeft="23dp"
+        android:layout_toRightOf="@+id/cler"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textEmailAddress" >
+
+        
+    </EditText>
+
+    <EditText
+        android:id="@+id/mobile"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignLeft="@+id/mail"
+        android:layout_alignTop="@+id/mob"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="phone"
+        android:maxLength="10" />
+
+</RelativeLayout>

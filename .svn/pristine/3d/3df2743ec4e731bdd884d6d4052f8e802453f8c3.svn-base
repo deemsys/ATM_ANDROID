@@ -1,0 +1,349 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:textColor="#ffffff"
+            android:text="@string/firname" />
+
+        <EditText
+            android:id="@+id/firstedit"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="text"
+            android:padding="3dip" >
+
+            <requestFocus />
+        </EditText>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView2"
+              android:textColor="#ffffff"
+            android:text="@string/username" />
+
+        <EditText
+            android:id="@+id/useredit"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/edittext"
+            android:gravity="center"
+            android:inputType="text"
+            android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView3"
+             android:textColor="#ffffff"
+            android:text="@string/mobile" />
+
+        <EditText
+            android:id="@+id/mobedit"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/edittext"
+            android:gravity="center"
+            android:inputType="text"
+            android:padding="3dip" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView4"
+              android:textColor="#ffffff"
+            android:text="@string/mail" />
+
+        <EditText
+            android:id="@+id/mailledit"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/edittext"
+            android:gravity="center"
+            android:inputType="textEmailAddress"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="35sp"
+            android:text="@string/gen" 
+               android:textColor="#ffffff"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/radi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                android:textColor="#000000" />
+
+            <RadioButton
+                android:id="@+id/rad1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female"
+                android:textColor="#000000" />
+        </RadioGroup>
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView6"
+            android:text="@string/age"
+            android:textColor="#ffffff" />
+
+        <TableRow>
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="150sp"
+                android:layout_height="30sp"
+                android:background="@drawable/edittext" />
+        </TableRow>
+
+      
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView7"
+              android:textColor="#ffffff"
+            android:text="@string/city" />
+
+        <EditText
+            android:id="@+id/citedit"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/edittext"
+            android:gravity="center"
+            android:inputType="text"
+            android:padding="3dip" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView8"
+               android:textColor="#ffffff"
+           android:text="@string/education" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/edittext" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView9"
+            android:textColor="#ffffff"
+            android:text="@string/meddet" />
+
+        <EditText
+            android:id="@+id/meddetedit"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:background="@drawable/edittext"
+            android:gravity="top"
+            android:inputType="text"
+            android:padding="3dip" />
+    </TableRow>
+
+   
+    <TableRow
+        android:id="@+id/tableRow10"
+        
+        android:layout_height="wrap_content"
+     
+         >
+
+      <TextView
+            android:id="@+id/textView10"
+            android:layout_height="wrap_content"
+            android:text="@string/time1" 
+  
+            android:textColor="#ffffff"/>
+
+      <Spinner
+          android:id="@+id/spinner3"
+          
+          android:layout_height="wrap_content"
+          android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/ampm"
+          android:layout_height="wrap_content"
+          android:layout_width="50sp"
+            android:background="@drawable/edittext"
+          />
+    </TableRow>
+    
+
+    <TableRow
+        android:id="@+id/tableRow11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView11"
+          android:textColor="#ffffff"
+            android:text="@string/time2" />
+
+        <Spinner
+            
+            android:id="@+id/spinner4"
+          android:layout_width="wrap_content"
+            android:layout_height="30sp"
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/spinner8"
+          android:layout_width="wrap_content"
+            android:layout_height="30sp" 
+        
+            android:background="@drawable/edittext"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView12"
+          android:textColor="#ffffff"
+            android:text="@string/time3" />
+ <Spinner
+            android:id="@+id/spinner5"
+            android:layout_width="80sp"
+            android:layout_height="30sp" 
+            android:background="@drawable/edittext"/>
+
+ <Spinner
+     android:id="@+id/spinner9"
+    android:layout_width="wrap_content"
+            android:layout_height="30sp" 
+         
+            android:background="@drawable/edittext" />
+     
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView13"
+            android:text="@string/proname"
+               android:textColor="#ffffff" />
+
+       <Spinner
+            android:id="@+id/spinner6"
+            android:layout_width="150sp"
+            android:layout_height="30sp" 
+            android:background="@drawable/edittext"/>
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip" >
+
+        <TextView
+            android:id="@+id/textView14"
+            android:text="@string/progroup" 
+               android:textColor="#ffffff"/>
+ <com.example.sms.MultiSelectionSpinner1 
+            android:id="@+id/spinner7"
+            android:layout_width="150sp"
+            android:layout_height="30sp" 
+            android:background="@drawable/edittext"/>
+    </TableRow>
+ <RelativeLayout
+         android:layout_width="wrap_content"
+         android:layout_height="110sp" >
+
+         <Button
+             android:id="@+id/edit"
+             android:layout_width="80sp"
+             android:layout_height="50sp"
+             android:layout_centerHorizontal="true"
+             android:layout_centerVertical="true"
+             android:text="@string/update" 
+             android:textColor="#ffffff"
+             android:background="@drawable/custom_button"/>
+     </RelativeLayout>
+</TableLayout>
+</ScrollView>

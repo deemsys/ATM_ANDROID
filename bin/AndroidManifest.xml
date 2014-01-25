@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.deemsysinc.sms"
+    android:versionCode="1"
+    android:versionName="1.0" >
+ <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17"/> 
+    
+     
+		<supports-screens
+		    android:resizeable="true"
+		     android:smallScreens="true"
+                  android:normalScreens="true"
+                  android:largeScreens="true"
+                  android:xlargeScreens="true"
+                     android:anyDensity="true"
+                 />
+
+		 <compatible-screens>
+        <!-- all small size screens -->
+        <screen android:screenSize="small" android:screenDensity="ldpi" />
+        <screen android:screenSize="small" android:screenDensity="mdpi" />
+        <screen android:screenSize="small" android:screenDensity="hdpi" />
+        <screen android:screenSize="small" android:screenDensity="xhdpi" />
+        <!-- all normal size screens -->
+        <screen android:screenSize="normal" android:screenDensity="ldpi" />
+        <screen android:screenSize="normal" android:screenDensity="mdpi" />
+        <screen android:screenSize="normal" android:screenDensity="hdpi" />
+        <screen android:screenSize="normal" android:screenDensity="xhdpi" />
+    </compatible-screens>
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+ 
+        <uses-permission android:name="android.permission.INTERNET"/>
+         <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.SEND_SMS" />
+<uses-permission android:name="android.permission.WRITE_SMS" />
+<uses-permission android:name="android.permission.READ_SMS" />
+<uses-permission android:name="android.permission.RECEIVE_SMS" />
+<uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="com.android.alarm.permission.SET_ALARM"/> 
+<compatible-screens>
+        <!-- all small size screens -->
+        <screen android:screenSize="small" android:screenDensity="ldpi" />
+        <screen android:screenSize="small" android:screenDensity="mdpi" />
+        <screen android:screenSize="small" android:screenDensity="hdpi" />
+        <screen android:screenSize="small" android:screenDensity="xhdpi" />
+        <!-- all normal size screens -->
+        <screen android:screenSize="normal" android:screenDensity="ldpi" />
+        <screen android:screenSize="normal" android:screenDensity="mdpi" />
+        <screen android:screenSize="normal" android:screenDensity="hdpi" />
+        <screen android:screenSize="normal" android:screenDensity="xhdpi" />
+    </compatible-screens>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon58"
+       android:debuggable="false"
+       
+        android:theme="@style/CustomActionBarTheme">
+          <receiver android:name="com.example.sms.NotificationActivity"/> 
+        <receiver android:name="com.example.sms.TimeAlarm" />
+        <activity
+            android:name="com.example.sms.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+         <activity android:name="com.example.sms.LoginActivity"
+             android:label="@string/login_name"
+                android:screenOrientation="portrait">
+             
+         </activity>
+        <activity android:name="com.example.sms.SignupActivity"
+            android:label="@string/signup_name"
+               android:screenOrientation="portrait">
+         </activity>
+         <activity android:name="com.example.sms.DashBoardActivity"
+             android:label="@string/welcome_name"
+                android:screenOrientation="portrait">
+         </activity>
+          <activity android:name="com.example.sms.NextActivity"
+              android:label="@string/signup_name"
+                 android:screenOrientation="portrait">
+         </activity>
+          <activity android:name="com.example.sms.RegisterActivity"
+              android:label="@string/signup_name"
+                 android:screenOrientation="portrait">
+         </activity>
+          <activity android:name="com.example.sms.ChangePassActivity"
+              android:label="@string/changepass"
+                 android:screenOrientation="portrait">
+         </activity>
+           <activity android:name="com.example.sms.ForgetPassActivity"
+              android:label="@string/forgetpass"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.InboxActivity"
+              android:label="@string/inbox"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.ViewMessages"
+              android:label="@string/msglib"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.EvaluationActivity"
+              android:label="@string/evalu"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+         <activity android:name="com.example.sms.HomeTabActivity"
+              android:label="@string/reinfo"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.RandomActivity"
+              android:label="@string/evalu"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.ReinforcemsgActivity"
+              android:label="@string/evalu"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.ViewProfileActivity"
+              android:label="@string/viewprof1"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.Questionnaire"
+              android:label="@string/evalu"
+                 android:screenOrientation="portrait">  
+         </activity>
+          <activity android:name="com.example.sms.Forgetactivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+              <activity android:name="com.example.sms.OtherActivity"
+              android:label="@string/weekl"
+                 android:screenOrientation="portrait">
+              </activity>
+              <activity android:name="com.example.sms.SideoffActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+              <activity android:name="com.example.sms.RanoutActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+               <activity android:name="com.example.sms.FamilyActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+               <activity android:name="com.example.sms.CostActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+               <activity android:name="com.example.sms.TooMedActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+               <activity android:name="com.example.sms.DonlikeActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+              <activity android:name="com.example.sms.WeeklyendActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+              <activity android:name="com.example.sms.EndActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+              </activity>
+               <activity android:name="com.example.sms.ProviderInfoActivity"
+              android:label="@string/provi"
+                 android:screenOrientation="portrait">
+              </activity>
+              <activity android:name="com.example.sms.CountingActivity"
+              android:label="@string/weekly"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+         <activity android:name="com.example.sms.EditProfileActivity"
+              android:label="@string/editdet"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.SettingsActivity"
+              android:label="@string/editdet"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <activity android:name="com.example.sms.DetailedMsg"
+              android:label="@string/msg"
+                 android:screenOrientation="portrait">
+            
+         </activity>
+          <service
+          android:name="com.twilio.client.TwilioClientService"
+          android:exported="false" />
+           
+    </application>
+    
+
+</manifest>

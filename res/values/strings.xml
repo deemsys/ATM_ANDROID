@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Adhere To Medication</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="uname">Mobile Number</string>
+     <string name="signup_name">Sign Up</string>
+      <string name="login_name">Participant Login</string>
+       <string name="welcome_name">Adhere To Medication</string>
+     <string name="pass">Password:</string>
+      <string name="firname">First Name:</string>
+         <string name="viewprof">View Profile</string>
+ <string name="rem">Remember Me</string>
+ <string name="proll">Provider Name:</string>
+ <string name="signin">Sign In</string>
+ <string name="signup">Sign Up</string>
+   <string name="newuser">If you are not Registered?</string>
+      <string name="fname">Username:</string>
+   <string name="username">Username:</string>
+   <string name="lastname">Last Name</string>
+   <string name="weeklyend">Would you like the app to send an email to your provider?</string>
+   <string name="mobile">Mobile:</string>
+   <string name="mail">EMail-Id:</string>
+   <string name="gen">Gender:</string>
+   <string name="age">Age:</string>
+    <string name="sometext">You can type your message or send voice mail on clicking record.</string>
+     <string name="Ok">OK</string>
+       <string name="group1">Change Group:</string>
+       <string name="welldone">Weekly Survey</string>
+     <string name="selectgroup">Select Group</string>
+   <string name="clr">Clear</string>
+   <string name="send">Send</string>
+    <string name="unread">You have</string>
+    <string name="weekly">Weekly Survey</string>
+    <string name="daily">Daily Messages</string>
+    <string name="readmsg">Review</string>
+    <string name="eval">Survey</string>
+    <string name="inbox">Message Library</string>
+    <string name="enteremail">Enter your Email-Id</string>
+    <string name="msglib">Message Library</string>
+      <string name="evalu">Weekly Survey</string>
+       <string name="ques">What made you miss some doses?</string>
+     <string name="evaltext">Over the past 7 days, on how many days did you take a dose of your AHT medication?</string>
+      <string name="text1">You have not reviewed  messages out of the  messages in your library. </string>
+    <string name="questionnaire">Form</string>
+    <string name="reinfo">Reinforcement</string>
+     <string name="other">Please explain:</string>
+       <string name="yes">YES</string>
+         <string name="no">NO</string>
+          <string name="converend">Thanks for answering the questions.If you have any questions or concerns always remember to get in touch with clinic.</string>
+     <string name="end">End Conversation</string>
+      <string name="rec">Record your Answer:</string>
+      <string name="start">Record</string>
+      <string name="stop">stop</string>
+       <string name="update">Update</string>
+      <string name="play">play</string>
+      <string name="save">save</string>
+     <string name="delete">Delete</string>
+       <string name="selectday">select Day</string>
+     <string name="edit">Edit</string>
+      <string name="editdet">Update Info</string>
+      <string name="settings">Settings</string>
+       <string name="msg">Message</string>
+        <string name="emptyview">There are no messages in your Message Library</string>
+      <string name="reinf">It appears you have not been taking your medication regularly. We encourage you to contact your doctor’s office at the number listed below. If you’d like, we can inform your doctor’s office via email. Would you like us to inform your doctor’s office? "</string>
+    <string-array name="age_array">
+
+        <item>below 12</item>  
+        <item>13-20 years</item>
+        <item>21-30 years</item>
+        <item>31-40 years</item>
+        <item>41-50 years</item>
+        <item>51-60 years</item>
+        <item>61-70 years</item>
+        <item>71-80 years</item>
+        <item>81-90 years</item>
+        <item>91-100 years</item>
+      
+    </string-array>
+    <string-array name="selectday">
+        
+ <item>0</item>
+ 
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+      
+      
+    </string-array>
+      <string-array name="selectoption">
+ 
+        <item>Select Option</item>  
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+         <item>5</item>
+          <item>6</item>
+           <item>7</item>
+         
+       
+      
+      
+    </string-array>
+      <string-array name="eduarray">
+    <item> Select Education</item>  
+        <item> Did not complete High School</item>  
+        <item>High School or GED</item>
+        <item>Some College</item>
+        <item>Undergraduate Degree</item>
+        <item>Post-graduate Degree</item>
+        
+      
+      
+    </string-array>
+     <string-array name="meridianarray">
+ 
+       
+        <item>AM</item>
+        <item>PM</item>
+        
+    </string-array>
+    
+    <string-array name="group_array">
+    <item>Select provider</item>>
+        
+        <item>Sample</item>
+        <item>Sangeetha</item>
+         <item>davidprabu</item>
+         <item>prabu</item>
+        <item>Suresh</item>
+        <item>vimal</item>
+         <item>uuuuuuuuuuuu</item>
+      
+    </string-array>
+     <string-array name="timer_array">
+        <item>Select Time</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item> 
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        
+    </string-array>
+    <string name="selage"> Select Age</string>
+     <string name="selpro">Select Provider</string>
+      <string name="selgroup">Select Group</string>
+   <string name="proname">Provider List:</string>
+   <string name="progroup">Group/Program Name:</string>
+   <string name="male">Male</string>
+   <string name="female">Female</string>
+   <string name="transgenders">trangenders</string>
+   <string name="city">Zipcode:</string>
+   <string name="msgs">Messages</string>
+   <string name="next2">Next</string>
+   <string name="education">Education:</string>
+    <string name="msgpref">Message Preferences</string>
+    <string name="veribut">clickme</string>
+    <string name="vericode">Enter the code</string>
+    <string name="next1">Next</string>
+   <string name="snap">Oh Snap!</string>
+   <string name="release">OK</string>
+   <string name="meddet">Medication Details:</string>
+   <string name="welcome">Welcome:</string>
+    <string name="log">Signout</string>
+    <string name="mobhint"> Mobile Number</string>
+    <string name="userhint">Username</string>
+     <string name="passhint">Password</string>
+     <string name="medihint"> Medicine Details</string>
+     <string name="eduhint"> Education</string>
+     <string name="cityhint">Zipcode</string>
+    <string name="forget">Forgot Password</string>
+   <string name="pretime">Preferred Time:</string>
+    <string name="time1">Time 1:</string>
+     <string name="time2">Time 2:</string>
+      <string name="time3">Time 3:</string>
+      <string name="newp">New Password:</string>
+       <string name="old">Old Password:</string>
+      <string name="confirm">Confirm Password:</string>
+      <string name="sub">Submit</string>
+      <string name="con">Provider Info</string>
+      <string name="changepass">Change Password</string>
+       <string name="opt1">1.I forgot</string>
+        <string name="opt2">2.I had side effects</string>
+         <string name="opt3">3.I ran out of medication</string>
+      <string name="opt4">4.Other</string>
+      <string name="forgetpass">Forgot Password</string>
+      <string name="forg">Forgot Password</string>
+      <string name="weekl">Weekly Survey</string>
+       <string name="calltopro">Call To Provider</string>
+    <string name="viewprof1">Patient Information</string>
+     <string name="mailtopro">Mail To Provider</string>
+      <string name="cancel">Cancel</string>
+      <string name="reset">Reset</string>
+       <string name="submit">Submit</string>
+        <string name="fromm">From:</string>
+        <string name="too">To:</string>
+        <string name="provi">Provider Info</string>
+    <string name="dt">Date And Time:</string>
+    
+      <string name="ques1"></string>
+    
+      <string name="i_forgot">I Forgot</string>
+    
+   
+    
+    
+    
+</resources>
+
+ 

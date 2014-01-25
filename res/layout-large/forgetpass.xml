@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/backgrou">
+
+    <Button
+        android:id="@+id/submit"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80sp"
+        android:layout_height="40sp"
+        android:layout_below="@+id/emailveri"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="94dp"
+        android:text="@string/sub"
+        android:textColor="#ffffff"
+        android:background="@drawable/buttonback" />
+
+    <TextView
+        android:id="@+id/enteremail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/submit"
+        android:layout_marginTop="78dp"
+        android:text="@string/enteremail"
+        android:textColor="#ffffff"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/emailveri"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/enteremail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="69dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:hint="@string/mail"
+        android:inputType="textEmailAddress" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>

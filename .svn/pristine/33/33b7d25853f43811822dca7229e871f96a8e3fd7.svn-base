@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/othr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="@string/other"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/reason"
+        android:layout_width="200sp"
+        android:layout_height="180sp"
+        android:layout_below="@+id/othr"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="text" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/voice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reason"
+        android:layout_marginTop="28dp"
+        android:text="@string/rec"
+        android:textColor="#ffffff" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/voice"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="60sp"
+            android:layout_height="40sp"
+            android:background="@drawable/buttonback"
+            android:onClick="recordAudio"
+            android:text="@string/start"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/stop"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="60sp"
+            android:layout_height="40sp"
+            android:background="@drawable/buttonback"
+            android:onClick="stopClicked"
+            android:text="@string/stop"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/play"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="60sp"
+            android:layout_height="40sp"
+            android:background="@drawable/buttonback"
+            android:onClick="playAudio"
+            android:text="@string/play"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/save"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="60sp"
+            android:layout_height="40sp"
+            android:background="@drawable/buttonback"
+            android:text="@string/save"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/audiooptions"
+        android:layout_width="50sp"
+        android:layout_height="20sp"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_toRightOf="@+id/voice" />
+
+</RelativeLayout>

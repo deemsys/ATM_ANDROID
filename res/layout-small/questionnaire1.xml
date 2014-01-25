@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/selectrad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" >
+
+        <RadioButton
+            android:id="@+id/rad0"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:button="@drawable/custom_radiobutton"
+            android:text="@string/i_forgot"
+            android:textColor="#ffffff" />
+
+        <RadioButton
+            android:id="@+id/rad1"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:button="@drawable/custom_radiobutton"
+            android:text="Symptoms"
+            android:textColor="#ffffff" />
+
+        <RadioButton
+            android:id="@+id/rad2"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:button="@drawable/custom_radiobutton"
+            android:text="Health insurance doesn’t cover it "
+            android:textColor="#ffffff" />
+
+        <RadioButton
+            android:id="@+id/rad3"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:button="@drawable/custom_radiobutton"
+            android:text="Medication/co-payments cost too much "
+            android:textColor="#ffffff" />
+
+        <RadioButton
+            android:id="@+id/rad4"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:button="@drawable/custom_radiobutton"
+            android:text="Family/friends discouraged me from taking medication "
+            android:textColor="#ffffff" />
+
+        <RadioButton
+            android:id="@+id/rad5"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:button="@drawable/custom_radiobutton"
+            android:text="I am taking too many medications "
+            android:textColor="#ffffff" />
+
+        <RadioButton
+            android:id="@+id/rad6"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:button="@drawable/custom_radiobutton"
+            android:text="I don’t like taking medications "
+            android:textColor="#ffffff" />
+
+        <RadioButton
+            android:id="@+id/rad7"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:button="@drawable/custom_radiobutton"
+            android:text="Others"
+            android:textColor="#ffffff" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/send"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80sp"
+        android:layout_height="30sp"
+        android:layout_below="@+id/selectrad"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonback"
+        android:text="@string/next2"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/ques"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/selectrad"
+        android:layout_centerHorizontal="true"
+        android:text="@string/ques"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

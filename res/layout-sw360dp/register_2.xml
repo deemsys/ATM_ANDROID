@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/backgrou">
+
+        <Spinner
+            android:id="@+id/meridian2"
+            android:layout_width="50sp"
+            android:layout_height="25sp"
+            android:layout_alignLeft="@+id/meridian1"
+            android:layout_alignTop="@+id/timer2"
+            
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/meridian3"
+            android:layout_width="50sp"
+            android:layout_height="25sp"
+            android:layout_alignLeft="@+id/meridian2"
+            android:layout_alignTop="@+id/timer3"
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/timer2"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignLeft="@+id/timer1"
+            android:layout_alignTop="@+id/time2"
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/timer1"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignTop="@+id/time1"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/timer3"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignLeft="@+id/timer2"
+            android:layout_alignTop="@+id/time3"
+            android:background="@drawable/edittext" />
+
+        <TextView
+            android:id="@+id/preftime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/pretime"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/time1"
+            android:layout_below="@+id/timer1"
+            android:layout_marginTop="46dp"
+            android:text="@string/time2"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/time3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/time2"
+            android:layout_below="@+id/timer2"
+            android:layout_marginTop="38dp"
+            android:text="@string/time3"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/progroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/prolist"
+            android:layout_below="@+id/prospin"
+            android:layout_marginTop="30dp"
+            android:text="@string/progroup"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/time1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/preftime"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="31dp"
+            android:text="@string/time1"
+            android:textColor="#ffffff" />
+
+        <Spinner
+            android:id="@+id/prospin"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignLeft="@+id/timer3"
+            android:layout_below="@+id/timer3"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/edittext" />
+
+        <TextView
+            android:id="@+id/prolist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/time3"
+            android:layout_alignTop="@+id/prospin"
+            android:text="@string/proname"
+            android:textColor="#ffffff" />
+
+        <Spinner
+            android:id="@+id/meridian1"
+            android:layout_width="50sp"
+            android:layout_height="25sp"
+            android:layout_above="@+id/time2"
+            android:layout_toRightOf="@+id/prospin"
+            android:background="@drawable/edittext" />
+
+        <com.example.sms.MultiSelectionSpinner
+            android:id="@+id/group"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_below="@+id/progroup"
+            android:layout_marginTop="11dp"
+            android:layout_toLeftOf="@+id/meridian3"
+            android:background="@drawable/edittext"
+            android:prompt="@string/selectgroup" />
+
+        <Button
+            android:id="@+id/cancel"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70sp"
+            android:layout_height="40sp"
+            android:layout_below="@+id/group"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="37dp"
+            android:layout_toLeftOf="@+id/group"
+            android:background="@drawable/buttonback"
+            android:text="@string/cancel"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/submit"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70sp"
+            android:layout_height="40sp"
+            android:layout_alignBaseline="@+id/cancel"
+            android:layout_alignBottom="@+id/cancel"
+            android:layout_alignRight="@+id/meridian3"
+            android:background="@drawable/buttonback"
+            android:text="@string/submit"
+            android:textColor="#ffffff" />
+
+</RelativeLayout>

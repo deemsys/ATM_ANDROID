@@ -1,0 +1,252 @@
+package com.example.sms;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+
+public class EvaluationActivity extends Activity {
+	 public static ArrayList<String> evaluation= new ArrayList<String>();
+	 public static ArrayList<String> counting= new ArrayList<String>();
+	 public static ArrayList<String> continuouscount= new ArrayList<String>();
+	 public static final String urlEN = "http://www.medsmonit.com/bcreasearchT/Service/genericUpdate.php?service=sequenceUpdate"; 
+	 private static String urlEV = "http://www.medsmonit.com/bcreasearchT/Service/genericSelect.php?service=sequenceSelect";
+	    private static final String TAG_WLSEQ = "Weekly_logs sequence List";
+	 
+	    private static final String TAG_SRESS= "serviceresponse";
+	 
+	  
+	  	private static final String TAG_CONTINUES = "continuous";
+	   	private static final String TAG_COUNTS = "count";
+	   
+	    public static int numbercount=0;
+
+	    JSONArray userEV = null; 
+public int weeklynumcount=0;
+public int four=0;
+	final Context context=this;
+    int day;
+  public static int countty=0;
+    
+    public static String count;
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.evaluate);
+        ActionBar actbar=getActionBar();
+        actbar.show();
+       
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        final Dialog dialog = new Dialog(context);
+	   
+		 dialog.setContentView(R.layout.custom_dialog);
+		dialog.setTitle("Weekly Evaluation");
+		 dialog.setCancelable(false);
+		 dialog.setCanceledOnTouchOutside(false);
+		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+		  txt.setText("System Begins Your Evaluation.");
+		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+		  dialogButton.setOnClickListener(new OnClickListener() {
+			  public void onClick(View vd) {
+				   dialog.dismiss();
+		
+		}
+		});
+		  dialog.show();
+        TextView text=(TextView)findViewById(R.id.textView1);
+        String que=text.getText().toString();
+        evaluation.add(que);
+      
+        new SequenceCheck().execute();
+        Spinner daysp= (Spinner) findViewById(R.id.dayspin);
+    	ArrayAdapter<CharSequence> dayadapt= ArrayAdapter.createFromResource(
+    	       this, R.array.selectday, android.R.layout.simple_spinner_item);
+    	dayadapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    	daysp.setAdapter(dayadapt);
+    
+        Button send=(Button)findViewById(R.id.send);
+     	
+        send.setOnClickListener(new View.OnClickListener() {
+             
+         	public void onClick(View v) {
+         		Spinner days = (Spinner)findViewById(R.id.dayspin);
+		    	 String dayval =days.getSelectedItem().toString();
+		    	 if(dayval.equals("Select Day")){
+		    		 final Dialog dialog = new Dialog(context);
+           			 dialog.setContentView(R.layout.custom_dialog);
+           			 dialog.setTitle("Invalid day");
+           			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+           			  txt.setText("Invalid day selection.Please Select days from 1 to 7");
+           			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+           			  dialogButton.setOnClickListener(new OnClickListener() {
+           				  public void onClick(View vd) {
+           					   dialog.dismiss();
+        				
+        				}
+           			});
+           			  dialog.show();
+        			  }
+		    	 else{
+		    		  day=Integer.parseInt(dayval);
+		    		  val(day);
+		    	 }
+         	     evaluation.add(dayval);
+          
+                 
+                  
+                	
+                 
+         	}
+                 
+         	   }); 
+        
+}
+	
+@Override
+	 public boolean onOptionsItemSelected(MenuItem item) {
+	     switch (item.getItemId()) {
+	         case android.R.id.home:
+	            
+	        	 finish();
+	      }
+	     return true;
+	 }
+
+private void val(int day)
+{
+	
+if(day<6){
+	int a=1;
+	  count=Integer.toString(a);
+	  for(int i=0;i<counting.size();i++){
+		
+	  }
+	  
+	  for(int i=0;i<counting.size();i++){
+		if(counting.get(i).equals("1")){
+			countty++;
+		}
+		
+	  }
+	
+		if(countty==2||countty==3){
+			Intent intentSignUP=new Intent(getApplicationContext(),CountingActivity.class);
+			startActivity(intentSignUP);
+			new EndUpdate().execute();
+			
+		}
+		else{
+			 Intent intentSignUP1=new Intent(getApplicationContext(),Questionnaire.class);
+				startActivity(intentSignUP1);
+		}
+	  }
+		
+		
+
+	else{
+		int b=0;
+		count=Integer.toString(b);
+		 Intent intentSignUP=new Intent(getApplicationContext(),ReinforcemsgActivity.class);
+			startActivity(intentSignUP);
+	}
+}	
+
+
+ 
+  class EndUpdate extends AsyncTask<String,String,String>
+	 {
+		@Override
+		protected String doInBackground(String... params) {
+	
+			String LogId4 = LoginActivity.proInfo.get(0);
+			List<NameValuePair> paramsEN = new ArrayList<NameValuePair>();
+			paramsEN.add(new BasicNameValuePair("loginid", LogId4));
+			 JsonParser jLogin = new JsonParser();
+			
+          JSONObject jsonEN = jLogin.makeHttpRequest(urlEN,"POST", paramsEN);
+          Log.i("tagconvertstr3", "["+jsonEN+"]");
+      
+			return null;
+		}
+		 @Override
+		 protected void onPostExecute(String file_url) {
+			 counting.clear();
+			 continuouscount.clear();
+			countty=0;
+		 }
+	 }
+
+class SequenceCheck extends AsyncTask<String,String,String>{
+
+	@Override
+	protected String doInBackground(String... params) {
+	
+		 String LogId3 = LoginActivity.proInfo.get(0);
+		 List<NameValuePair> paramsEV = new ArrayList<NameValuePair>();
+		 paramsEV.add(new BasicNameValuePair("loginid", LogId3));
+		 JsonParser jLogin = new JsonParser();
+		 
+         JSONObject jsonEV = jLogin.makeHttpRequest(urlEV,"POST", paramsEV);
+         Log.i("tagconvertstr3", "["+jsonEV+"]");
+         try
+         {
+        	 JSONObject ev = jsonEV.getJSONObject(TAG_SRESS);
+ 	         Log.i("tagconvertstr", "["+ev+"]");
+             	
+             	
+             
+             	userEV = ev.getJSONArray(TAG_WLSEQ);
+             	Log.i("tagconvertstr1", "["+userEV+"]");
+             	counting.clear();
+          	  continuouscount.clear();
+             	
+             	for(int i=0;i<userEV.length();i++)
+             	{
+             		
+             		JSONObject c1 = userEV.getJSONObject(i);
+             		JSONObject c2 = c1.getJSONObject(TAG_SRESS);
+             	
+             		
+	                
+	                
+	           
+	                	String  cont2 = c2.getString(TAG_CONTINUES);
+	               
+	                	String countt2 = c2.getString(TAG_COUNTS);
+	                
+	                	counting.add(countt2);
+	                	continuouscount.add(cont2);
+         }
+         }
+         catch(JSONException e)
+         {
+        	 e.printStackTrace();
+         }
+         
+        
+		 
+		return null;
+	}
+}
+}

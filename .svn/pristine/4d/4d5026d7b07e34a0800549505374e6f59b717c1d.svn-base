@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/msgpref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changepass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:text="@string/msgpref"
+        android:textColor="#ffffff"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ToggleButton
+        android:id="@+id/start"
+        android:layout_width="80sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/msgpref"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+         android:textOn="ON"
+         android:checked="true"
+              android:textOff="OFF"
+        android:background="@drawable/custom_button"
+        />
+
+    <TextView
+        android:id="@+id/contactinf"
+        android:layout_width="150sp"
+        android:layout_height="40sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="96dp"
+        android:text="@string/con"
+        android:gravity="center"
+        android:textColor="#ffffff"
+       android:background="@drawable/custom_button"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/changepass"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_below="@+id/contactinf"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/custom_button"
+        android:gravity="center"
+        android:text="@string/changepass"
+        android:textColor="#ffffff"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

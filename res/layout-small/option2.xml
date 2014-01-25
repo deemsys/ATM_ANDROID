@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/sideeff"
+        android:layout_width="200sp"
+        android:layout_height="60sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:background="@drawable/edittext"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioGroup
+        android1:id="@+id/selecty"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_below="@+id/sideeff"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginTop="40dp" >
+
+        <RadioButton
+            android1:id="@+id/yesans"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+           android1:button="@drawable/custom_radiobutton"
+            android1:text="@string/yes" />
+
+        <RadioButton
+            android1:id="@+id/noans"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:button="@drawable/custom_radiobutton"
+            android1:text="@string/no"/>
+    </RadioGroup>
+
+    <Button
+        android1:id="@+id/next"
+        style="?android:attr/buttonStyleSmall"
+        android1:layout_width="70sp"
+        android1:layout_height="30sp"
+        android1:layout_below="@+id/selecty"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginTop="30dp"
+        android1:background="@drawable/buttonback"
+        android1:text="@string/next2"
+        android1:textColor="#ffffff" />
+
+</RelativeLayout>

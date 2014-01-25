@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/backgrou">
+
+    <TextView
+        android:id="@+id/newpass"
+        android:layout_width="70sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/newpassword"
+        android:layout_alignLeft="@+id/confr"
+        android:text="@string/newp"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/confr"
+        android:layout_width="70sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/newpass"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/confirm" 
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/oldpass"
+        android:layout_width="70sp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/oldpassword"
+        android:layout_alignLeft="@+id/newpass"
+        android:text="@string/old"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/newpassword"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/oldpassword"
+        android:layout_below="@+id/oldpassword"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/confirmpassword"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/update"
+        android:layout_alignTop="@+id/confr"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+       
+    </EditText>
+
+    <EditText
+        android:id="@+id/oldpassword"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/confirmpassword"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="79dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textPassword" >
+         <requestFocus />
+</EditText>
+    <Button
+        android:id="@+id/update"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/confirmpassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/update"
+        android:textColor="#ffffff"
+        android:background="@drawable/custom_button" />
+
+</RelativeLayout>

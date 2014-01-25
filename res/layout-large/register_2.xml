@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/backgrou">
+
+        <Spinner
+            android:id="@+id/meridian2"
+            android:layout_width="50sp"
+            android:layout_height="25sp"
+            android:layout_alignLeft="@+id/meridian1"
+            android:layout_alignTop="@+id/timer2"
+            
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/meridian3"
+            android:layout_width="50sp"
+            android:layout_height="25sp"
+            android:layout_alignLeft="@+id/meridian2"
+            android:layout_alignTop="@+id/timer3"
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/timer2"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignLeft="@+id/timer1"
+            android:layout_alignTop="@+id/time2"
+            android:background="@drawable/edittext" />
+
+        <TextView
+            android:id="@+id/prolist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progroup"
+            android:layout_alignLeft="@+id/time3"
+            android:text="@string/proname"
+            android:textColor="#ffffff" />
+
+        <Spinner
+            android:id="@+id/timer1"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignTop="@+id/time1"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/edittext" />
+
+        <TextView
+            android:id="@+id/time1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/preftime"
+            android:layout_marginLeft="42dp"
+            android:layout_marginTop="66dp"
+            android:text="@string/time1"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/preftime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="48dp"
+            android:text="@string/pretime"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/time1"
+            android:layout_below="@+id/timer1"
+            android:layout_marginTop="51dp"
+            android:text="@string/time2"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/time3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/time2"
+            android:layout_below="@+id/timer2"
+            android:layout_marginTop="45dp"
+            android:text="@string/time3"
+            android:textColor="#ffffff" />
+
+        <Spinner
+            android:id="@+id/timer3"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignLeft="@+id/timer2"
+            android:layout_alignTop="@+id/time3"
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/meridian1"
+            android:layout_width="50sp"
+            android:layout_height="25sp"
+            android:layout_alignTop="@+id/timer1"
+            android:layout_marginLeft="47dp"
+            android:layout_toRightOf="@+id/timer1"
+            android:background="@drawable/edittext" />
+
+        <Spinner
+            android:id="@+id/prospin"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/meridian1"
+            android:background="@drawable/edittext" />
+
+        <Button
+            android:id="@+id/submit"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70sp"
+            android:layout_height="40sp"
+            android:layout_alignRight="@+id/meridian3"
+            android:layout_below="@+id/group"
+            android:layout_marginTop="89dp"
+            android:background="@drawable/buttonback"
+            android:text="@string/submit"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/cancel"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70sp"
+            android:layout_height="40sp"
+            android:layout_alignBaseline="@+id/submit"
+            android:layout_alignBottom="@+id/submit"
+            android:layout_toRightOf="@+id/preftime"
+            android:background="@drawable/buttonback"
+            android:text="@string/cancel"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/progroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/prolist"
+            android:layout_below="@+id/prospin"
+            android:layout_marginTop="43dp"
+            android:text="@string/progroup"
+            android:textColor="#ffffff" />
+
+        <com.example.sms.MultiSelectionSpinner
+            android:id="@+id/group"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignBottom="@+id/progroup"
+            android:layout_toLeftOf="@+id/meridian3"
+            android:background="@drawable/edittext"
+            android:prompt="@string/selectgroup" />
+
+</RelativeLayout>

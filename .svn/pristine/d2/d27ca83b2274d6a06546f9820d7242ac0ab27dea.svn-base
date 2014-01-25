@@ -1,0 +1,132 @@
+package com.example.sms;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+import com.deemsysinc.sms.R;
+
+
+public class Questionnaire extends Activity{
+	  public static ArrayList<String> questionnaire = new ArrayList<String>();
+	final Context context=this;
+	 @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.questionnaire1);
+	        getActionBar().setDisplayHomeAsUpEnabled(true);
+	        Button send=(Button)findViewById(R.id.send);
+	        TextView question=(TextView)findViewById(R.id.ques);
+	        String ques=question.getText().toString();
+	        questionnaire.add(ques);
+	        Spinner selectoption= (Spinner) findViewById(R.id.optsel);
+	    	ArrayAdapter<CharSequence> dayadapt= ArrayAdapter.createFromResource(
+	    	       this, R.array.selectoption, android.R.layout.simple_spinner_item);
+	    	dayadapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    	selectoption.setAdapter(dayadapt);
+	     
+	       
+	        send.setOnClickListener(new View.OnClickListener() {
+	             
+	         	
+	         		public void onClick(View v) {
+	             		Spinner days = (Spinner)findViewById(R.id.optsel);
+	    		    	 String val =days.getSelectedItem().toString();
+	    		    	 if(val.equals("Select Option")){
+	    		    		 final Dialog dialog = new Dialog(context);
+	               			 dialog.setContentView(R.layout.custom_dialog);
+	               			 dialog.setCancelable(false);
+	            			 dialog.setCanceledOnTouchOutside(false);
+	               			 dialog.setTitle("Invalid Option");
+	               			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+	               			  txt.setText("Invalid day selection.Please Select options from 1 to 4");
+	               			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+	               			  dialogButton.setOnClickListener(new OnClickListener() {
+	               				  public void onClick(View vd) {
+	               					   dialog.dismiss();
+	            				
+	            				}
+	               			});
+	               			  dialog.show();
+	         		}
+	    		    	 else{
+	         		int valued=Integer.parseInt(val);
+	                valid(valued);
+	    		    	 }
+}
+	        });
+	 }
+	 @Override
+	 public boolean onOptionsItemSelected(MenuItem item) {
+	     switch (item.getItemId()) {
+	         case android.R.id.home:
+	            finish();
+	      }
+	     return true;
+	 }
+	 private void valid(int valued)
+	 {
+		 int val=valued;
+		 switch(val){
+		 case 1:
+			 TextView opt1=(TextView)findViewById(R.id.opt1);
+			 String option1=opt1.getText().toString();
+			 questionnaire.add(1,option1);
+			
+			 Intent forgettip=new Intent(getApplicationContext(),Forgetactivity.class);
+			startActivity(forgettip); 
+			break;
+		case 2:
+			 TextView opt2=(TextView)findViewById(R.id.opt2);
+			 String option2=opt2.getText().toString();
+			 questionnaire.add(1,option2);
+			
+			 Intent sideeff=new Intent(getApplicationContext(),SideoffActivity.class);
+ 			startActivity(sideeff); 
+ 			break;
+		 case 3:
+			 TextView opt3=(TextView)findViewById(R.id.opt3);
+			 String option3=opt3.getText().toString();
+			 questionnaire.add(1,option3);
+			
+			 Intent ranout=new Intent(getApplicationContext(),RanoutActivity.class);
+ 			startActivity(ranout); break;
+		 case 4:
+			 TextView opt4=(TextView)findViewById(R.id.opt4);
+			 String option4=opt4.getText().toString();
+			 questionnaire.add(1,option4);
+			
+		 Intent other=new Intent(getApplicationContext(),OtherActivity.class);
+			startActivity(other); 
+			break;
+		default:final Dialog dialog = new Dialog(context);
+			 dialog.setContentView(R.layout.custom_dialog);
+			 dialog.setTitle("Invalid option");
+			 dialog.setCancelable(false);
+			 dialog.setCanceledOnTouchOutside(false);
+			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+			  txt.setText("Invalid option selection.Please Select option from 1 to 4");
+			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+			  dialogButton.setOnClickListener(new OnClickListener() {
+				  public void onClick(View vd) {
+					   dialog.dismiss();
+			
+			}
+			});
+			  dialog.show();
+			  break;
+			 
+		 }
+		 
+	 }
+}

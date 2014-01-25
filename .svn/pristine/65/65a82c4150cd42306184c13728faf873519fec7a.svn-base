@@ -1,0 +1,334 @@
+package com.example.sms;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.TextView;
+import android.widget.ToggleButton;
+
+public class SettingsActivity extends Activity {
+	   public static ArrayList<String> provider = new ArrayList<String>();
+	   private static String urlP= "http://www.medsmonit.com/bcreasearchT/Service/genericSelect.php?service=providerSelect";
+	   private static String urlMsg= "http://www.medsmonit.com/bcreasearchT/Service/genericUpdate.php?service=messageStreamUpdate";
+	   private static String urlD = "http://www.medsmonit.com/bcreasearchT/Service/genericSelect.php?service=participantSelect";   
+	   JSONArray board = null;
+	      JSONArray pro = null;
+	      public static String togglestatus;
+	      final Context context=this;
+	      private static final String TAG_SRESP= "serviceresponse";
+	      String togstate;
+		    private static final String TAG_PROINFO1 = "Provider Info";
+		    private static final String TAG_ADMINNAME = "adminusername";
+		    private static final String TAG_ADMINMOB = "adminmobile";
+		    private static final String TAG_ADMINEMAIL = "adminemail";
+		    private static final String TAG_ADMINFNAME = "adminfirstname";
+		 
+		    private static final String TAG_PROINFO = "Patient info";
+		    private static final String TAG_SRESD= "serviceresponse";
+		  
+		    private static final String TAG_MSGG = "message";
+	 @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.settings);
+	    	new ViewProfile().execute();
+	        ActionBar actbar=getActionBar();
+	        actbar.show();
+	    	getActionBar().setDisplayHomeAsUpEnabled(true);
+	        
+	         TextView changepassword = (TextView) findViewById(R.id.changepass);
+		        TextView provider = (TextView) findViewById(R.id.contactinf);
+		        
+		   
+		       
+		    
+		       
+	         
+		        
+		          
+		     
+			        
+	         changepassword.setOnClickListener(new View.OnClickListener() {
+	       	 
+            public void onClick(View arg0) {
+          
+    			Intent changepwd=new Intent(getApplicationContext(),ChangePassActivity.class);
+    			startActivity(changepwd);               
+              
+                finish();
+            }
+        });
+        provider.setOnClickListener(new View.OnClickListener() {
+	       	 
+            public void onClick(View arg0) {
+           
+            	new proInfo().execute();
+            	
+    			}
+        });
+
+}
+	 
+
+	  class MsgStream extends AsyncTask<String, String, JSONObject>
+
+     {
+
+		@Override
+		protected JSONObject doInBackground(String... params) {
+			String uIdmsg = LoginActivity.proInfo.get(0);
+			String Msg = SettingsActivity.togglestatus;
+			
+ 		   
+          	  
+              List<NameValuePair> paramsDM = new ArrayList<NameValuePair>();
+              
+              paramsDM.add(new BasicNameValuePair("patientid", uIdmsg));
+              paramsDM.add(new BasicNameValuePair("messagestream", Msg));
+             
+            
+              JsonParser jDashM = new JsonParser();
+              JSONObject jsonM = jDashM.makeHttpRequest(urlMsg,"POST", paramsDM);
+              System.out.println("http request is finished");
+              
+          
+              Log.i("tagconvertstr1", "["+jsonM+"]");
+             return jsonM; 
+			
+			
+		
+		}
+		  
+     }
+	  public void show_settings(){
+		  
+		  ToggleButton start=(ToggleButton)findViewById(R.id.start);
+		   if(togstate.equals("0")){
+           	start.setChecked(false);
+           	
+           }
+           else
+           	start.setChecked(true);
+		  start.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+              public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                  if (isChecked) {
+                  	togglestatus="1";
+                  	new MsgStream().execute();
+                  	Intent intent = new Intent(SettingsActivity.this, NotificationActivity.class);
+            			PendingIntent pendingIntent = PendingIntent.getBroadcast(SettingsActivity.this, 2, intent, 0);
+            			AlarmManager am = (AlarmManager)getSystemService(ALARM_SERVICE);
+            			am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),60*1000, pendingIntent);
+                  	final Dialog dialog = new Dialog(context);
+            			 dialog.setContentView(R.layout.custom_dialog);
+            			 dialog.setTitle("Daily Messages");
+            			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+            			  txt.setText("You will receive Messages Daily!");
+             			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+            			  dialogButton.setOnClickListener(new OnClickListener() {
+            				  public void onClick(View vd) {
+            					   dialog.dismiss();
+            			
+            			}
+            			});
+            			  dialog.show();
+            		
+                  } else {
+                  	togglestatus="0";
+                  	new MsgStream().execute();
+                  	Intent intent1 = new Intent(SettingsActivity.this, NotificationActivity.class);
+                  	PendingIntent sender1 = PendingIntent.getBroadcast(SettingsActivity.this,
+                  	               0, intent1, 0);
+                  	AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+                  	alarmManager.cancel(sender1);
+                  	final Dialog dialog = new Dialog(context);
+         			 dialog.setContentView(R.layout.custom_dialog);
+         			 dialog.setTitle("daily Messages");
+         			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+         			  txt.setText("You will not receive Daily Messages.");
+         			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+         			  dialogButton.setOnClickListener(new OnClickListener() {
+         				  public void onClick(View vd) {
+         					   dialog.dismiss();
+         			
+         			}
+         			});
+         			  dialog.show();
+                   
+                  }
+              }
+          });
+	  }
+	  class ViewProfile extends AsyncTask<String, String, String> {
+	     	@Override
+	          protected void onPreExecute() {
+	              super.onPreExecute();
+	          }
+
+	  		@Override
+	  		protected String doInBackground(String... args) {
+	  		
+	  		
+	  		     String uId = LoginActivity.proInfo.get(0);
+	  		     System.out.println(uId);
+	           	
+	               List<NameValuePair> paramsD = new ArrayList<NameValuePair>();
+	               paramsD.add(new BasicNameValuePair("loginid", uId));
+	              
+	               JsonParser jDash = new JsonParser();
+	               JSONObject jsonD = jDash.makeHttpRequest(urlD,"POST", paramsD);
+	            
+	               
+	               Log.i("tagconvertstr1", "["+jsonD+"]");
+	               try
+		                {
+		                	JSONObject c = jsonD.getJSONObject(TAG_SRESD);
+		                	Log.i("tagconvertstr", "["+c+"]");
+		                	
+		                	
+		                	
+		                	board = c.getJSONArray(TAG_PROINFO);
+		                	Log.i("tagconvertstr1", "["+board+"]");
+		                	
+		                	for(int i=0;i<board.length();i++)
+		                	{
+		                		
+		                		JSONObject c1 = board.getJSONObject(i);
+		                		JSONObject c2 = c1.getJSONObject(TAG_SRESD);
+		                		
+			                
+			                
+			                     togstate=c2.getString(TAG_MSGG);
+			 	        System.out.println("message preference value:::"+togstate);
+			 	               
+				             
+				     		                   
+			   }
+		                	
+		              
+		            }catch (JSONException e) {
+		                e.printStackTrace();
+		            }
+	               
+	               
+	  			return null;
+	  		}
+
+	  	
+	       protected void onPostExecute(String file_url) {
+	    	   show_settings();
+	    }
+	      	
+	      }
+	  class proInfo extends AsyncTask<String, String, JSONObject>
+
+      {
+      	@Override
+          protected void onPreExecute() {
+           
+          }
+			@Override
+			protected JSONObject doInBackground(String... arg0) {
+				
+				String uId1 = LoginActivity.proInfo.get(0);
+  		    
+           	  
+               List<NameValuePair> paramsD1 = new ArrayList<NameValuePair>();
+               
+               paramsD1.add(new BasicNameValuePair("patid", uId1));
+              
+             
+               JsonParser jDash1 = new JsonParser();
+               JSONObject jsonP = jDash1.makeHttpRequest(urlP,"POST", paramsD1);
+           
+               
+           
+               Log.i("tagconvertstr1", "["+jsonP+"]");
+              return jsonP; 
+			}
+
+
+	     	
+          protected void onPostExecute(JSONObject jsonP) {
+               try
+	                {
+	                	JSONObject p = jsonP.getJSONObject(TAG_SRESP);
+	                	Log.i("tagconvertstr", "["+p+"]");
+	                	
+	              
+	              
+	                	pro = p.getJSONArray(TAG_PROINFO1);
+	                	Log.i("tagconvertstr1", "["+pro+"]");
+	                	
+	                	for(int i=0;i<pro.length();i++)
+	                	{
+	                	
+	                		JSONObject p1 = pro.getJSONObject(i);
+	                		JSONObject p2 = p1.getJSONObject(TAG_SRESP);
+	                	 
+	                		
+	                		String adname = p2.getString(TAG_ADMINNAME);
+	                	
+	                		String adfname =p2.getString(TAG_ADMINFNAME);
+	                	
+	                		String admob = p2.getString(TAG_ADMINMOB);
+	                		
+	                		String ademail =p2.getString(TAG_ADMINEMAIL);
+	                		
+	                		
+	                		provider.add(0,adname);
+	                		provider.add(1,adfname);
+	                		provider.add(2,admob);
+	                		provider.add(3,ademail);
+	                        
+	                		calld1();
+	                		
+	              }
+	                     
+	       }catch (JSONException e) {
+	                e.printStackTrace();
+	            }
+             
+				
+				
+			}
+            
+      }
+      private void calld1(){
+      	Intent sigout1=new Intent(getApplicationContext(),ProviderInfoActivity.class);
+  			startActivity(sigout1);               
+           
+      }
+      @Override
+ 	 public boolean onOptionsItemSelected(MenuItem item) {
+ 	     switch (item.getItemId()) {
+ 	         case android.R.id.home:
+ 	        	 Intent MainActivityIntent = new Intent(SettingsActivity.this,DashBoardActivity.class); 
+ 	   	      startActivity(MainActivityIntent);
+ 	           
+ 	      }
+ 	     return true;
+ 	 }
+}

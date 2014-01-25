@@ -1,0 +1,54 @@
+	package com.example.sms;
+
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.TextView;
+/* Activity used to view detailed message*/
+public class DetailedMsg extends Activity {
+	
+	DatabaseHandler dbHandler = new DatabaseHandler(this);
+	 @Override
+	    public void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.detailmsg);
+	        getActionBar().setDisplayHomeAsUpEnabled(true);
+	        TextView fromnum=(TextView)findViewById(R.id.frommy);
+	        TextView tonum=(TextView)findViewById(R.id.toooy);
+	        TextView msgb=(TextView)findViewById(R.id.msgbody);
+	        TextView dateey=(TextView)findViewById(R.id.dttime);
+	        Bundle b = getIntent().getExtras(); 
+	         int USER= b.getInt("User_ID", 0);
+	       int Msg_ID = b.getInt("Msg_Id",0);
+	       String userr_iid=LoginActivity.proInfo.get(0);
+	      
+	       Message c = dbHandler.Get_Contact(USER);
+	       String frommmm=c.getmsgfrom().toString();
+	       fromnum.setText(frommmm);
+	       String tooooo=c.getto().toString();
+		    tonum.setText(tooooo);
+		   String mmmms=c.getmsg().toString();
+		  msgb.setText(mmmms);
+		  String dattt=c.getdate().toString();
+		  dateey.setText(dattt);
+		  String status="1";
+		
+		
+		  dbHandler.Update_Contact(new Message(userr_iid,Msg_ID,frommmm,tooooo,mmmms,dattt,status));
+				    
+			    dbHandler.close();
+	 }
+	 @Override
+	 public boolean onOptionsItemSelected(MenuItem item) {
+	     switch (item.getItemId()) {
+	         case android.R.id.home:
+	        	 Intent intentSignUP=new Intent(getApplicationContext(),InboxActivity.class);
+	    			startActivity(intentSignUP);
+	        	 
+	      }
+	     return true;
+	 }
+	 
+}

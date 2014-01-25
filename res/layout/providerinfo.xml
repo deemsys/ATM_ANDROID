@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:baselineAligned="false"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="78dp"
+        android:text="@string/username"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/mm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ff"
+        android:layout_below="@+id/ff"
+        android:layout_marginTop="34dp"
+        android:text="@string/mobile"
+        android:textColor="#ffffff"  />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/mm"
+        android:layout_below="@+id/mobppro"
+        android:layout_marginTop="28dp"
+        android:text="@string/mail"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/maiilpro"
+        android:layout_width="170sp"
+        android:layout_height="30sp"
+        android:layout_alignBaseline="@+id/textView3"
+        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignLeft="@+id/mobppro"
+        android:background="@drawable/edittext" />
+
+    <TextView
+        android:id="@+id/usernamepro"
+        android:layout_width="170sp"
+        android:layout_height="30sp"
+        android:layout_alignBaseline="@+id/user"
+        android:layout_alignBottom="@+id/user"
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@+id/ff"
+        android:background="@drawable/edittext" />
+
+    <TextView
+        android:id="@+id/textView2pro"
+        android:layout_width="170sp"
+        android:layout_height="30sp"
+        android:layout_alignBaseline="@+id/ff"
+        android:layout_alignBottom="@+id/ff"
+        android:layout_alignLeft="@+id/mobppro"
+        android:background="@drawable/edittext" />
+
+    <TextView
+        android:id="@+id/ff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/user"
+        android:layout_below="@+id/usernamepro"
+        android:layout_marginTop="28dp"
+        android:text="@string/firname"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/mobppro"
+        android:layout_width="170sp"
+        android:layout_height="30sp"
+        android:layout_alignBaseline="@+id/mm"
+        android:layout_alignBottom="@+id/mm"
+        android:layout_alignLeft="@+id/usernamepro"
+        android:background="@drawable/edittext" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="170sp"
+        android:layout_height="40sp"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/maiilpro"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/buttonback"
+        android:gravity="center"
+        android:text="@string/calltopro"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="170sp"
+        android:layout_height="40sp"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/buttonback"
+        android:gravity="center"
+        android:text="@string/mailtopro"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

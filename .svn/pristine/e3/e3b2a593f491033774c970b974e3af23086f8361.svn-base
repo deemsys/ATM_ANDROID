@@ -1,0 +1,681 @@
+package com.example.sms;
+
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+
+public class EditProfileActivity extends Activity {
+	   final Context context=this;
+	   RadioButton male,female;
+	   RadioButton maleee,femaleee;
+	   int selectedId;
+	   RadioGroup gendering;
+	   JsonParser jsonPE = new JsonParser();
+	   JSONArray userUP= null;
+	   JSONArray userUG= null;
+	   Boolean temp1 = false;
+	    Boolean check12 = false;
+	    String providername;
+	    MultiSelectionSpinner1 spinUP;
+	    public static String prname155;
+	    int a;
+	    private RadioButton radioSexButton;
+	    String prosUA,prosUB,prosUC;
+	   private static final String TAG_PROLISTUP = "Providers List";
+	    
+	    private static final String TAG_SRESUP= "serviceresponse";
+	   
+	    private static final String TAG_NAMEUP = "Provider username";
+	    
+
+	   Spinner spinnerU1;
+	   private static final String TAG_PRGROUPLIST = "Group List";
+		private static final String TAG_SRESPG = "serviceresponse";
+	
+		private static final String TAG_GNAMEPG = "groupname";
+		private static final String TAG_GRID = "groupid";
+		 private static final String TAG_SUCCESSUG = "success";
+		EditText firstname,usrname,mobile,mailid,city;
+		String successt1;
+		String successtag1;
+		  public static ArrayList<String> prgrouplistNull= new ArrayList<String>();
+	      public static ArrayList<String> prgrouplistUP= new ArrayList<String>();
+	      public static ArrayList<String> providerlistUP= new ArrayList<String>();
+	      public static ArrayList<String> prgridlistUP= new ArrayList<String>();
+	   private static String urlUP = "http://www.medsmonit.com/bcreasearchT/Service/genericUpdate.php?service=patientupdate";
+	   private static String url = "http://www.medsmonit.com/bcreasearchT/Service/genericSelect.php?service=simpleselect";
+	   private static String urlPG = "http://www.medsmonit.com/bcreasearchT/Service/genericSelect.php?service=getGroups";
+	   String loginid,pswd,oldmail,first,second,third,fourth,fifth,sixth,seventh,eight,ninth,tenth,eleventh,twelth,thirteenth,fourteenth,fifteenth,sixteenth,seventeenth;
+	 @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+        
+	        setContentView(R.layout.editprofile);
+	        ActionBar actbar=getActionBar();
+	        actbar.show();
+	        getActionBar().setDisplayHomeAsUpEnabled(true);
+	        new Providerlist().execute();
+	     maleee = (RadioButton)findViewById(R.id.radi);
+	      femaleee = (RadioButton)findViewById(R.id.rad1);
+	      
+	        showprofile();
+	        city=(EditText)findViewById(R.id.citedit);
+	        city.addTextChangedListener(new TextWatcher() {
+	            public void afterTextChanged(Editable s) {
+	                Validation.iszip(city, true);
+	            }
+	            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+	            public void onTextChanged(CharSequence s, int start, int before, int count){}
+	        });
+	        
+	        
+	        Button uppro=(Button)findViewById(R.id.edit);
+	            uppro.setOnClickListener(new View.OnClickListener() {
+       	 
+         public void onClick(View arg0) {
+         	 if ( checkValidation () ){
+                  submitForm();
+              }
+         	
+         	
+ 			
+         }
+     });
+}
+private boolean checkValidation() {
+   boolean ret = true;
+
+   if (!Validation.hasText(firstname)) ret = false;
+   if (!Validation.hasText1(usrname)) ret = false;
+   if (!Validation.isEmailAddress(mailid, true)) ret = false;
+   if (!Validation.isPhoneNumber(mobile, true)) ret = false;
+ return ret;
+}
+private void submitForm() {
+	  
+	  
+	  update();
+	
+}
+
+
+
+public void update(){
+	new updateprofileTask().execute();	
+	
+	 
+}
+public void submitform(){
+	
+
+}	
+@Override
+	    public boolean onTouchEvent(MotionEvent event) {
+	        InputMethodManager imm = (InputMethodManager)getSystemService(Context.
+	                                                        INPUT_METHOD_SERVICE);
+	        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+	        return true;
+	    }
+	 public void spinloaddE()
+	  {
+		  
+		    
+		     spinnerU1 = new Spinner(this);
+			   spinnerU1 = (Spinner) findViewById(R.id.spinner6);
+			   ArrayAdapter<String> adapter156 = new ArrayAdapter<String>(EditProfileActivity.this,
+		               android.R.layout.simple_spinner_item,providerlistUP);
+			 
+			  adapter156.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	
+	       
+			  spinnerU1.setAdapter(adapter156);
+			   
+				
+		    
+	  }
+	 
+	 private void showprofile(){
+	       firstname=(EditText)findViewById(R.id.firstedit);
+	        String fn=ViewProfileActivity.participantview.get(0);
+	        firstname.setText(fn);
+	        
+	       usrname=(EditText)findViewById(R.id.useredit);
+	      String un=ViewProfileActivity.participantview.get(1);
+	     
+	      usrname.setText(un);
+	      
+	    mobile=(EditText)findViewById(R.id.mobedit);
+	      String mobi=ViewProfileActivity.participantview.get(2);
+	       
+	        
+	         mobile.setText(mobi);
+	     
+	     mailid=(EditText)findViewById(R.id.mailledit);
+	      String maii=ViewProfileActivity.participantview.get(3);
+	        mailid.setText(maii);
+	      
+	         
+	         
+	        
+	      String gendd=ViewProfileActivity.participantview.get(4);
+	    
+	  
+	      
+	      male=(RadioButton)findViewById(R.id.radi);
+	       female=(RadioButton)findViewById(R.id.rad1);
+	       if(gendd.equals("0")){
+	    	  
+	    	   male.setChecked(true);
+	    	  
+	       }
+	       else
+	    	   {
+	    	    female.setChecked(true);
+	      
+	    	   }
+	   
+	         Spinner age=(Spinner)findViewById(R.id.spinner1);
+	         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+	                 this, R.array.age_array, android.R.layout.simple_spinner_item);
+	         String agg=ViewProfileActivity.participantview.get(5);
+		       
+	          adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	          age.setAdapter(adapter);
+		         int spinnerPosition = adapter.getPosition(agg);
+			     
+			        age.setSelection(spinnerPosition);
+			       
+	       
+	    
+	         
+	         EditText city=(EditText)findViewById(R.id.citedit);
+	      String cit=ViewProfileActivity.participantview.get(6);
+	      city.setText(cit);
+	     
+	         Spinner edu=(Spinner)findViewById(R.id.spinner2);
+	         
+	         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
+	                 this, R.array.eduarray, android.R.layout.simple_spinner_item);
+	          adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	          String educa=ViewProfileActivity.participantview.get(7);
+		      
+	          edu.setAdapter(adapter1);
+	          int spinnePosition = adapter1.getPosition(educa);
+		        edu.setSelection(spinnePosition);
+		       
+	 
+	       
+	       EditText medi=(EditText)findViewById(R.id.meddetedit);
+	       String medicat=ViewProfileActivity.participantview.get(8);
+	        medi.setText(medicat);
+	        
+	         
+	        
+	         Spinner timee1=(Spinner)findViewById(R.id.spinner3);
+	         ArrayAdapter<CharSequence> timee1adapter = ArrayAdapter.createFromResource(
+			         this, R.array.timer_array, android.R.layout.simple_spinner_item);
+	         timee1adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	      String timee=ViewProfileActivity.participantview.get(9);
+	    
+        timee1.setAdapter(timee1adapter);
+        int spinneosition = timee1adapter.getPosition(timee);
+	    
+	        timee1.setSelection(spinneosition);
+	     
+	        Spinner timee2=(Spinner)findViewById(R.id.spinner4);
+	        ArrayAdapter<CharSequence> timee2adapter = ArrayAdapter.createFromResource(
+			         this, R.array.timer_array, android.R.layout.simple_spinner_item);
+	        timee2adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	      String time2=ViewProfileActivity.participantview.get(10);
+	      timee2.setAdapter(timee2adapter);
+      int spinnesition = timee2adapter.getPosition(time2);
+     
+        timee2.setSelection(spinnesition);
+       
+	         
+	        Spinner timee3=(Spinner)findViewById(R.id.spinner5);
+	        ArrayAdapter<CharSequence> timee3adapter = ArrayAdapter.createFromResource(
+			         this, R.array.timer_array, android.R.layout.simple_spinner_item);
+	        timee3adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	      String time3=ViewProfileActivity.participantview.get(11);
+	   
+    timee3.setAdapter(timee3adapter);
+    int spinneition = timee3adapter.getPosition(time3);
+   
+      timee3.setSelection(spinneition);
+    
+       
+       
+       
+       Spinner ampm1=(Spinner)findViewById(R.id.ampm);
+       ArrayAdapter<CharSequence> ampmadapter = ArrayAdapter.createFromResource(
+		         this, R.array.meridianarray, android.R.layout.simple_spinner_item);
+       ampmadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+     String amm1=ViewProfileActivity.participantview.get(14);
+     ampm1.setAdapter(ampmadapter);
+ int spinnition = ampmadapter.getPosition(amm1);
+
+   ampm1.setSelection(spinnition);
+     
+    
+    Spinner ampm2=(Spinner)findViewById(R.id.spinner8);
+    ArrayAdapter<CharSequence> ampmadapter1 = ArrayAdapter.createFromResource(
+		         this, R.array.meridianarray, android.R.layout.simple_spinner_item);
+    ampmadapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+  String amm2=ViewProfileActivity.participantview.get(14);
+  ampm2.setAdapter(ampmadapter1);
+int spinniion = ampmadapter1.getPosition(amm2);
+
+ampm2.setSelection(spinniion);
+ 
+ 
+ 
+ Spinner ampm3=(Spinner)findViewById(R.id.spinner9);
+ ArrayAdapter<CharSequence> ampmadapter2 = ArrayAdapter.createFromResource(
+	         this, R.array.meridianarray, android.R.layout.simple_spinner_item);
+ ampmadapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+String amm3=ViewProfileActivity.participantview.get(14);
+ampm3.setAdapter(ampmadapter2);
+int spinition = ampmadapter2.getPosition(amm3);
+
+ampm3.setSelection(spinition);
+
+
+
+spinnerU1 = new Spinner(this);
+spinnerU1 = (Spinner) findViewById(R.id.spinner6);
+ArrayAdapter<String> adapter156 = new ArrayAdapter<String>(EditProfileActivity.this,
+        android.R.layout.simple_spinner_item,providerlistUP);
+ 
+adapter156.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+ 
+ spinnerU1.setAdapter(adapter156);
+
+
+spinnerU1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+ {
+	   
+     public void onItemSelected(AdapterView<?> arg0, View v, 
+                                                  int position, long id)
+     {
+        
+    
+     	System.out.println("on item selected--->");
+     	 prname155=providername;
+     	  //new ProviderGroup().execute();
+     	if(temp1){
+             check12 = true;
+             prgrouplistUP.clear();
+             String prname75=spinnerU1.getSelectedItem().toString();
+  	       prname155=prname75;
+  	   
+  	     new ProviderGroup().execute();
+         } 
+     	temp1=true;
+     
+     
+     
+     }
+
+     public void onNothingSelected(AdapterView<?> arg0)
+     {
+         
+     }
+ });
+
+
+       
+  
+	 }
+
+	 @Override
+	 public boolean onOptionsItemSelected(MenuItem item) {
+	     switch (item.getItemId()) {
+	         case android.R.id.home:
+	       
+	    finish();
+	     }
+	     return true;
+	 }
+	 class Providerlist extends AsyncTask<String,String,String>{
+			
+			@Override
+			protected void onPostExecute(String file_url) {
+		  
+				spinloaddE();
+				
+				
+				   
+				   
+		} 
+
+			@Override
+			protected String doInBackground(String... args) {
+		
+				providerlistUP.clear();
+				prgrouplistUP.clear();
+				
+				JSONObject jArray= jsonPE.getJSONFromUrl(url);
+			    Log.i("tagconvertstr", "["+jArray+"]");
+			    
+			    try
+			    {
+			    	
+			    	JSONObject c = jArray.getJSONObject(TAG_SRESUP);
+			    	Log.i("tagconvertstr", "["+c+"]");
+			    	
+			    	
+			    	
+			    	userUP = c.getJSONArray(TAG_PROLISTUP);
+			    	Log.i("tagconvertstr1", "["+userUP+"]");
+			     providername=ViewProfileActivity.participantview.get(12);
+			    	providerlistUP.add(0,providername);
+			    	for(int i=0;i<userUP.length();i++)
+			    	{
+			    		
+			    		JSONObject c1 = userUP.getJSONObject(i);
+			    		JSONObject c2 = c1.getJSONObject(TAG_SRESUP);
+			    	
+			        
+			       
+			        	String proname= c2.getString(TAG_NAMEUP);
+			          	
+			        	
+			        
+			        	providerlistUP.add(proname);
+			    		a=providerlistUP.size();
+			    	
+			    		
+			    	}
+			    	
+			    }catch (JSONException e) {
+			        e.printStackTrace();
+			    }
+				return null;
+			}
+			
+			
+			 
+		} 
+	 class ProviderGroup extends AsyncTask<String,String,String>
+		{
+
+			@Override
+			protected String doInBackground(String... params) {
+			
+             String pross = prname155;
+           
+
+             List<NameValuePair> paramsPG = new ArrayList<NameValuePair>();
+             paramsPG.add(new BasicNameValuePair("providername", pross));
+            
+				JsonParser jparserPG = new JsonParser();
+             JSONObject jsonPG = jparserPG.makeHttpRequest(urlPG, "POST", paramsPG);
+             Log.i("tagconvertstr1", "["+jsonPG+"]");
+             try
+             {
+             	JSONObject pg = jsonPG.getJSONObject(TAG_SRESPG);
+          
+           
+             	prgrouplistUP.clear();
+             	prgridlistUP.clear();
+             	 successt1=pg.getString(TAG_SUCCESSUG);
+         	//String grupna=ViewProfileActivity.participantview.get(13);
+                 //prgrouplistUP.add(0,grupna);
+         		userUG =pg.getJSONArray(TAG_PRGROUPLIST);
+             	for(int i=0;i<userUG.length();i++)
+             	{
+             		JSONObject pg1 = userUG.getJSONObject(i);
+             		JSONObject pg2 = pg1.getJSONObject(TAG_SRESPG);
+             		String groupname = pg2.getString(TAG_GNAMEPG);
+             		String gid = pg2.getString(TAG_GRID);
+             		
+             	
+                 prgrouplistUP.add(groupname);
+                 
+                 prgridlistUP.add(gid);
+                 
+             	
+             		
+             	}
+            
+          }
+             catch(JSONException e)
+             {
+             	e.printStackTrace();
+             }
+             
+				
+				return null;
+			}
+			
+			@Override
+			protected void onPostExecute(String file_url) {
+				if(successt1.equals("Yes")){
+				spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
+				if(EditProfileActivity.prgrouplistUP!=null)
+				{
+					
+				spinUP.setItems1(EditProfileActivity.prgrouplistUP);
+				}
+				else
+				{
+					 Intent sigout1=new Intent(getApplicationContext(),EditProfileActivity.class);
+		    			startActivity(sigout1);   
+				}
+					
+				}
+				else{
+				
+					EditProfileActivity.prgrouplistUP.clear();
+				
+					prgrouplistUP.add(0,"null");
+					
+					
+				
+					
+				
+		spinUP.setIte(EditProfileActivity.prgrouplistUP);
+					
+					
+					 final Dialog dialog = new Dialog(EditProfileActivity.this);
+        	 	     
+        	 		 dialog.setContentView(R.layout.custom_dialog);
+        	 		 dialog.setTitle("Oops");
+        	 		 dialog.setCancelable(false);
+        			 dialog.setCanceledOnTouchOutside(false);
+        	 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+        	 		  txt.setText("There is no Group Available for this Provider!");
+        	 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+        	 		  dialogButton.setOnClickListener(new OnClickListener() {
+        	 			  public void onClick(View vd) {
+        	 				
+        	 				   dialog.dismiss();
+        	 		
+        	 		}
+        	 		});
+        	 		  dialog.show();
+				}
+			
+		} 
+					
+		
+		} 
+		
+	 
+	 class updateprofileTask extends AsyncTask <String,String,String> {
+		 
+		 @Override
+			protected String doInBackground(String... params) {
+			 String sex;
+			 gendering = (RadioGroup) findViewById(R.id.radioGroup2);
+		     
+			  selectedId = gendering.getCheckedRadioButtonId();
+			
+			 radioSexButton = (RadioButton) findViewById(selectedId);
+			
+			 String selectedValue = radioSexButton.getText().toString();
+			
+			 if(selectedValue.equals("Male")){
+				 sex="0";
+			 }
+			 else
+			 { sex="1";
+			 }
+			 EditText firstname=(EditText)findViewById(R.id.firstedit);
+			  EditText usrname=(EditText)findViewById(R.id.useredit);
+			  EditText mobile=(EditText)findViewById(R.id.mobedit);
+			  EditText mailid=(EditText)findViewById(R.id.mailledit);
+			   Spinner age=(Spinner)findViewById(R.id.spinner1);
+			   
+			   EditText city=(EditText)findViewById(R.id.citedit);
+			   Spinner edu=(Spinner)findViewById(R.id.spinner2);
+			   EditText medi=(EditText)findViewById(R.id.meddetedit);
+			   Spinner timee1=(Spinner)findViewById(R.id.spinner3);
+			   Spinner timee2=(Spinner)findViewById(R.id.spinner4);
+			   Spinner timee3=(Spinner)findViewById(R.id.spinner5);
+			   Spinner ampm1=(Spinner)findViewById(R.id.ampm);
+			   Spinner ampm2=(Spinner)findViewById(R.id.spinner8);
+			   Spinner ampm3=(Spinner)findViewById(R.id.spinner9);
+	         	first=firstname.getText().toString();
+	         	second=usrname.getText().toString();
+	         	third=mobile.getText().toString();
+	         	fourth=mailid.getText().toString();
+	         	fifth=sex;
+	         
+	         	sixth=age.getSelectedItem().toString();
+	         	seventh=city.getText().toString();
+	         	eight=edu.getSelectedItem().toString();
+	         	ninth=medi.getText().toString();
+	         	tenth=timee1.getSelectedItem().toString();
+	         	eleventh=timee2.getSelectedItem().toString();
+	         	twelth=timee3.getSelectedItem().toString();
+	         	thirteenth=ampm1.getSelectedItem().toString();
+	         	fourteenth=ampm2.getSelectedItem().toString();
+	         	fifteenth=ampm3.getSelectedItem().toString();
+	         	String Update7 = EditProfileActivity.prname155;
+	        
+	         	prosUA = MultiSelectionSpinner1.mspin;
+	       
+	            prosUB = MultiSelectionSpinner1.mspin1;
+	           
+	             prosUC = MultiSelectionSpinner1.mspin2;
+	           
+	        /* 	if(successtag1.equals("Yes"))
+	         	{
+	         	  prosUA = MultiSelectionSpinner1.mspin;
+		            System.out.println("mspin iss--"+ prosUA);
+		            
+		            prosUB = MultiSelectionSpinner1.mspin1;
+		            System.out.println("mspin1 iss--"+ prosUB);
+		             prosUC = MultiSelectionSpinner1.mspin2;
+		            System.out.println("mspin2 iss--"+ prosUC);
+	         	}
+	         	else
+	         	{
+	         		prosUA= "null";
+	         		System.out.println("empty group value"+ prosUA);
+	         		prosUB="null";
+	         		System.out.println("empty group value"+ prosUB);
+	         		prosUC="null";
+	         		System.out.println("empty group value"+ prosUC);
+	         	}
+	         	*/
+	            	  System.out.println("name value pair is BUILDING");
+	            	  loginid=LoginActivity.userid;
+	            	  oldmail=LoginActivity.participant.get(4);
+	            	  pswd=LoginActivity.password; 
+	            	  
+		                List<NameValuePair> paramsU = new ArrayList<NameValuePair>();
+		                paramsU.add(new BasicNameValuePair("fname", first));
+		                paramsU.add(new BasicNameValuePair("loginid", loginid));
+		                paramsU.add(new BasicNameValuePair("oldemailid", oldmail));
+		                paramsU.add(new BasicNameValuePair("pass", pswd));
+		                paramsU.add(new BasicNameValuePair("username1", second));
+		                paramsU.add(new BasicNameValuePair("mobile_num",third));
+		                paramsU.add(new BasicNameValuePair("email", fourth));
+		                paramsU.add(new BasicNameValuePair("gender", fifth));
+		                paramsU.add(new BasicNameValuePair("age", sixth));
+		                paramsU.add(new BasicNameValuePair("city", seventh));
+		                paramsU.add(new BasicNameValuePair("education", eight));
+		                paramsU.add(new BasicNameValuePair("medical_details", ninth));
+		                paramsU.add(new BasicNameValuePair("time1", tenth));
+		                paramsU.add(new BasicNameValuePair("time1format", thirteenth));
+		                paramsU.add(new BasicNameValuePair("time2", eleventh));
+		                paramsU.add(new BasicNameValuePair("time2format", fourteenth));
+		                paramsU.add(new BasicNameValuePair("time3",twelth ));
+		                paramsU.add(new BasicNameValuePair("time3format", fifteenth));
+		                paramsU.add(new BasicNameValuePair("Provider_name", Update7));
+		                paramsU.add(new BasicNameValuePair("group_name", prosUA));
+		                paramsU.add(new BasicNameValuePair("groupname", prosUB));
+		                paramsU.add(new BasicNameValuePair("groupid", prosUC));
+		  
+	                Log.d("request!", "starting");
+	                JSONObject json = jsonPE.makeHttpRequest(urlUP, "POST", paramsU);
+		              
+		              Log.i("tagconvertstr", "["+json+"]");
+		              
+		              
+		         
+	             return null;
+			}
+		 @Override
+		 protected void onPostExecute(String file_url) {
+			 final Dialog dialog = new Dialog(EditProfileActivity.this);
+			 dialog.setContentView(R.layout.custom_dialog);
+			 dialog.setTitle("Update Success");
+			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+			  txt.setText("Your Profile has been changed!");
+			  dialog.setCancelable(false);
+ 			 dialog.setCanceledOnTouchOutside(false);
+			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+			  dialogButton.setOnClickListener(new OnClickListener() {
+				  public void onClick(View vd) {
+					  Intent reve=new Intent(getApplicationContext(),ViewProfileActivity.class);
+			 			startActivity(reve); 
+					  dialog.dismiss();
+				
+				}
+			});
+			  dialog.show();
+			
+		 }
+	 }
+}
+
+

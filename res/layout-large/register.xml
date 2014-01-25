@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="148dp"
+        android:text="@string/firname"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mob"
+        android:layout_below="@+id/mobile"
+        android:layout_marginTop="37dp"
+        android:text="@string/mail"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/mail"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignTop="@+id/email"
+        android:layout_marginLeft="71dp"
+        android:layout_toRightOf="@+id/cler"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/next"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70sp"
+        android:layout_height="40sp"
+        android:layout_alignRight="@+id/mail"
+        android:layout_below="@+id/mail"
+        android:layout_marginTop="143dp"
+        android:background="@drawable/buttonback"
+        android:text="@string/next2"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/cler"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70sp"
+        android:layout_height="40sp"
+        android:layout_alignBaseline="@+id/next"
+        android:layout_alignBottom="@+id/next"
+        android:layout_alignLeft="@+id/email"
+        android:background="@drawable/buttonback"
+        android:text="@string/reset"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/firstnam"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignLeft="@+id/frstname"
+        android:layout_alignTop="@+id/firstname"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textPersonName" >  <requestFocus /></EditText>
+
+    <TextView
+        android:id="@+id/fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/firstname"
+        android:layout_below="@+id/firstnam"
+        android:layout_marginTop="33dp"
+        android:text="@string/fname"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/frstname"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignLeft="@+id/mobile"
+        android:layout_alignTop="@+id/fname"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/mob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/fname"
+        android:layout_below="@+id/frstname"
+        android:layout_marginTop="33dp"
+        android:text="@string/mobile"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/mobile"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignLeft="@+id/mail"
+        android:layout_alignTop="@+id/mob"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="phone"
+        android:maxLength="10" >
+
+      
+    </EditText>
+
+</RelativeLayout>

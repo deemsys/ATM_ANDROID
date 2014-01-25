@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+   
+    >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="250sp"
+        android:layout_height="90sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/edittext"
+        android:text="@string/evaltext"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/send"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80sp"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="141dp"
+        android:background="@drawable/buttonback"
+        android:text="@string/next2" 
+        android:textColor="#ffffff"/>
+
+    <Spinner
+        android:id="@+id/dayspin"
+        android:layout_width="150sp"
+        android:layout_height="60sp"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:drawSelectorOnTop = "true"
+        android:prompt="@string/selectday"
+        android:background="@drawable/edittext" />
+
+</RelativeLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/ques"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:text="@string/ques"
+         android:textColor="#ffffff"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/opt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/opt2"
+        android:layout_below="@+id/ques"
+        android:layout_marginTop="44dp"
+        android:text="@string/opt1"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/clr"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/send"
+        android:layout_alignBottom="@+id/send"
+        android:layout_centerHorizontal="true"
+        android:text="@string/clr" />
+
+    <Spinner
+        android:id="@+id/optsel"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/opt4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/edittext" />
+
+    <TextView
+        android:id="@+id/opt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/opt1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="@string/opt2" 
+         android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/opt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/opt2"
+        android:layout_below="@+id/opt2"
+        android:layout_marginTop="16dp"
+        android:text="@string/opt3"
+         android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/opt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/opt3"
+        android:layout_below="@+id/opt3"
+        android:layout_marginTop="19dp"
+        android:text="@string/opt4" 
+         android:textColor="#ffffff"/>
+
+    <Button
+        android:id="@+id/send"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80sp"
+        android:layout_height="50sp"
+        android:layout_alignRight="@+id/clr"
+        android:layout_below="@+id/optsel"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/next2"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>

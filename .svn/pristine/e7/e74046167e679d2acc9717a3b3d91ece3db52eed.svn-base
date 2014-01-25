@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <TextView
+        android1:id="@+id/educat"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignParentLeft="true"
+        android1:layout_centerVertical="true"
+        android1:layout_marginLeft="28dp"
+        android1:text="@string/education"
+        android1:textColor="#ffffff" />
+
+    <TextView
+        android1:id="@+id/cityname"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_above="@+id/educat"
+        android1:layout_alignRight="@+id/educat"
+        android1:layout_marginBottom="33dp"
+        android1:text="@string/city"
+        android1:textColor="#ffffff" />
+
+    <TextView
+        android1:id="@+id/selgen"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignParentTop="true"
+        android1:layout_alignRight="@+id/cityname"
+        android1:layout_marginTop="53dp"
+        android1:text="@string/gen"
+        android1:textColor="#ffffff" />
+
+    <TextView
+        android1:id="@+id/meddetails"
+        android1:layout_width="75sp"
+        android1:layout_height="wrap_content"
+        android1:layout_alignLeft="@+id/educat"
+        android1:layout_alignTop="@+id/medicinedetails"
+        android1:text="@string/meddet"
+        android1:textColor="#ffffff" />
+
+    <EditText
+        android1:id="@+id/medicinedetails"
+        android1:layout_width="150sp"
+        android1:layout_height="100sp"
+        android1:layout_alignLeft="@+id/selage"
+        android1:layout_below="@+id/educat"
+        android1:layout_marginTop="36dp"
+        android1:background="@drawable/edittext"
+        android1:ems="10"
+        android1:hint="@string/medihint"
+          android:gravity="top"
+        android1:inputType="textMultiLine" />
+
+    <Spinner
+        android1:id="@+id/eduspin"
+        android1:layout_width="150sp"
+        android1:layout_height="30sp"
+        android1:layout_alignLeft="@+id/medicinedetails"
+        android1:layout_alignTop="@+id/educat"
+        android1:background="@drawable/edittext" />
+
+    <EditText
+        android1:id="@+id/city"
+        android1:layout_width="150sp"
+        android1:layout_height="30dp"
+        android1:layout_alignTop="@+id/cityname"
+        android1:layout_toRightOf="@+id/clear"
+        android1:background="@drawable/edittext"
+        android1:ems="10"
+        android1:hint="@string/cityhint"
+        android1:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android1:id="@+id/age"
+        android1:layout_width="30sp"
+        android1:layout_height="wrap_content"
+        android1:layout_alignBottom="@+id/selage"
+        android1:layout_alignRight="@+id/cityname"
+        android1:text="@string/age"
+        android1:textColor="#ffffff" />
+
+    <Spinner
+        android1:id="@+id/selage"
+        android1:layout_width="150sp"
+        android1:layout_height="30sp"
+        android1:layout_alignLeft="@+id/radioGroup1"
+        android1:layout_below="@+id/radioGroup1"
+        android1:background="@drawable/edittext" />
+
+    <RadioGroup
+        android1:id="@+id/radioGroup1"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignLeft="@+id/city"
+        android1:layout_alignTop="@+id/selgen" >
+
+        <RadioButton
+            android1:id="@+id/male"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="@string/male"
+            android1:textColor="#ffffff" />
+
+        <RadioButton
+            android1:id="@+id/female"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="@string/female"
+            android1:textColor="#ffffff" />
+    </RadioGroup>
+
+    <Button
+        android1:id="@+id/clear"
+        style="?android:attr/buttonStyleSmall"
+        android1:layout_width="70sp"
+        android1:layout_height="50sp"
+        android1:layout_alignLeft="@+id/cityname"
+        android1:layout_below="@+id/medicinedetails"
+        android1:layout_marginTop="17dp"
+        android1:background="@drawable/custom_button"
+        android1:text="@string/reset"
+        android1:textColor="#ffffff" />
+
+    <Button
+        android1:id="@+id/next2"
+        android1:layout_width="70sp"
+        android1:layout_height="50sp"
+        android1:layout_alignBaseline="@+id/clear"
+        android1:layout_alignBottom="@+id/clear"
+        android1:layout_marginLeft="24dp"
+        android1:layout_toRightOf="@+id/radioGroup1"
+        android1:background="@drawable/custom_button"
+        android1:text="@string/next2"
+        android1:textColor="#ffffff" />
+
+</RelativeLayout>

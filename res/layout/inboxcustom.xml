@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="150sp"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+  
+        <TextView
+            android:id="@+id/fromno"
+            android:layout_width="match_parent"
+            android:layout_height="30sp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/tonum"
+        android:layout_width="224dp"
+        android:layout_height="30sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/fromno"
+        android:textColor="#ffffff" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="21dp"
+        android:contentDescription="@string/action_settings"
+        android:src="@drawable/unread_message" />
+
+    <TextView
+        android:id="@+id/msgbody"
+        android:layout_width="170sp"
+        android:layout_height="45sp"
+        android:layout_above="@+id/msgdate"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentLeft="true"
+       android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/msgdate"
+        android:layout_width="160sp"
+        android:layout_height="20sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textColor="#ffffff" />
+
+</RelativeLayout>
+
+
+
+
+ 
+

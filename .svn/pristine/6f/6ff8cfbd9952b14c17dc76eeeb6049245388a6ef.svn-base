@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrou"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/weekly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/daily"
+        android:layout_centerVertical="true"
+        android:text="@string/weekly"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/daily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/weekly"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="168dp"
+        android:text="@string/daily"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/unreaddaily"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/readmsg"
+        android:layout_alignRight="@+id/daily"
+        android:layout_marginRight="102dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/readmsg"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/daily"
+        android:layout_marginRight="29dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/readmsg" />
+
+    <Button
+        android:id="@+id/evaluation"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/readmsg"
+        android:layout_below="@+id/weekly"
+        android:layout_marginTop="40dp"
+        android:text="@string/eval" />
+
+</RelativeLayout>
