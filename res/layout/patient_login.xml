@@ -60,16 +60,6 @@
         android:text="@string/newuser"
         android:textColor="#ffffff" />
 
-    <TextView
-        android:id="@+id/pass"
-        android:layout_width="70dip"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/signin"
-        android:layout_alignLeft="@+id/uname"
-        android:layout_marginBottom="44dp"
-        android:text="@string/pass"
-        android:textColor="#ffffff" />
-
     <EditText
         android:id="@+id/password"
         android:layout_width="100dp"
@@ -80,18 +70,25 @@
         android:ems="10"
         android:inputType="textPassword" />
 
+    <TextView
+        android:id="@+id/pass"
+        android:layout_width="70dip"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signin"
+        android:layout_alignLeft="@+id/uname"
+        android:layout_marginBottom="49dp"
+        android:text="@string/pass"
+        android:textColor="#ffffff" />
+
     <EditText
         android:id="@+id/mobnum"
         android:layout_width="100dip"
         android:layout_height="20dip"
         android:layout_above="@+id/password"
         android:layout_alignLeft="@+id/password"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/edittext"
         android:ems="10"
-        android:inputType="text" >
-
-        <requestFocus />
-    </EditText>
+        android:inputType="text" />
 
 </RelativeLayout>

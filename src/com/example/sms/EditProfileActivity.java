@@ -23,8 +23,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Spanned;
+
 
 import android.text.TextWatcher;
 import android.util.Log;
@@ -132,7 +131,7 @@ public class EditProfileActivity extends Activity {
 	      
 	        showprofile();
 	        mobile=(EditText)findViewById(R.id.mobedit);
-	        InputFilter filter = new InputFilter() {
+	     /*   InputFilter filter = new InputFilter() {
 
 	            
 	    		@Override
@@ -161,11 +160,11 @@ public class EditProfileActivity extends Activity {
 	    		}
 	            };
 
-	            mobile.setFilters(new InputFilter[] { filter });
+	            mobile.setFilters(new InputFilter[] { filter });*/
 	            mobile.addTextChangedListener(new TextWatcher() {
 	                public void afterTextChanged(Editable s) {
 	                	System.out.println("mobile number pressed::"+mobile.getText().toString());
-	                    Validation.isPhoneNumber(mobile, true);
+	                   // Validation.isPhoneNumber(mobile, true);
 	                }
 	                public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	                public void onTextChanged(CharSequence s, int start, int before, int count){}
@@ -173,7 +172,7 @@ public class EditProfileActivity extends Activity {
 	        city=(EditText)findViewById(R.id.citedit);
 	        city.addTextChangedListener(new TextWatcher() {
 	            public void afterTextChanged(Editable s) {
-	                Validation.iszip(city, true);
+	               // Validation.iszip(city, true);
 	            }
 	            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	            public void onTextChanged(CharSequence s, int start, int before, int count){}
@@ -192,10 +191,10 @@ public class EditProfileActivity extends Activity {
 					 dialog.setCancelable(false);
 	    			 dialog.setCanceledOnTouchOutside(false);
     	 		 dialog.setContentView(R.layout.custom_dialog);
-    	 		 dialog.setTitle("Update Failed");
+    	 		 dialog.setTitle("INFO!");
     	 		
     	 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-    	 		  txt.setText("More than Four Groups are not allowed ");
+    	 		  txt.setText("More than four groups are not allowed.");
     	 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
     	 		  dialogButton.setOnClickListener(new OnClickListener() {
     	 			  public void onClick(View vd) {
@@ -219,10 +218,10 @@ public class EditProfileActivity extends Activity {
          			new PrgroupId().execute();
          			System.out.println("arraylist started to convert");
          			
-                     System.out.println("wwwwwwwww");
+                   
          			
          			submitForm();
-         			System.out.println("vvvvvvv");
+         		
          			}
          			else
          			{
@@ -231,6 +230,24 @@ public class EditProfileActivity extends Activity {
          			}
          		}
          		
+              }else{
+            	  final Dialog dialog = new Dialog(EditProfileActivity.this);
+					 dialog.setCancelable(false);
+	    			 dialog.setCanceledOnTouchOutside(false);
+ 	 		 dialog.setContentView(R.layout.custom_dialog);
+ 	 		 dialog.setTitle("INFO!");
+ 	 		
+ 	 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+ 	 		  txt.setText("Enter valid details.");
+ 	 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+ 	 		  dialogButton.setOnClickListener(new OnClickListener() {
+ 	 			  public void onClick(View vd) {
+ 	 				
+ 	 				   dialog.dismiss();
+ 	 		
+ 	 		}
+ 	 		});
+ 	 		  dialog.show();
               }
          	
          	
@@ -241,10 +258,11 @@ public class EditProfileActivity extends Activity {
 private boolean checkValidation() {
    boolean ret = true;
  
-   if (!Validation.hasText(firstname)) ret = false;
-  
+  // if (!Validation.hasText(firstname)) ret = false;
+   if (!Validation.isFirstname(firstname, true)) ret = false;
    if (!Validation.isEmailAddress(mailid, true)) ret = false;
    if (!Validation.isPhoneNumber(mobile, true)) ret = false;
+   if (!Validation.iszip(city, true)) ret = false;
  return ret;
 }
 private void submitForm() {
@@ -258,9 +276,9 @@ private void submitForm() {
 	   else{
 		   final Dialog dialog = new Dialog(EditProfileActivity.this);
 			 dialog.setContentView(R.layout.custom_dialog);
-			 dialog.setTitle("Update Failed");
+			 dialog.setTitle("INFO!");
 			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-			  txt.setText("Enter Valid Zipcode!");
+			  txt.setText("Enter valid zipcode.");
 			  dialog.setCancelable(false);
 			 dialog.setCanceledOnTouchOutside(false);
 			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
@@ -307,7 +325,8 @@ public void update(){
 	      
 	    mobile=(EditText)findViewById(R.id.mobedit);
 	      String mobi=ViewProfileActivity.participantview.get(2);
-	      mobi = "(" + mobi.substring( 0,3 ) + ") " + mobi.substring( 3,6 ) + "-" + mobi.substring( 6,10 );
+	      mobi = mobi.replaceAll("\\D+","");
+	    //  mobi = "(" + mobi.substring( 0,3 ) + ") " + mobi.substring( 3,6 ) + "-" + mobi.substring( 6,10 );
 	        System.out.println("In edit profile"+mobi);
 	        mobile.setText(mobi);
 	        
@@ -579,7 +598,7 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 	        		
 				      
 	            pDialog = new ProgressDialog(EditProfileActivity.this);
-	            pDialog.setMessage("Loading Provider Group");
+	            pDialog.setMessage("Loading provider group");
 	            pDialog.setIndeterminate(false);
 	            pDialog.setCancelable(false);
 	            pDialog.show();
@@ -643,11 +662,11 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 					 final Dialog dialog = new Dialog(context);
 				     
 					 dialog.setContentView(R.layout.custom_dialog);
-					 dialog.setTitle("Update Failed");
+					 dialog.setTitle("INFO!");
 					 dialog.setCancelable(false);
 				 dialog.setCanceledOnTouchOutside(false);
 					 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-					  txt.setText("No Network Connection!");
+					  txt.setText("No network connection.");
 					  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 					  dialogButton.setOnClickListener(new OnClickListener() {
 						  public void onClick(View vd) {
@@ -689,11 +708,11 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 					 final Dialog dialog = new Dialog(EditProfileActivity.this);
         	 	     
         	 		 dialog.setContentView(R.layout.custom_dialog);
-        	 		 dialog.setTitle("Oops");
+        	 		 dialog.setTitle("INFO!");
         	 		 dialog.setCancelable(false);
         			 dialog.setCanceledOnTouchOutside(false);
         	 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-        	 		  txt.setText("There is no Group Available for this Provider!");
+        	 		  txt.setText("No group available for this provider.");
         	 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
         	 		  dialogButton.setOnClickListener(new OnClickListener() {
         	 			  public void onClick(View vd) {
@@ -720,7 +739,7 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 	        
 				      
 	            pDialog = new ProgressDialog(EditProfileActivity.this);
-	            pDialog.setMessage("UPDATING USER DETAILS");
+	            pDialog.setMessage("Updating user details");
 	            pDialog.setIndeterminate(false);
 	            pDialog.setCancelable(false);
 	            pDialog.show();
@@ -771,27 +790,30 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 	         	fifth=sex;
 	         
 	         	sixth=age.getSelectedItem().toString();
-	         
+	         	thirteenth=ampm1.getSelectedItem().toString();
+	         	fourteenth=ampm2.getSelectedItem().toString();
+	         	fifteenth=ampm3.getSelectedItem().toString();
 	         	eight=edu.getSelectedItem().toString();
 	         	if(eight.equalsIgnoreCase("Select Education")){
-	         		eight="null";
+	         		eight="";
 	         	}
 	         	ninth=medi.getText().toString();
 	         	tenth=timee1.getSelectedItem().toString();
 	         	if(tenth.equalsIgnoreCase("Select Time")){
-	         		tenth="";
+	         		tenth="null";
+	         		thirteenth="AM";
 	         	}
 	         	eleventh=timee2.getSelectedItem().toString();
 	         	if(eleventh.equalsIgnoreCase("Select Time")){
-	         		eleventh="";
+	         		eleventh="null";
+	         		fourteenth="AM";
 	         	}
 	         	twelth=timee3.getSelectedItem().toString();
 	         	if(twelth.equalsIgnoreCase("Select Time")){
-	         		twelth="";
+	         		twelth="null";
+	         		fifteenth="AM";
 	         	}
-	         	thirteenth=ampm1.getSelectedItem().toString();
-	         	fourteenth=ampm2.getSelectedItem().toString();
-	         	fifteenth=ampm3.getSelectedItem().toString();
+	         	
 	         	
 	        String Update7 = ViewProfileActivity.participantview.get(12);
 	        System.out.println("update 7 is" + Update7);
@@ -868,11 +890,11 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 				 final Dialog dialog = new Dialog(context);
 			     
        			 dialog.setContentView(R.layout.custom_dialog);
-       			 dialog.setTitle("Update Failed");
+       			 dialog.setTitle("INFO!");
        			 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
        			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-       			  txt.setText("Server not Connected!");
+       			  txt.setText("Server not connected.");
        			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
        			  dialogButton.setOnClickListener(new OnClickListener() {
        				  public void onClick(View vd) {
@@ -888,9 +910,9 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 				 pDialog.dismiss();
 				 final Dialog dialog = new Dialog(EditProfileActivity.this);
 				 dialog.setContentView(R.layout.custom_dialog);
-				 dialog.setTitle("Update Failed");
+				 dialog.setTitle("INFO!");
 				 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-				  txt.setText("Your Email Id is Already exist!");
+				  txt.setText("Your Email id already exist.");
 				  dialog.setCancelable(false);
 	 			 dialog.setCanceledOnTouchOutside(false);
 				  Button dialogButton = (Button) dialog.findViewById(R.id.release);
@@ -911,16 +933,16 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 				 pDialog.dismiss();
 				 final Dialog dialog = new Dialog(EditProfileActivity.this);
 				 dialog.setContentView(R.layout.custom_dialog);
-				 dialog.setTitle("Update Failed");
+				 dialog.setTitle("INFO!");
 				 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-				  txt.setText("Mobile Number Already exist!");
+				  txt.setText("Mobile number already exist.");
 				  dialog.setCancelable(false);
 	 			 dialog.setCanceledOnTouchOutside(false);
 				  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 				  dialogButton.setOnClickListener(new OnClickListener() {
 					  public void onClick(View vd) {
-						  Intent reve=new Intent(getApplicationContext(),ViewProfileActivity.class);
-				 			startActivity(reve); 
+						//  Intent reve=new Intent(getApplicationContext(),ViewProfileActivity.class);
+				 		//	startActivity(reve); 
 						  dialog.dismiss();
 					
 					}
@@ -934,9 +956,9 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 				 pDialog.dismiss();
 				 final Dialog dialog = new Dialog(EditProfileActivity.this);
 				 dialog.setContentView(R.layout.custom_dialog);
-				 dialog.setTitle("Update Failed");
+				 dialog.setTitle("INFO!");
 				 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-				  txt.setText("Your profile is not changed");
+				  txt.setText("Your profile has not changed.");
 				  dialog.setCancelable(false);
 	 			 dialog.setCanceledOnTouchOutside(false);
 				  Button dialogButton = (Button) dialog.findViewById(R.id.release);
@@ -957,9 +979,9 @@ spinUP = (MultiSelectionSpinner1) findViewById(R.id.spinner7);
 				 pDialog.dismiss();
 			 final Dialog dialog = new Dialog(EditProfileActivity.this);
 			 dialog.setContentView(R.layout.custom_dialog);
-			 dialog.setTitle("Update Success");
+			 dialog.setTitle("INFO!");
 			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-			  txt.setText("Your Profile has been changed!");
+			  txt.setText("Your profile has been changed.");
 			  dialog.setCancelable(false);
  			 dialog.setCanceledOnTouchOutside(false);
 			  Button dialogButton = (Button) dialog.findViewById(R.id.release);

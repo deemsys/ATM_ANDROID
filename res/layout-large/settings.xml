@@ -8,23 +8,12 @@
     tools:ignore="NewApi" >
 
     <TextView
-        android:id="@+id/msgpref"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/changepass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
-        android:text="@string/msgpref"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#ffffff" />
-
-    <TextView
         android:id="@+id/contactinf"
         android:layout_width="150sp"
         android:layout_height="40sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="139dp"
         android:background="@drawable/buttonback"
         android:gravity="center"
         android:text="@string/con"
@@ -37,24 +26,32 @@
         android:layout_height="40sp"
         android:layout_below="@+id/contactinf"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="62dp"
         android:background="@drawable/buttonback"
         android:gravity="center"
         android:text="@string/changepass"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff" />
 
+    <TextView
+        android:id="@+id/msgpref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/changepass"
+        android:layout_centerVertical="true"
+        android:text="@string/msgpref"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
+
     <ToggleButton
         android:id="@+id/start"
-        android:layout_width="130sp"
-        android:layout_height="40sp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/msgpref"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:checked="true"
-          android:textOff=""
-            android:textOn=""
+        android:layout_marginTop="52dp"
         android:background="@drawable/custom_toggle"
-        android:button="@null" />
+        android:button="@null"
+        android:checked="true" />
 
 </RelativeLayout>

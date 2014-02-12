@@ -12,7 +12,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:background="@drawable/edittext"
+        android:textSize="17dp"
+        android:textColor="#ffffff"
         android:text="@string/reinf" />
 
     <RadioGroup
@@ -28,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
            android:textColor="#ffffff"
+           android:textSize="17dp"
               android:button="@drawable/custom_radiobutton"
             android:text="@string/yes" />
 
@@ -35,6 +37,7 @@
             android:id="@+id/no2"
              android:textColor="#ffffff"
             android:layout_width="wrap_content"
+            android:textSize="17dp"
                android:button="@drawable/custom_radiobutton"
             android:layout_height="wrap_content"
             android:text="@string/no" />

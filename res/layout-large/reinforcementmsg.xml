@@ -22,8 +22,8 @@
         android:layout_height="50sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="134dp"
-        android:background="@drawable/edittext"
+        android:layout_marginTop="69dp"
+        android:textColor="#ffffff"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

@@ -104,10 +104,11 @@ public class DashBoardActivity extends Activity {
 	        due = (TextView)findViewById(R.id.week);
 	        
 	        TextView wel=(TextView)findViewById(R.id.welcome);
-	        String welcomestring="Welcome:";
+	        String welcomestring=LoginActivity.usrname;
+	   //     welcomestring=welcomestring.append("!");
 	        wel.setText(welcomestring);
-	        final TextView setmsg1 = (TextView)findViewById(R.id.name);
-	        setmsg1.setText(LoginActivity.usrname);
+	        final TextView setmsg1 = (TextView)findViewById(R.id.welcome);
+	        setmsg1.setText("Welcome "+LoginActivity.usrname+"!");
 	      
 	       
 	//  dbHandler.delete_all();
@@ -367,11 +368,11 @@ public class DashBoardActivity extends Activity {
 	    				 final Dialog dialog = new Dialog(context);
 	    			     
 	    				 dialog.setContentView(R.layout.custom_dialog);
-	    				 dialog.setTitle("Synchonization Failed");
+	    				 dialog.setTitle("INFO!");
 	    				 dialog.setCancelable(false);
 	    			 dialog.setCanceledOnTouchOutside(false);
 	    				 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-	    				  txt.setText("No Network Connection!");
+	    				  txt.setText("No network connection.");
 	    				  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 	    				  dialogButton.setOnClickListener(new OnClickListener() {
 	    					  public void onClick(View vd) {

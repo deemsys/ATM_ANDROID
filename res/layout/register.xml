@@ -5,73 +5,6 @@
     android:background="@drawable/backgrou"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/next"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="70sp"
-        android:layout_height="40sp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/firstnam"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/buttonback"
-        android:text="@string/next2"
-        android:textColor="#ffffff" />
-
-    <EditText
-        android:id="@+id/frstname"
-        android:layout_width="180sp"
-        android:layout_height="40sp"
-        android:layout_above="@+id/mobile"
-        android:layout_alignLeft="@+id/mobile"
-        android:layout_marginBottom="26dp"
-        android:background="@drawable/edittext"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/firstname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/frstname"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="40dp"
-        android:layout_marginLeft="20dp"
-        android:text="@string/firname"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/mob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/next"
-        android:layout_alignRight="@+id/fname"
-        android:layout_marginBottom="144dp"
-        android:text="@string/mobile"
-        android:textColor="#ffffff" />
-
-    <EditText
-        android:id="@+id/mobile"
-        android:layout_width="180sp"
-        android:layout_height="40sp"
-        android:layout_alignLeft="@+id/mail"
-        android:layout_alignTop="@+id/mob"
-        android:background="@drawable/edittext"
-        android:ems="10"
-        android:maxLength="10"
-        android:inputType="phone" />
-
-    <Button
-        android:id="@+id/cler"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="70sp"
-        android:layout_height="40sp"
-        android:layout_alignBaseline="@+id/next"
-        android:layout_alignBottom="@+id/next"
-        android:layout_alignLeft="@+id/mob"
-        android:background="@drawable/buttonback"
-        android:text="@string/reset"
-        android:textColor="#ffffff" />
-
     <EditText
         android:id="@+id/firstnam"
         android:layout_width="180sp"
@@ -82,33 +15,112 @@
         android:ems="10"
         android:inputType="textPersonName" >  <requestFocus /></EditText>
 
-    <TextView
-        android:id="@+id/fname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/firstname"
-        android:layout_below="@+id/firstname"
-        android:text="@string/fname"
+    <EditText
+        android:id="@+id/frstname"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_above="@+id/mobile"
+        android:layout_alignLeft="@+id/mobile"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edittext"
+        android:digits="abcdefghijklmnopqrstuvwxyz0123456789.-@_"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/mobile"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_above="@+id/email"
+        android:layout_alignLeft="@+id/mail"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="phone"
+        android:maxLength="10" />
+
+    <Button
+        android:id="@+id/canny"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/cler"
+        android:layout_alignRight="@+id/fname"
+        android:background="@drawable/buttonback"
+        android:text="Cancel"
         android:textColor="#ffffff" />
 
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/mob"
-        android:layout_below="@+id/mobile"
-        android:layout_marginTop="20dp"
-        android:text="@string/mail"
+    <Button
+        android:id="@+id/cler"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70sp"
+        android:layout_height="40sp"
+        android:layout_alignBaseline="@+id/next"
+        android:layout_alignBottom="@+id/next"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonback"
+        android:text="@string/reset"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/next"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70sp"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/mail"
+        android:layout_marginBottom="71dp"
+        android:background="@drawable/buttonback"
+        android:text="@string/next2"
         android:textColor="#ffffff" />
 
     <EditText
         android:id="@+id/mail"
         android:layout_width="180sp"
         android:layout_height="40sp"
-        android:layout_alignTop="@+id/email"
-        android:layout_toRightOf="@+id/cler"
+        android:layout_above="@+id/cler"
+        android:layout_alignLeft="@+id/cler"
+        android:layout_marginBottom="68dp"
         android:background="@drawable/edittext"
         android:ems="10"
         android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/mob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firstname"
+        android:layout_below="@+id/frstname"
+        android:text="@string/uname"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mob"
+        android:layout_alignTop="@+id/frstname"
+        android:text="@string/fname"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fname"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="37dp"
+        android:layout_marginLeft="19dp"
+        android:text="@string/firname"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/mob"
+        android:layout_alignTop="@+id/mail"
+        android:text="@string/mail"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

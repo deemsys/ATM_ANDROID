@@ -13,43 +13,48 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
-        android:background="@drawable/edittext"
+       android:textColor="#ffffff"
         android:gravity="center_vertical"
+        android:textSize="17dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <RadioGroup
-        android1:id="@+id/selecty"
-        android1:layout_width="wrap_content"
-        android1:layout_height="wrap_content"
-        android1:layout_above="@+id/next"
-        android1:layout_centerHorizontal="true"
-        android1:layout_marginBottom="58dp" >
-
-        <RadioButton
-            android1:id="@+id/yesans"
-            android1:layout_width="wrap_content"
-            android1:layout_height="wrap_content"
-            android1:button="@drawable/custom_radiobutton"
-            android1:text="@string/yes" />
-
-        <RadioButton
-            android1:id="@+id/noans"
-            android1:layout_width="wrap_content"
-            android1:layout_height="wrap_content"
-            android1:button="@drawable/custom_radiobutton"
-            android1:text="@string/no" />
-    </RadioGroup>
 
     <Button
         android1:id="@+id/next"
         style="?android:attr/buttonStyleSmall"
         android1:layout_width="70sp"
         android1:layout_height="40sp"
-        android1:layout_alignParentBottom="true"
+        android1:layout_below="@+id/selecty"
         android1:layout_centerHorizontal="true"
-        android1:layout_marginBottom="67dp"
+        android1:layout_marginTop="74dp"
         android1:background="@drawable/buttonback"
         android1:text="@string/next2"
         android1:textColor="#ffffff" />
+
+    <RadioGroup
+        android1:id="@+id/selecty"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_below="@+id/sideeff"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginTop="137dp" >
+
+        <RadioButton
+            android1:id="@+id/yesans"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:button="@drawable/custom_radiobutton"
+            android1:text="@string/yes"
+            android:textSize="17dp"
+            android1:textColor="#ffffff" />
+
+        <RadioButton
+            android1:id="@+id/noans"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:button="@drawable/custom_radiobutton"
+            android1:text="@string/no"
+            android:textSize="17dp"
+            android1:textColor="#ffffff" />
+    </RadioGroup>
 
 </RelativeLayout>

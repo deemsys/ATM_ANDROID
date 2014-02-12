@@ -24,6 +24,8 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -44,16 +46,20 @@ import com.deemsysinc.sms.R;
 
 public class RegisterActivity extends Activity {
 	 Boolean isInternetPresent = false;
+	 SharedPreferences sharedpreferences,sharedpreferences2;
 		ConnectionDetector cd;
 	JsonParser jsonParser = new JsonParser();
 	  public ProgressDialog pDialog,cDialog;
 	  String successstag;
+	  public static int spinneosition;
+	 public static int  emptygroup; 
 	  Button submit;
 	  JSONObject jArray;
 	  public static String prname = null;
 	  String successiden,usrmsg,mnum;
 	  public static String prname123;
 	  public static String pgrname = null;
+	int tme1,tme2,tme3,meri1,meri2,meri3;
 	  public static  String pgrname123 = null;
 	  private static final String TAG_SUCCESS = "success";
       private static final String TAG_MESSAGE = "message";
@@ -96,6 +102,7 @@ public class RegisterActivity extends Activity {
     private static final String TAG_SUCCESS1 = "success";
   
     //private static final String TAG_EMAIL = "email";
+    int seconds;
     JSONArray user = null;
     JSONArray user1 =null;
     Boolean temp = false;
@@ -104,14 +111,15 @@ public class RegisterActivity extends Activity {
     JSONArray userPG = null; 
     MultiSelectionSpinner spin;
     Spinner spinner1;
-
+    public static final String MyPREFERENCES2 = "MyPrefs2" ;
 	private static final String TAG_PRGROUPLIST = "Group List";
 	private static final String TAG_SRESPG = "serviceresponse";
 	private static final String TAG_SNAMEPG = "servicename";
 	private static final String TAG_GNAMEPG = "groupname";
 	private static final String TAG_GRID = "groupid";
 	int check=0;
-    
+	public static TextView groupn;
+    Spinner timer1,timer2,timer3,mer1,mer2,mer3;
     private static final String letters = "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ23456789+@";
 	public static final String LOGIN_URL = "http://www.medsmonit.com/bcreasearchT/Service/participantregister.php?service=partinsert";
 	/*public static final String LOGIN_URL = "http://192.168.1.200/bcreasearchT/Service/participantregister.php?service=partinsert";*/
@@ -121,17 +129,20 @@ public class RegisterActivity extends Activity {
 	        super.onCreate(savedInstanceState);
 	        cd = new ConnectionDetector(getApplicationContext());
 	        isInternetPresent = cd.isConnectingToInternet();
+	        sharedpreferences2 = getSharedPreferences(MyPREFERENCES2, Context.MODE_PRIVATE);
+	      //  sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 			 if (isInternetPresent) {
 	        new Providerlist().execute(); 
 			 }
+			
 			 else{
 				 final Dialog dialog = new Dialog(RegisterActivity.this);
 		 	     dialog.setContentView(R.layout.custom_dialog);
-		 		 dialog.setTitle("Registration Failed");
+		 		 dialog.setTitle("INFO!");
 		 		 dialog.setCancelable(false);
 				 dialog.setCanceledOnTouchOutside(false);
 		 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-		 		  txt.setText("No Network Connection!");
+		 		  txt.setText("No network connection!");
 		 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 		 		  dialogButton.setOnClickListener(new OnClickListener() {
 		 			  public void onClick(View vd) {
@@ -147,28 +158,37 @@ public class RegisterActivity extends Activity {
 	        actbar.show();
 	        getActionBar().setDisplayHomeAsUpEnabled(true);
 	     setContentView(R.layout.register_2);
-	
-	       
+	     spin = (MultiSelectionSpinner) findViewById(R.id.group);
+	     spin.setVisibility(View.INVISIBLE);
+	    groupn= (TextView) findViewById(R.id.selgroup);
+	    groupn.setEnabled(false);
+	    groupn.setOnClickListener(new View.OnClickListener() {
+	         
+		     	public void onClick(View v) {
+		     		groupn.setVisibility(View.INVISIBLE);
+		     		 spin.setVisibility(View.VISIBLE);
+		     	}
+		     	});
 	   
-	     Spinner timer1 = (Spinner) findViewById(R.id.timer1);
+	      timer1 = (Spinner) findViewById(R.id.timer1);
 		 ArrayAdapter<CharSequence> timerr1 = ArrayAdapter.createFromResource(
 	         this, R.array.timer_array, android.R.layout.simple_spinner_item);
 	  timerr1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	timer1.setAdapter(timerr1);
 	
-	 Spinner mer1 = (Spinner) findViewById(R.id.meridian1);
+	 mer1 = (Spinner) findViewById(R.id.meridian1);
 	 ArrayAdapter<CharSequence> merdi1 = ArrayAdapter.createFromResource(
          this, R.array.meridianarray, android.R.layout.simple_spinner_item);
   merdi1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 mer1.setAdapter(merdi1);
 
-Spinner mer2 = (Spinner) findViewById(R.id.meridian2);
+ mer2 = (Spinner) findViewById(R.id.meridian2);
 ArrayAdapter<CharSequence> merdi2= ArrayAdapter.createFromResource(
     this, R.array.meridianarray, android.R.layout.simple_spinner_item);
 merdi2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 mer2.setAdapter(merdi2);
 
-Spinner mer3 = (Spinner) findViewById(R.id.meridian3);
+ mer3 = (Spinner) findViewById(R.id.meridian3);
 ArrayAdapter<CharSequence> merdi3 = ArrayAdapter.createFromResource(
     this, R.array.meridianarray, android.R.layout.simple_spinner_item);
 merdi3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -176,14 +196,14 @@ mer3.setAdapter(merdi3);
     
 	
 
-	Spinner timer2 = (Spinner) findViewById(R.id.timer2);
+	timer2 = (Spinner) findViewById(R.id.timer2);
 	ArrayAdapter<CharSequence> timeadapt2 = ArrayAdapter.createFromResource(
 	       this, R.array.timer_array, android.R.layout.simple_spinner_item);
 	timeadapt2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 	timer2.setAdapter(timeadapt2);
 	
 	
-	Spinner timer3 = (Spinner) findViewById(R.id.timer3);
+	 timer3 = (Spinner) findViewById(R.id.timer3);
 	ArrayAdapter<CharSequence> timeadapt3 = ArrayAdapter.createFromResource(
 	       this, R.array.timer_array, android.R.layout.simple_spinner_item);
 	timeadapt3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -214,12 +234,37 @@ mer3.setAdapter(merdi3);
 	        	System.out.println("on item selected--->");
 	        	if(temp){
 	                check1 = true;
+	                seconds=1;
+	                
+	                MultiSelectionSpinner.allr="";
+	                MultiSelectionSpinner.allr1="";
+	                MultiSelectionSpinner.allr2="";
+	                groupn.setText("Select Group");
 	               RegisterActivity.prgrouplist.clear();
 	                String prname7=spinner1.getSelectedItem().toString();
 	     	       prname123=prname7;
-	     	      System.out.println( "Selected spinner value is:"+ prname123);
+	     	      System.out.println("Selected spinner value is:"+ prname123);
 	     	      
+	     	      if(prname123.equals("Select Provider"))
+	     	      {
+	     	    	 groupn.setVisibility(View.VISIBLE);
+	     	    	  groupn.setText("Select Group");
+	     	    	 groupn.setEnabled(false);
+	     	    	 spin.setVisibility(View.INVISIBLE);
+	     	    	 System.out.println("Selected provider is not valid");
+	     	      }
+	     	      else
+	     	      {
+	     	      spin.setVisibility(View.INVISIBLE);
+	     	      spin.setEnabled(true);
+	     	     // groupn.setText("Select Group");
+	     	      
+	     	     
 	     	     new ProviderGroup().execute();
+	     	    groupn.setEnabled(true);
+	     	    groupn.setVisibility(View.VISIBLE);
+	     	      }
+	     	   
 	            } 
 	        	temp=true;
 	        	System.out.println( "Selected spinner value is :"+ prname123);
@@ -236,15 +281,46 @@ mer3.setAdapter(merdi3);
 	  
 	   
 	    spin = (MultiSelectionSpinner) findViewById(R.id.group);
-	  
-	 
+	    Button re=(Button)findViewById(R.id.reset);
+	    re.setOnClickListener(new View.OnClickListener() {
+	         
+	     	public void onClick(View v) {
+	     		timer1.setSelection(0);
+	     		timer2.setSelection(0);
+	     		timer3.setSelection(0);
+	     		mer1.setSelection(0);
+	     		mer2.setSelection(0);
+	     		mer3.setSelection(0);
+	     		spinner1.setSelection(0);
+	     		RegisterActivity.prname123="null";
+	     		MultiSelectionSpinner.allr="";
+                MultiSelectionSpinner.allr1="";
+                MultiSelectionSpinner.allr2="";
+	     	
+	     		groupn.setVisibility(View.VISIBLE);
+	     		groupn.setText("Select Group");
+	     		groupn.setEnabled(false);
+	     		spin.setVisibility(View.INVISIBLE);
+	     		
+	     		SharedPreferences settings2 = context.getSharedPreferences("MyPrefs2", Context.MODE_PRIVATE);
+	     		settings2.edit().clear().commit();
+	     		
+	     
+	 }
+	     });
 	    Button can=(Button)findViewById(R.id.cancel);
  	
     can.setOnClickListener(new View.OnClickListener() {
          
      	public void onClick(View v) {
-     		
-     		Intent intentSignUP=new Intent(getApplicationContext(),SignupActivity.class);
+     		RegisterActivity.prname123="null";
+     		SharedPreferences settings = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+     		settings.edit().clear().commit();
+     		SharedPreferences settings1 = context.getSharedPreferences("MyPrefs1", Context.MODE_PRIVATE);
+     		settings1.edit().clear().commit();
+     		SharedPreferences settings2 = context.getSharedPreferences("MyPrefs2", Context.MODE_PRIVATE);
+     		settings2.edit().clear().commit();
+     		Intent intentSignUP=new Intent(getApplicationContext(),LoginActivity.class);
  			startActivity(intentSignUP);
      
  }
@@ -258,6 +334,9 @@ mer3.setAdapter(merdi3);
      		
      		System.out.println("sss");
      	   spinner1 = (Spinner) findViewById(R.id.prospin);
+     	 // spinner1 = (Spinner) findViewById(R.id.prospin);
+		   groupn= (TextView) findViewById(R.id.selgroup);
+		   spin = (MultiSelectionSpinner) findViewById(R.id.group);
      	   String valid=spinner1.getSelectedItem().toString();
      	   
      	   if(valid.equals("Select Provider")){
@@ -265,11 +344,11 @@ mer3.setAdapter(merdi3);
      		     			 final Dialog dialog = new Dialog(RegisterActivity.this);
      	 	     
      	 		 dialog.setContentView(R.layout.custom_dialog);
-     	 		 dialog.setTitle("Registration Failed");
+     	 		 dialog.setTitle("INFO!");
      	 		 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
      	 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-     	 		  txt.setText("Please Select your Provider!");
+     	 		  txt.setText("Please select your provider!");
      	 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
      	 		  dialogButton.setOnClickListener(new OnClickListener() {
      	 			  public void onClick(View vd) {
@@ -286,10 +365,10 @@ mer3.setAdapter(merdi3);
 				 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
 	 		 dialog.setContentView(R.layout.custom_dialog);
-	 		 dialog.setTitle("Registration Failed");
+	 		 dialog.setTitle("INFO!");
 	 		//dialog.setTitleColor();
 	 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-	 		  txt.setText("Please Select Your Group");
+	 		  txt.setText("Please select your group");
 	 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 	 		  dialogButton.setOnClickListener(new OnClickListener() {
 	 			  public void onClick(View vd) {
@@ -308,10 +387,10 @@ mer3.setAdapter(merdi3);
 				 dialog.setCancelable(false);
  			 dialog.setCanceledOnTouchOutside(false);
 	 		 dialog.setContentView(R.layout.custom_dialog);
-	 		 dialog.setTitle("Registration Failed");
+	 		 dialog.setTitle("INFO!");
 	 		
 	 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-	 		  txt.setText("More than Four Groups are not allowed ");
+	 		  txt.setText("More than four groups are not allowed.");
 	 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 	 		  dialogButton.setOnClickListener(new OnClickListener() {
 	 			  public void onClick(View vd) {
@@ -338,11 +417,48 @@ mer3.setAdapter(merdi3);
      });
 	    }
 	  @Override
+	    protected void onResume() {
+	    	super.onResume();
+	    	System.out.println("In onresume of 3rd register");
+	    	timer1.setSelection(sharedpreferences2.getInt("spinnerSelection1",0));
+	    	timer2.setSelection(sharedpreferences2.getInt("spinnerSelection2",0));
+	    	timer3.setSelection(sharedpreferences2.getInt("spinnerSelection3",0));
+	    	mer1.setSelection(sharedpreferences2.getInt("spinnerSelection4",0));
+	    	mer2.setSelection(sharedpreferences2.getInt("spinnerSelection5",0));
+	    	mer3.setSelection(sharedpreferences2.getInt("spinnerSelection6",0));
+	    	
+	  
+	  }
+	  @Override
 		 public boolean onOptionsItemSelected(MenuItem item) {
 		     switch (item.getItemId()) {
 		         case android.R.id.home:
+		        	
+		        	  timer1 = (Spinner) findViewById(R.id.timer1);
+		        	timer2 = (Spinner)findViewById(R.id.timer2);
+		        	timer3= (Spinner)findViewById(R.id.timer3);
+		        	 mer1 = (Spinner) findViewById(R.id.meridian1);
+		        	 mer2 = (Spinner) findViewById(R.id.meridian2);
+		        	 mer3 = (Spinner) findViewById(R.id.meridian3);
+		        	tme1=timer1.getSelectedItemPosition();
+		        	tme2=timer2.getSelectedItemPosition();
+		        	tme3=timer3.getSelectedItemPosition();
+		        	meri1=mer1.getSelectedItemPosition();
+		        	meri2=mer2.getSelectedItemPosition();
+		        	meri3=mer3.getSelectedItemPosition();
+		        	
+		        	Editor editt=sharedpreferences2.edit();
+		        	editt.putInt("spinnerSelection1", tme1);
+		        	editt.putInt("spinnerSelection2", tme2);
+		        	editt.putInt("spinnerSelection3", tme3);
+		        	editt.putInt("spinnerSelection4", meri1);
+		        	editt.putInt("spinnerSelection5", meri2);
+		        	editt.putInt("spinnerSelection6", meri3);
+		        	editt.commit();
 		           NextActivity.userInfo1.clear();
-		    finish();
+		          // finish();
+		           Intent sigout=new Intent(RegisterActivity.this,NextActivity.class);
+	 			 startActivity(sigout); 
 		     }
 		     return true;
 		 } 
@@ -361,6 +477,8 @@ mer3.setAdapter(merdi3);
 		    
 		     spinner1 = new Spinner(this);
 			   spinner1 = (Spinner) findViewById(R.id.prospin);
+			   groupn= (TextView) findViewById(R.id.selgroup);
+			   spin = (MultiSelectionSpinner) findViewById(R.id.group);
 			   ArrayAdapter<String> adapter156 = new ArrayAdapter<String>(RegisterActivity.this,
 		               android.R.layout.simple_spinner_item,providerlist);
 			 
@@ -369,6 +487,49 @@ mer3.setAdapter(merdi3);
 			    spinner1.setAdapter(adapter156);
 			   
 				   System.out.println("provider list loaded");
+				   spinneosition = adapter156.getPosition(prname123);
+				   System.out.println("spinner value is" + prname123);
+				    System.out.println("spinner position is" + spinneosition);
+			        spinner1.setSelection(spinneosition);
+			        if(spinneosition!=-1)
+			        {
+			        	if(emptygroup!=1)
+			        	{
+			        		String emt=groupn.getText().toString();
+			        		System.out.println("emt is" + emt);
+			        		if(emt.equals(""))
+			        		{
+			        			groupn.setText("Select Group");
+			        		}
+			        		else
+			        		{
+			        			if(MultiSelectionSpinner.allr.equals(""))
+			        			{
+			        				groupn.setText("Select Group");
+			        			}
+			        			else
+			        			{
+			        	 groupn.setText(MultiSelectionSpinner.allr);
+			        	 System.out.println("213312493172048931");
+			        			}
+			        		}
+			        	/* MultiSelectionSpinner.mspin=MultiSelectionSpinner.allr;
+			        	 MultiSelectionSpinner.mspin1=MultiSelectionSpinner.allr1;
+			        	 MultiSelectionSpinner.mspin2=MultiSelectionSpinner.allr2;*/
+			        	/* groupn.setVisibility(View.VISIBLE);
+			        	 groupn.setEnabled(true);
+			        	new ProviderGroup().execute();*/
+			        	 
+			        	}
+			        	else
+			        	{
+			        		groupn.setText("Select Group");
+			        	}
+			        	
+			             groupn.setVisibility(View.VISIBLE);
+			        	 groupn.setEnabled(true);
+			        	new ProviderGroup().execute();
+			        }
 		    
 	  }
 	  class SendMsg extends AsyncTask<String,String,String>
@@ -409,11 +570,11 @@ mer3.setAdapter(merdi3);
 	        	  // System.out.println("jss1 value is" + JsonParser.jss1);
 					 final Dialog dialog = new Dialog(context);
 					 dialog.setContentView(R.layout.custom_dialog);
-					 dialog.setTitle("Registration Failed");
+					 dialog.setTitle("INFO!");
 					 dialog.setCancelable(false);
 					 dialog.setCanceledOnTouchOutside(false);
 					 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-					  txt.setText("Server not Connected!");
+					  txt.setText("Server not connected.");
 					  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 					  dialogButton.setOnClickListener(new OnClickListener() {
 						  public void onClick(View vd) {
@@ -429,18 +590,29 @@ mer3.setAdapter(merdi3);
 					  cDialog.dismiss();
 	           }
 			 else{
+				 SharedPreferences settings = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+				 settings.edit().clear().commit();
+				 prname123="Select Provider";
+		     		SharedPreferences settings1 = context.getSharedPreferences("MyPrefs1", Context.MODE_PRIVATE);
+		     		settings1.edit().clear().commit();
+		     		SharedPreferences settings2 = context.getSharedPreferences("MyPrefs2", Context.MODE_PRIVATE);
+		     		settings2.edit().clear().commit();
+		     		MultiSelectionSpinner.allr="";
+					MultiSelectionSpinner.allr1="";
+					MultiSelectionSpinner.allr2="";
 				 final Dialog dialog = new Dialog(RegisterActivity.this);
 		 	     dialog.setContentView(R.layout.custom_dialog);
-		 		 dialog.setTitle("Registration Successfull");
+		 		 dialog.setTitle("INFO!");
 		 		 dialog.setCancelable(false);
 				 dialog.setCanceledOnTouchOutside(false);
 		 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-		 		  txt.setText("Your Password is sent to your mail and Mobile number!");
+		 		  txt.setText("Your password has been sent to your mail and mobile number.");
 		 		  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 		 		  dialogButton.setOnClickListener(new OnClickListener() {
 		 			  public void onClick(View vd) {
 		 				 Intent sigout=new Intent(RegisterActivity.this,LoginActivity.class);
 		 			 	startActivity(sigout); 
+		 			 	
 		 				   dialog.dismiss();
 		 		
 		 		}
@@ -521,7 +693,7 @@ class Providerlist extends AsyncTask<String,String,String>{
 	@Override
     protected void onPreExecute() {
 		  cDialog = new ProgressDialog(RegisterActivity.this);
-          cDialog.setMessage("Fetching Provider Details");
+          cDialog.setMessage("Fetching provider details");
           cDialog.setIndeterminate(false);
           cDialog.setCancelable(false);
           cDialog.show();
@@ -537,11 +709,11 @@ class Providerlist extends AsyncTask<String,String,String>{
 	        	  // System.out.println("jss1 value is" + JsonParser.jss1);
 					 final Dialog dialog = new Dialog(context);
 					 dialog.setContentView(R.layout.custom_dialog);
-					 dialog.setTitle("Registration Failed");
+					 dialog.setTitle("INFO!");
 					 dialog.setCancelable(false);
 					 dialog.setCanceledOnTouchOutside(false);
 					 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-					  txt.setText("Server not Connected!");
+					  txt.setText("Server not connected.");
 					  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 					  dialogButton.setOnClickListener(new OnClickListener() {
 						  public void onClick(View vd) {
@@ -557,6 +729,7 @@ class Providerlist extends AsyncTask<String,String,String>{
 					  cDialog.dismiss();
 	           }
 			 else{
+				 
 			spinloadd();
 			 }
 			
@@ -662,16 +835,19 @@ class RegisterUser extends AsyncTask<String, String, String> {
 		    	 String time1 =timer1.getSelectedItem().toString();
 		    	if(time1.equalsIgnoreCase("Select Time")){
 		    		time1="null";
+		    		merd1="AM";
 		    	}
 		    	 Spinner timer2 = (Spinner)findViewById(R.id.timer2);
 		    	 String time2 =timer2.getSelectedItem().toString();
 		    	 if(time2.equalsIgnoreCase("Select Time")){
 			    		time2="null";
+			    		merd2="AM";
 			    	}
 		    	 Spinner timer3= (Spinner)findViewById(R.id.timer3);
 		    	 String time3 =timer3.getSelectedItem().toString();
 		    	 if(time3.equalsIgnoreCase("Select Time")){
 			    		time3="null";
+			    		merd3="AM";
 			    	}
 		    	System.out.println("time 1:::::"+time1);
 		    	System.out.println("time 2:::::"+time2);
@@ -720,6 +896,7 @@ class RegisterUser extends AsyncTask<String, String, String> {
 		                params.add(new BasicNameValuePair("time3_am_pm", merd3));
 		                params.add(new BasicNameValuePair("Provider_name", pros1));
 		                params.add(new BasicNameValuePair("group_name", pros3));
+		               
 		                params.add(new BasicNameValuePair("groupname12", pros22));
 		                params.add(new BasicNameValuePair("groupid1", pros33));
 		                params.add(new BasicNameValuePair("pass", pass1));
@@ -743,7 +920,7 @@ class RegisterUser extends AsyncTask<String, String, String> {
 		             	
 		             	 successiden= jUser.getString(TAG_SUCCESSR);
 		             //	 System.out.println( " success is"+successiden);
-		              usrmsg=jUser.getString(TAG_MESSAGEU);
+		                 usrmsg=jUser.getString(TAG_MESSAGEU);
 		             	// System.out.println("user message is"+ usrmsg);
 		             	
 		            	  }
@@ -777,11 +954,11 @@ class RegisterUser extends AsyncTask<String, String, String> {
 		        	   System.out.println("json null value in register");
 						 final Dialog dialog = new Dialog(context);
 						 dialog.setContentView(R.layout.custom_dialog);
-						 dialog.setTitle("Login Failed");
+						 dialog.setTitle("INFO!");
 						 dialog.setCancelable(false);
 						 dialog.setCanceledOnTouchOutside(false);
 						 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-						  txt.setText("Server not Connected!");
+						  txt.setText("Server not connected.");
 						  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 						  dialogButton.setOnClickListener(new OnClickListener() {
 							  public void onClick(View vd) {
@@ -828,17 +1005,17 @@ class RegisterUser extends AsyncTask<String, String, String> {
 			        	   pDialog.dismiss();
 			          	 final Dialog dialog = new Dialog(RegisterActivity.this);
 			    			 dialog.setContentView(R.layout.custom_dialog);
-			    			 dialog.setTitle("Registration Failed");
+			    			 dialog.setTitle("INFO!");
 			    			 dialog.setCancelable(false);
 			    			 dialog.setCanceledOnTouchOutside(false);
 			    			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-			    			  txt.setText("E-mail Already Exist!");
+			    			  txt.setText("E-mail already exist.");
 			    			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 			    			  dialogButton.setOnClickListener(new OnClickListener() {
 			    				  public void onClick(View vd) {
 			    					 // startActivity(new Intent(RegisterActivity.this,SignupActivity.class));
 			      					
-			    					    finish(); 
+			    					  //  finish(); 
 			    					  dialog.dismiss();
 			 				
 			 				}
@@ -849,17 +1026,17 @@ class RegisterUser extends AsyncTask<String, String, String> {
 			        	   pDialog.dismiss();
 			          	 final Dialog dialog = new Dialog(RegisterActivity.this);
 			    			 dialog.setContentView(R.layout.custom_dialog);
-			    			 dialog.setTitle("Registration Failed");
+			    			 dialog.setTitle("INFO!");
 			    			 dialog.setCancelable(false);
 			    			 dialog.setCanceledOnTouchOutside(false);
 			    			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-			    			  txt.setText("Mobile Number Exist!");
+			    			  txt.setText("Mobile number already exist.");
 			    			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 			    			  dialogButton.setOnClickListener(new OnClickListener() {
 			    				  public void onClick(View vd) {
 			    					 // startActivity(new Intent(RegisterActivity.this,SignupActivity.class));
 			      					
-			    					    finish(); 
+			    					   // finish(); 
 			    					  dialog.dismiss();
 			 				
 			 				}
@@ -870,17 +1047,17 @@ class RegisterUser extends AsyncTask<String, String, String> {
 			        	   pDialog.dismiss();
 				          	 final Dialog dialog = new Dialog(RegisterActivity.this);
 				    			 dialog.setContentView(R.layout.custom_dialog);
-				    			 dialog.setTitle("Registration Failed");
+				    			 dialog.setTitle("INFO!");
 				    			 dialog.setCancelable(false);
 				    			 dialog.setCanceledOnTouchOutside(false);
 				    			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-				    			  txt.setText("Username Already Exist!");
+				    			  txt.setText("Username already exist.");
 				    			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 				    			  dialogButton.setOnClickListener(new OnClickListener() {
 				    				  public void onClick(View vd) {
 				    					  
 				    					//  startActivity(new Intent(RegisterActivity.this,SignupActivity.class));
-				    					  finish(); 
+				    					 // finish(); 
 				    					  dialog.dismiss();
 				 				
 				 				}
@@ -900,7 +1077,7 @@ class RegisterUser extends AsyncTask<String, String, String> {
 			@Override
 		    protected void onPreExecute() {
 				  cDialog = new ProgressDialog(RegisterActivity.this);
-		          cDialog.setMessage("Fetching Group Details");
+		          cDialog.setMessage("Fetching group details");
 		          cDialog.setIndeterminate(false);
 		          cDialog.setCancelable(false);
 		          cDialog.show();
@@ -966,23 +1143,22 @@ class RegisterUser extends AsyncTask<String, String, String> {
 				
 				
 				cDialog.dismiss();
-				if(JsonParser.jss1.equals("empty"))
+				if(JsonParser.jss1.equals("empty")||JsonParser.jss.equals("empty"))
 						{
 					 System.out.println("json11 null value");
 		        	  // System.out.println("jss1 value is" + JsonParser.jss1);
 						 final Dialog dialog = new Dialog(context);
 						 dialog.setContentView(R.layout.custom_dialog);
-						 dialog.setTitle("Registration Failed");
+						 dialog.setTitle("INFO!");
 						 dialog.setCancelable(false);
 						 dialog.setCanceledOnTouchOutside(false);
 						 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-						  txt.setText("Server not Connected!");
+						  txt.setText("Server not connected.");
 						  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 						  dialogButton.setOnClickListener(new OnClickListener() {
 							  public void onClick(View vd) {
 								  submit.setEnabled(false);
-								  startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-		    					  finish(); 
+								
 								   dialog.dismiss();
 							
 							}
@@ -996,7 +1172,26 @@ class RegisterUser extends AsyncTask<String, String, String> {
 				spin = (MultiSelectionSpinner) findViewById(R.id.group);
 				if(RegisterActivity.prgrouplist!=null)
 				{
+					if(spinneosition!=-1)
+					{
+						if(seconds!=1){
 				spin.setItems(RegisterActivity.prgrouplist);
+						}
+						else
+						{
+							
+							MultiSelectionSpinner.allr="";
+							MultiSelectionSpinner.allr1="";
+							MultiSelectionSpinner.allr2="";
+							spin.setItemsA(RegisterActivity.prgrouplist);
+						}
+					}
+					else
+					{
+						spin.setItemsA(RegisterActivity.prgrouplist);
+					}
+				emptygroup=0;
+			//	groupn.setVisibility(View.VISIBLE);
 				}
 				else
 				{
@@ -1012,14 +1207,17 @@ class RegisterUser extends AsyncTask<String, String, String> {
 					RegisterActivity.prgrouplist.add(0,"");
 					
 					System.out.println("grouplist size is" + RegisterActivity.prgrouplist.size());
-					
+					groupn.setText("Select Group");
 					spin.setItemsA(RegisterActivity.prgrouplist);
+				//	groupn.setVisibility(View.VISIBLE);
+					emptygroup=1;
+					spin.setEnabled(false);
 					System.out.println("grouplist size is" + RegisterActivity.prgrouplist.size());
 					 final Dialog dialog = new Dialog(RegisterActivity.this);
 					 dialog.setCancelable(false);
 	    			 dialog.setCanceledOnTouchOutside(false);
         	 		 dialog.setContentView(R.layout.custom_dialog);
-        	 		 dialog.setTitle("Empty Group");
+        	 		 dialog.setTitle("Failed");
         	 		//dialog.setTitleColor();
         	 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
         	 		  txt.setText("There is no Group Available for this Provider!");

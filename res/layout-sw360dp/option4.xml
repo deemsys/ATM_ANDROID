@@ -16,88 +16,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff" />
 
-    <TextView
-        android:id="@+id/sometext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/othr"
-        android:layout_marginTop="29dp"
-        android:text="@string/sometext"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/start"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="60sp"
-        android:layout_height="40sp"
-        android:layout_alignBaseline="@+id/stop"
-        android:layout_alignBottom="@+id/stop"
-        android:layout_alignRight="@+id/voice"
-        android:layout_marginRight="32dp"
-        android:background="@drawable/record"
-        android:onClick="recordAudio"
-        android:text="@string/start"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/play"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="60sp"
-        android:layout_height="40sp"
-        android:layout_above="@+id/butnext"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="37dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/xxpl"
-        android:onClick="playAudio"
-        android:text="@string/play"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/stop"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="60sp"
-        android:layout_height="40sp"
-        android:layout_alignBaseline="@+id/play"
-        android:layout_alignBottom="@+id/play"
-        android:layout_toRightOf="@+id/othr"
-        android:background="@drawable/stop_button"
-        android:onClick="stopClicked"
-        android:text="@string/stop"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/butnext"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="60sp"
-        android:layout_height="40sp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="24dp"
-        android:layout_toRightOf="@+id/othr"
-        android:background="@drawable/buttonback"
-        android:text="@string/next2"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/voice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/start"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="44dp"
-        android:text="@string/rec"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/audiooptions"
-        android:layout_width="90sp"
-        android:layout_height="20sp"
-        android:layout_alignTop="@+id/voice"
-        android:layout_marginTop="16dp"
-        android:layout_toRightOf="@+id/othr"
-        android:textColor="#ffffff" />
-
     <EditText
         android:id="@+id/reason"
         android:layout_width="200sp"
@@ -112,5 +30,85 @@
 
         <requestFocus />
     </EditText>
+
+    <TextView
+        android:id="@+id/sometext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/othr"
+        android:layout_marginTop="29dp"
+        android:text="@string/sometext"
+        android:textColor="#ffffff"
+        android:textSize="17dp" />
+
+    <Button
+        android:id="@+id/stop"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_alignBaseline="@+id/play"
+        android:layout_alignBottom="@+id/play"
+        android:layout_alignLeft="@+id/butnext"
+        android:background="@drawable/stop_button"
+        android:onClick="stopClicked"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/start"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_alignBaseline="@+id/stop"
+        android:layout_alignBottom="@+id/stop"
+        android:layout_toLeftOf="@+id/reason"
+        android:background="@drawable/record"
+        android:onClick="recordAudio"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/butnext"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/buttonback"
+        android:text="@string/next2"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/voice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/start"
+        android:layout_below="@+id/reason"
+        android:layout_marginTop="55dp"
+        android:text="@string/rec"
+        android:textColor="#ffffff"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/audiooptions"
+        android:layout_width="90sp"
+        android:layout_height="20sp"
+        android:layout_alignLeft="@+id/stop"
+        android:layout_below="@+id/voice"
+        android:layout_marginTop="28dp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/play"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_above="@+id/butnext"
+        android:layout_marginBottom="46dp"
+        android:layout_marginLeft="23dp"
+        android:layout_toRightOf="@+id/audiooptions"
+        android:background="@drawable/xxpl"
+        android:onClick="playAudio"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

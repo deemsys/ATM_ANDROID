@@ -4,7 +4,7 @@
     <string name="app_name">Adhere To Medication</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="uname">Mobile Number</string>
+    <string name="uname">Mobile Number:</string>
      <string name="signup_name">Sign Up</string>
       <string name="login_name">Participant Login</string>
        <string name="welcome_name">Adhere To Medication</string>
@@ -16,7 +16,7 @@
  <string name="signin">Sign In</string>
  <string name="signup">Sign Up</string>
    <string name="newuser">If you are not Registered?</string>
-      <string name="fname">Username:</string>
+      <string name="fname">User Name:</string>
    <string name="username">Username:</string>
    <string name="lastname">Last Name</string>
    <string name="weeklyend">Would you like the app to send an email to your provider?</string>
@@ -37,7 +37,7 @@
     <string name="readmsg">Review</string>
     <string name="eval">Survey</string>
     <string name="inbox">Message Library</string>
-    <string name="enteremail">Enter your Email-Id</string>
+    <string name="enteremail">Enter your Email-Id :</string>
     <string name="msglib">Message Library</string>
       <string name="evalu">Weekly Survey</string>
        <string name="ques">What made you miss some doses?</string>
@@ -66,7 +66,7 @@
       <string name="reinf">It appears you have not been taking your medication regularly. We encourage you to contact your doctor’s office at the number listed below. If you’d like, we can inform your doctor’s office via email. Would you like us to inform your doctor’s office? "</string>
     <string-array name="age_array">
 
-        <item>below 12</item>  
+        <item>Below 12</item>  
         <item>13-20 years</item>
         <item>21-30 years</item>
         <item>31-40 years</item>
@@ -173,7 +173,7 @@
    <string name="snap">Oh Snap!</string>
    <string name="release">OK</string>
    <string name="meddet">Medication Details:</string>
-   <string name="welcome">Welcome:</string>
+   <string name="welcome">Welcome</string>
     <string name="log">Signout</string>
     <string name="mobhint"> Mobile Number</string>
     <string name="userhint">Username</string>

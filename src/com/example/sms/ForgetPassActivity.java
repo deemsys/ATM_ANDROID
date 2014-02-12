@@ -61,7 +61,7 @@ public class ForgetPassActivity extends Activity {
 	        mail.addTextChangedListener(new TextWatcher() {
 	            
 	            public void afterTextChanged(Editable s) {
-	                Validation.isEmailAddress(mail, true);
+	             //   Validation.isEmailAddress(mail, true);
 	            }
 	            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	            public void onTextChanged(CharSequence s, int start, int before, int count){}
@@ -81,11 +81,11 @@ public class ForgetPassActivity extends Activity {
 	         	else{
 	         		final Dialog dialog = new Dialog(context);
 	      			 dialog.setContentView(R.layout.custom_dialog);
-	      			 dialog.setTitle("Send Failed");
+	      			 dialog.setTitle("INFO!");
 	      			 dialog.setCancelable(false);
 	    			 dialog.setCanceledOnTouchOutside(false);
 	      			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-	      			  txt.setText("Enter Valid Mail-id!");
+	      			  txt.setText("Enter valid  email id.");
 	      			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 	      			  dialogButton.setOnClickListener(new OnClickListener() {
 	      				  public void onClick(View vd) {
@@ -200,11 +200,11 @@ private void submitForm() {
             	 final Dialog dialog = new Dialog(context);
 			     
        			 dialog.setContentView(R.layout.custom_dialog);
-       			 dialog.setTitle("Send Failed");
+       			 dialog.setTitle("Info!");
        			 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
        			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-       			  txt.setText("No Network Connection!");
+       			  txt.setText("No network connection.");
        			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
        			  dialogButton.setOnClickListener(new OnClickListener() {
        				  public void onClick(View vd) {
@@ -218,11 +218,11 @@ private void submitForm() {
             	sendmail(fpass);
             final Dialog dialog1 = new Dialog(context);
             dialog1.setContentView(R.layout.custom_dialog);
-            dialog1.setTitle("Success");
+            dialog1.setTitle("Info!");
             dialog1.setCancelable(false);
 			 dialog1.setCanceledOnTouchOutside(false);
             			 TextView txt = (TextView) dialog1.findViewById(R.id.errorlog);
-            			  txt.setText("Your Password sent to your mail id");
+            			  txt.setText("Your password has been sent to your email id");
             			  Button dialogButton = (Button) dialog1.findViewById(R.id.release);
             			  dialogButton.setOnClickListener(new OnClickListener() {
             				  public void onClick(View vd) {
@@ -240,7 +240,7 @@ private void submitForm() {
 		else{
 			 final Dialog dialog3 = new Dialog(context);
 	            dialog3.setContentView(R.layout.custom_dialog);
-	            dialog3.setTitle("Failed");
+	            dialog3.setTitle("Info!");
 	            dialog3.setCancelable(false);
    			 dialog3.setCanceledOnTouchOutside(false);
 	            			 TextView txt = (TextView) dialog3.findViewById(R.id.errorlog);

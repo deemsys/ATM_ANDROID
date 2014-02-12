@@ -47,10 +47,10 @@ public class CountingActivity extends Activity {
 	            	 if(!yes.isChecked()&&!no.isChecked()){
 	            		 final Dialog dialog = new Dialog(context);
 	           			 dialog.setContentView(R.layout.custom_dialog);
-	           			 dialog.setTitle("Oops!");
+	           			 dialog.setTitle("INFO!");
 	           			
 	           			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-	           			  txt.setText("Select your option");
+	           			  txt.setText("Select your option.");
 	           			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 	           			  dialogButton.setOnClickListener(new OnClickListener() {
 	           				  public void onClick(View vd) {

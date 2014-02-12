@@ -8,14 +8,15 @@
 
     <TextView
         android:id="@+id/opt7"
-        android:layout_width="200sp"
+        android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp"
-        android:background="@drawable/edittext"
+        android:layout_marginTop="57dp"
         android:gravity="center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"
+        android:textSize="17dp" />
 
     <Button
         android:id="@+id/next"
@@ -24,7 +25,7 @@
         android:layout_height="40sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="102dp"
+        android:layout_marginBottom="136dp"
         android:background="@drawable/buttonback"
         android:text="@string/next2"
         android:textColor="#ffffff" />

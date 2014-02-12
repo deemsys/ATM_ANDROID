@@ -18,19 +18,18 @@
             android:textColor="#ffffff"
             android:text="@string/firname" />
 <TableRow>
-        <EditText
-            android:id="@+id/firstedit"
-            android:layout_width="150sp"
-            android:layout_height="30sp"
-            android:background="@drawable/edittext"
-            android:ems="10"
-            
-            android:inputType="text"
-            android:padding="3dip" >
 
-            <requestFocus />
-        </EditText>
+    <EditText
+        android:id="@+id/firstedit"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="text"
+        android:padding="3dip" />
+
 </TableRow>
+
     </TableRow>
 
     <TableRow
@@ -42,17 +41,18 @@
         <TextView
             android:id="@+id/textView2"
               android:textColor="#ffffff"
-            android:text="@string/username" />
-        <TableRow>
+            android:text="User Name:" />
+
         <TextView
             android:id="@+id/useredit"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-         
-         android:textSize="21sp"
-         android:textColor="#ffffff" />
- 
-</TableRow>
+            android:textColor="#ffffff"
+            android:textSize="17sp" />
+
+        <TableRow>
+        </TableRow>
+
     </TableRow>
 
     <TableRow
@@ -65,17 +65,20 @@
             android:id="@+id/textView3"
              android:textColor="#ffffff"
             android:text="@string/mobile" />
-<TableRow>
+
         <EditText
             android:id="@+id/mobedit"
             android:layout_width="150sp"
             android:layout_height="30sp"
             android:background="@drawable/edittext"
-          android:maxLength="14"
+            android:ems="10"
             android:inputType="phone"
-           
+            android:maxLength="14"
             android:padding="3dip" />
+
+<TableRow>
 </TableRow>
+
     </TableRow>
 
     <TableRow
@@ -89,15 +92,21 @@
               android:textColor="#ffffff"
             android:text="@string/mail" />
 <TableRow>
-        <EditText
-            android:id="@+id/mailledit"
-            android:layout_width="150sp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edittext"
-         
-            android:inputType="textEmailAddress"
-            android:padding="3dip" />
+
+    <EditText
+        android:id="@+id/mailledit"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:padding="3dip" >
+
+        <requestFocus />
+    </EditText>
+
         </TableRow>
+
     </TableRow>
 
     <TableRow
@@ -113,25 +122,26 @@
 
         <RadioGroup
             android:id="@+id/radioGroup2"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content" >
 
             <RadioButton
                 android:id="@+id/radi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/male"
                 android:button="@drawable/custom_radiobutton"
-                android:textColor="#000000" />
+                android:text="@string/male"
+                android:textColor="#ffffff" />
 
             <RadioButton
                 android:id="@+id/rad1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:button="@drawable/custom_radiobutton"
                 android:text="@string/female"
-                 android:button="@drawable/custom_radiobutton"
-                android:textColor="#000000" />
+                android:textColor="#ffffff" />
         </RadioGroup>
+
     </TableRow>
 
     <TableRow
@@ -152,8 +162,8 @@
                 android:layout_width="150sp"
                 android:layout_height="30sp"
                 android:background="@drawable/edittext" />
-        </TableRow>
 
+        </TableRow>
       
     </TableRow>
 
@@ -168,16 +178,19 @@
               android:textColor="#ffffff"
             android:text="@string/city" />
 <TableRow>
-        <EditText
-            android:id="@+id/citedit"
-            android:layout_width="150sp"
-            android:layout_height="30sp"
-            android:background="@drawable/edittext"
-          
-            android:inputType="number"
-            android:maxLength="5"
-            android:padding="3dip" />
+
+    <EditText
+        android:id="@+id/citedit"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="number"
+        android:maxLength="5"
+        android:padding="3dip" />
+
         </TableRow>
+
     </TableRow>
 
     <TableRow
@@ -191,12 +204,15 @@
                android:textColor="#ffffff"
            android:text="@string/education" />
 <TableRow>
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="150sp"
-            android:layout_height="30sp"
-            android:background="@drawable/edittext" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:background="@drawable/edittext" />
+
 </TableRow>
+
     </TableRow>
 
     <TableRow
@@ -213,15 +229,19 @@
             
             android:text="@string/meddet" />
 <TableRow>
-        <EditText
-            android:id="@+id/meddetedit"
-            android:layout_width="150sp"
-            android:layout_height="30sp"
-            android:background="@drawable/edittext"
-            android:gravity="top"
-            android:inputType="text"
-            android:padding="3dip" />
+
+    <EditText
+        android:id="@+id/meddetedit"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="text"
+        android:padding="3dip" />
+
         </TableRow>
+
     </TableRow>
 
    
@@ -276,21 +296,22 @@
           android:textColor="#ffffff"
             android:text="@string/time2" />
 <TableRow>
-        <Spinner
-            
-            android:id="@+id/spinner4"
-          android:layout_width="100sp"
-            android:layout_height="30sp"
-            android:background="@drawable/edittext" />
 
-        <Spinner
-            android:id="@+id/spinner8"
-            android:layout_width="50sp"
-            android:layout_height="30sp"
-            android:background="@drawable/edittext" />
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="100sp"
+        android:layout_height="30sp"
+        android:background="@drawable/edittext" />
+
+    <Spinner
+        android:id="@+id/spinner8"
+        android:layout_width="50sp"
+        android:layout_height="30sp"
+        android:background="@drawable/edittext" />
 
 </TableRow>
 <TableRow>
+
 </TableRow>
     </TableRow>
 
@@ -305,20 +326,22 @@
           android:textColor="#ffffff"
             android:text="@string/time3" />
         <TableRow>
- <Spinner
-            android:id="@+id/spinner5"
-            android:layout_width="100sp"
-            android:layout_height="30sp" 
-            android:background="@drawable/edittext"/>
 
- <Spinner
-     android:id="@+id/spinner9"
-     android:layout_width="50sp"
-     android:layout_height="30sp"
-     android:background="@drawable/edittext" />
+            <Spinner
+                android:id="@+id/spinner5"
+                android:layout_width="100sp"
+                android:layout_height="30sp"
+                android:background="@drawable/edittext" />
+
+            <Spinner
+                android:id="@+id/spinner9"
+                android:layout_width="50sp"
+                android:layout_height="30sp"
+                android:background="@drawable/edittext" />
 
 </TableRow>
 <TableRow>
+
      </TableRow>
     </TableRow>
 
@@ -333,13 +356,16 @@
             android:text="@string/proll"
                android:textColor="#ffffff" />
 <TableRow>
-        <TextView
-            android:id="@+id/providertext"
-            android:layout_width="150sp"
-            android:layout_height="30dp"
-          android:textSize="20sp"
-         android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/providertext"
+        android:layout_width="150sp"
+        android:layout_height="30dp"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+
 </TableRow>
+
     </TableRow>
 
     <TableRow
@@ -350,24 +376,28 @@
 
         <TextView
             android:id="@+id/textView14"
-            android:text="@string/progroup" 
-               android:textColor="#ffffff"/>
-<TableRow>
-        <TextView
-            android:id="@+id/progroup"
             android:layout_width="150sp"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#ffffff"
-           
-            />
+            android:text="@string/progroup"
+            android:textColor="#ffffff" />
+
+<TableRow>
+
+    <TextView
+        android:id="@+id/progroup"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="15sp" />
+
 </TableRow>
+
     </TableRow>
     
   
  <TableRow android:id="@+id/tableRow15" 
      android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:padding="3dip">
 
      <TextView
          android:id="@+id/textView15"
@@ -375,12 +405,12 @@
          android:layout_height="wrap_content"
          android:text="@string/group1"
          android:textColor="#ffffff" />
-     
-      <com.example.sms.MultiSelectionSpinner1 
-            android:id="@+id/spinner7"
-            android:layout_width="150sp"
-            android:layout_height="wrap_content" 
-            android:background="@drawable/edittext"/>
+
+     <com.example.sms.MultiSelectionSpinner1
+         android:id="@+id/spinner7"
+         android:layout_width="150sp"
+         android:layout_height="wrap_content"
+         android:background="@drawable/edittext" />
 
  </TableRow>
  <RelativeLayout

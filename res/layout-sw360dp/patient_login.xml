@@ -6,48 +6,25 @@
     android:orientation="vertical"
    >
 
-    <EditText
-        android:id="@+id/mobnum"
-        android:layout_width="100dip"
-        android:layout_height="20dip"
-        android:layout_above="@+id/password"
-        android:layout_alignLeft="@+id/password"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/edittext"
-        android:ems="10"
-        android:inputType="text" />
-
     <TextView
         android:id="@+id/uname"
         android:layout_width="75dip"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/mobnum"
-        android:layout_toLeftOf="@+id/signin"
+        android:layout_toLeftOf="@+id/mobnum"
         android:text="@string/username"
         android:textColor="#ffffff" />
 
     <Button
-        android:id="@+id/signup"
+        android:id="@+id/signin"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="80dp"
-        android:layout_height="30dip"
-        android:layout_above="@+id/forget"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="43dp"
-        android:background="@drawable/buttonback"
-        android:text="@string/signup"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/forget"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="160dp"
+        android:layout_width="60dp"
         android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/newuser"
-        android:layout_marginBottom="96dp"
+        android:layout_above="@+id/newuser"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/buttonback"
-        android:text="@string/forget"
+        android:minHeight="2dp"
+        android:text="@string/signin"
         android:textColor="#ffffff" />
 
     <TextView
@@ -60,36 +37,61 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:id="@+id/signin"
+        android:id="@+id/forget"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="60dp"
+        android:layout_width="160dp"
         android:layout_height="30dp"
-        android:layout_above="@+id/newuser"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/newuser"
+        android:layout_marginBottom="119dp"
         android:background="@drawable/buttonback"
-        android:minHeight="2dp"
-        android:text="@string/signin"
+        android:text="@string/forget"
         android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/pass"
         android:layout_width="70dip"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/signin"
         android:layout_alignLeft="@+id/uname"
-        android:layout_marginBottom="61dp"
+        android:layout_below="@+id/mobnum"
         android:text="@string/pass"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/signup"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80dp"
+        android:layout_height="30dip"
+        android:layout_above="@+id/forget"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/buttonback"
+        android:text="@string/signup"
         android:textColor="#ffffff" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="100dp"
         android:layout_height="20dp"
+        android:layout_above="@+id/signin"
         android:layout_alignRight="@+id/newuser"
-        android:layout_alignTop="@+id/pass"
+        android:layout_marginBottom="46dp"
         android:background="@drawable/edittext"
         android:ems="10"
         android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/mobnum"
+        android:layout_width="100dip"
+        android:layout_height="20dip"
+        android:layout_above="@+id/password"
+        android:layout_alignLeft="@+id/password"
+        android:layout_marginBottom="23dp"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="text" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

@@ -21,7 +21,8 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
+
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -99,6 +100,8 @@ public class LoginActivity extends Activity {
 	 private static String urlP= "http://192.168.1.200/bcreasearchT/Service/genericSelect.php?service=providerSelect";*/
      JSONArray board = null;
      JSONArray pro = null;
+   public static  TextView mobnum;
+	public static TextView pass;
 	public static String userid;
  String successL;
 	private static String url = "http://www.medsmonit.com/bcreasearchT/Service/loginresponse.php?service=login";
@@ -118,15 +121,21 @@ public class LoginActivity extends Activity {
         signin=(Button)findViewById(R.id.signin);
         signup=(Button)findViewById(R.id.signup);
         forget=(Button)findViewById(R.id.forget);
-        final TextView mobnum=(TextView)findViewById(R.id.mobnum);
-       final TextView pass=(TextView)findViewById(R.id.password);
+        mobnum=(TextView)findViewById(R.id.mobnum);
+     pass=(TextView)findViewById(R.id.password);
         Button signup=(Button)findViewById(R.id.signup);
     	Button signin=(Button)findViewById(R.id.signin);
     	 cd = new ConnectionDetector(getApplicationContext());
        signup.setOnClickListener(new View.OnClickListener() {
             
         	public void onClick(View v) {
-        		
+        		  SharedPreferences settings = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+             		settings.edit().clear().commit();
+             	RegisterActivity.prname123="null";
+           		SharedPreferences settings1 = context.getSharedPreferences("MyPrefs1", Context.MODE_PRIVATE);
+           		settings1.edit().clear().commit();
+           		SharedPreferences settings2 = context.getSharedPreferences("MyPrefs2", Context.MODE_PRIVATE);
+           		settings2.edit().clear().commit();
         		Intent intentSignUP=new Intent(getApplicationContext(),SignupActivity.class);
     			startActivity(intentSignUP);
         
@@ -158,11 +167,11 @@ public class LoginActivity extends Activity {
         				 final Dialog dialog = new Dialog(context);
         			     
                			 dialog.setContentView(R.layout.custom_dialog);
-               			 dialog.setTitle("Login Failed");
+               			 dialog.setTitle("INFO!");
                			 dialog.setCancelable(false);
             			 dialog.setCanceledOnTouchOutside(false);
                			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-               			  txt.setText("No Network Connection!");
+               			  txt.setText("No network connection.");
                			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
                			  dialogButton.setOnClickListener(new OnClickListener() {
                				  public void onClick(View vd) {
@@ -181,11 +190,11 @@ public class LoginActivity extends Activity {
         			 final Dialog dialog = new Dialog(context);
         			     
            			 dialog.setContentView(R.layout.custom_dialog);
-           			 dialog.setTitle("Login Failed");
+           			 dialog.setTitle("INFO!");
            			 dialog.setCancelable(false);
         			 dialog.setCanceledOnTouchOutside(false);
            			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-           			  txt.setText("Password cannot be empty!");
+           			  txt.setText("Password cannot be empty.");
            			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
            			  dialogButton.setOnClickListener(new OnClickListener() {
            				  public void onClick(View vd) {
@@ -201,11 +210,11 @@ public class LoginActivity extends Activity {
                 	 final Dialog dialog = new Dialog(context);
                 	      
            			 dialog.setContentView(R.layout.custom_dialog);
-           			 dialog.setTitle("Login Failed");
+           			 dialog.setTitle("INFO!");
            			 dialog.setCancelable(false);
         			 dialog.setCanceledOnTouchOutside(false);
            			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-           			  txt.setText("Username cannot be empty!.");
+           			  txt.setText("Username cannot be empty.");
            			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
            			  dialogButton.setOnClickListener(new OnClickListener() {
            				  public void onClick(View vd) {
@@ -219,14 +228,17 @@ public class LoginActivity extends Activity {
     			else{
     				final Dialog dialog = new Dialog(context); 
        			 dialog.setContentView(R.layout.custom_dialog);
-       			 dialog.setTitle("Login Failed");
+       			 dialog.setTitle("INFO!");
        			 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
        			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-       			  txt.setText("Invalid Username And Password.");
+       			  txt.setText("Invalid username and password.");
+       			
        			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
        			  dialogButton.setOnClickListener(new OnClickListener() {
        				  public void onClick(View vd) {
+       					  mobnum.setText("");
+       	       			  pass.setText("");
        					   dialog.dismiss();
     				
     				}
@@ -251,11 +263,11 @@ public class LoginActivity extends Activity {
 			System.out.println("json null value");
 			 final Dialog dialog = new Dialog(context);
 			 dialog.setContentView(R.layout.custom_dialog);
-			 dialog.setTitle("Login Failed");
+			 dialog.setTitle("INFO!");
 			 dialog.setCancelable(false);
 			 dialog.setCanceledOnTouchOutside(false);
 			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-			  txt.setText("Server not Connected!");
+			  txt.setText("Server not connected.");
 			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 			  dialogButton.setOnClickListener(new OnClickListener() {
 				  public void onClick(View vd) {
@@ -281,7 +293,7 @@ public class LoginActivity extends Activity {
 			      password = passw.getText().toString();	
 			      
             pDialog = new ProgressDialog(LoginActivity.this);
-            pDialog.setMessage("VALIDATING USER");
+            pDialog.setMessage("Validating user");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(false);
             pDialog.show();
@@ -336,11 +348,11 @@ public class LoginActivity extends Activity {
        	   System.out.println("json null value");
 				 final Dialog dialog = new Dialog(context);
 				 dialog.setContentView(R.layout.custom_dialog);
-				 dialog.setTitle("Login Failed");
+				 dialog.setTitle("INFO!");
 				 dialog.setCancelable(false);
 				 dialog.setCanceledOnTouchOutside(false);
 				 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-				  txt.setText("Server not Connected!");
+				  txt.setText("Server not connected.");
 				  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 				  dialogButton.setOnClickListener(new OnClickListener() {
 					  public void onClick(View vd) {
@@ -361,14 +373,16 @@ public class LoginActivity extends Activity {
            else if(successL.equalsIgnoreCase("No")){
         	   final Dialog dialog = new Dialog(context);
   			 dialog.setContentView(R.layout.custom_dialog);
-  			 dialog.setTitle("Login Failed");
+  			 dialog.setTitle("INFO!");
   			 dialog.setCancelable(false);
   			 dialog.setCanceledOnTouchOutside(false);
   			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-  			  txt.setText("Incorrect username or password!");
+  			  txt.setText("Incorrect username or password.");
   			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
   			  dialogButton.setOnClickListener(new OnClickListener() {
   				  public void onClick(View vd) {
+  					 LoginActivity.mobnum.setText("");
+   	       			  LoginActivity.pass.setText("");
   					   dialog.dismiss();
 				
 				}
@@ -380,11 +394,11 @@ public class LoginActivity extends Activity {
            else{
           	 final Dialog dialog = new Dialog(context);
     			 dialog.setContentView(R.layout.custom_dialog);
-    			 dialog.setTitle("Login Failed");
+    			 dialog.setTitle("INFO!");
     			 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
     			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-    			  txt.setText("Server is not Connected!");
+    			  txt.setText("Server not connected.");
     			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
     			  dialogButton.setOnClickListener(new OnClickListener() {
     				  public void onClick(View vd) {
@@ -475,11 +489,11 @@ public class LoginActivity extends Activity {
 		       	if(JsonParser.jss.equals("empty")){
 		       	 final Dialog dialog = new Dialog(context);
 				 dialog.setContentView(R.layout.custom_dialog);
-				 dialog.setTitle("Login Failed");
+				 dialog.setTitle("INFO!");
 				 dialog.setCancelable(false);
 				 dialog.setCanceledOnTouchOutside(false);
 				 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-				  txt.setText("Server not Connected!");
+				  txt.setText("Server not connected.");
 				  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 				  dialogButton.setOnClickListener(new OnClickListener() {
 					  public void onClick(View vd) {
@@ -564,11 +578,11 @@ public class LoginActivity extends Activity {
         		if(JsonParser.jss.equals("empty")){
    		       	 final Dialog dialog = new Dialog(context);
    				 dialog.setContentView(R.layout.custom_dialog);
-   				 dialog.setTitle("Login Failed");
+   				 dialog.setTitle("INFO!");
    				 dialog.setCancelable(false);
    				 dialog.setCanceledOnTouchOutside(false);
    				 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-   				  txt.setText("Server not Connected!");
+   				  txt.setText("Server not connected.");
    				  Button dialogButton = (Button) dialog.findViewById(R.id.release);
    				  dialogButton.setOnClickListener(new OnClickListener() {
    					  public void onClick(View vd) {
@@ -722,11 +736,11 @@ public class LoginActivity extends Activity {
     		if(JsonParser.jss.equals("empty")){
 		       	 final Dialog dialog = new Dialog(context);
 				 dialog.setContentView(R.layout.custom_dialog);
-				 dialog.setTitle("Login Failed");
+				 dialog.setTitle("INFO!");
 				 dialog.setCancelable(false);
 				 dialog.setCanceledOnTouchOutside(false);
 				 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-				  txt.setText("Server not Connected!");
+				  txt.setText("Server not connected!");
 				  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 				  dialogButton.setOnClickListener(new OnClickListener() {
 					  public void onClick(View vd) {

@@ -5,30 +5,16 @@
     android:background="@drawable/backgrou"
     android:orientation="vertical" >
 
-    <RadioGroup
-        android:id="@+id/radiogroups"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/countt"
+    <TextView
+        android:id="@+id/countt"
+        android:layout_width="300sp"
+        android:layout_height="150sp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="54dp" >
-
-        <RadioButton
-            android:id="@+id/yes2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-           android:textColor="#ffffff"
-              android:button="@drawable/custom_radiobutton"
-            android:text="@string/yes" />
-
-        <RadioButton
-            android:id="@+id/no2"
-             android:textColor="#ffffff"
-            android:layout_width="wrap_content"
-               android:button="@drawable/custom_radiobutton"
-            android:layout_height="wrap_content"
-            android:text="@string/no" />
-    </RadioGroup>
+        android:layout_marginTop="38dp"
+        android:textSize="17dp"
+        android:textColor="#ffffff"
+        android:text="@string/reinf" />
 
     <Button
         android:id="@+id/next"
@@ -41,14 +27,31 @@
         android:text="@string/next2"
         android:textColor="#ffffff" />
 
-    <TextView
-        android:id="@+id/countt"
-        android:layout_width="300sp"
-        android:layout_height="150sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="73dp"
-        android:background="@drawable/edittext"
-        android:text="@string/reinf" />
+    <RadioGroup
+        android:id="@+id/radiogroups"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/next"
+        android:layout_below="@+id/countt"
+        android:layout_marginTop="120dp" >
+
+        <RadioButton
+            android:id="@+id/yes2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/custom_radiobutton"
+            android:text="@string/yes"
+            android:textColor="#ffffff"
+            android:textSize="17dp" />
+
+        <RadioButton
+            android:id="@+id/no2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/custom_radiobutton"
+            android:text="@string/no"
+            android:textColor="#ffffff"
+            android:textSize="17dp" />
+    </RadioGroup>
 
 </RelativeLayout>

@@ -59,11 +59,11 @@ public class WeeklyendActivity extends Activity {
 	            	 if(!yes.isChecked()&&!no.isChecked()){
 	            		 final Dialog dialog = new Dialog(context);
 	           			 dialog.setContentView(R.layout.custom_dialog);
-	           			 dialog.setTitle("Failed");
+	           			 dialog.setTitle("INFO!");
 	           			 dialog.setCancelable(false);
 	        			 dialog.setCanceledOnTouchOutside(false);
 	           			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-	           			  txt.setText("Select your option!");
+	           			  txt.setText("Select your option.");
 	           			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 	           			  dialogButton.setOnClickListener(new OnClickListener() {
 	           				  public void onClick(View vd) {
@@ -89,11 +89,11 @@ public class WeeklyendActivity extends Activity {
 		           				 final Dialog dialog = new Dialog(context);
 		        			     
 		               			 dialog.setContentView(R.layout.custom_dialog);
-		               			 dialog.setTitle("Login Failed");
+		               			 dialog.setTitle("INFO!");
 		               			 dialog.setCancelable(false);
 		            			 dialog.setCanceledOnTouchOutside(false);
 		               			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-		               			  txt.setText("No Network Connection!");
+		               			  txt.setText("No network connection.");
 		               			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 		               			  dialogButton.setOnClickListener(new OnClickListener() {
 		               				  public void onClick(View vd) {

@@ -6,10 +6,11 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputFilter;
-import android.text.Spanned;
+
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -29,46 +30,146 @@ public class SignupActivity extends Activity {
     String userinfo[];
     private Button next1;
     final Context context=this;
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    public static final String Name = "nameKey"; 
+    public static final String Phone = "phoneKey"; 
+    public static final String Email = "emailKey"; 
+    public static final String user = "userKey"; 
+    SharedPreferences sharedpreferences;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
      setContentView(R.layout.register);
      ActionBar actbar=getActionBar();
      actbar.show();
-      registerValid();
-      getActionBar().setDisplayHomeAsUpEnabled(true);
-      Button clr=(Button)findViewById(R.id.cler);
-      clr.setOnClickListener(new View.OnClickListener() {
+     getActionBar().setDisplayHomeAsUpEnabled(true);
+     firstname = (EditText) findViewById(R.id.firstnam);
+     username = (EditText) findViewById(R.id.frstname);
+     email = (EditText) findViewById(R.id.mail);
+     mobile = (EditText) findViewById(R.id.mobile);
+     
+      Button clr=(Button)findViewById(R.id.canny);
+      Button cann=(Button)findViewById(R.id.cler);
+      sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+   
+      cann.setOnClickListener(new View.OnClickListener() {
        public void onClick(View v) {
-         firstname = (EditText) findViewById(R.id.firstnam);
-       	 username  = (EditText) findViewById(R.id.frstname);
-       	 email = (EditText) findViewById(R.id.mail);
-       	 mobile = (EditText) findViewById(R.id.mobile);
+     
         username.setText("");
        email.setText("");
        mobile.setText("");
        firstname.setText("");
        
     }
+       
        });
+      clr.setOnClickListener(new View.OnClickListener() {
+          public void onClick(View v) {
+        
+        	  SharedPreferences settings = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+       		settings.edit().clear().commit();
+       	RegisterActivity.prname123="null";
+     		SharedPreferences settings1 = context.getSharedPreferences("MyPrefs1", Context.MODE_PRIVATE);
+     		settings1.edit().clear().commit();
+     		SharedPreferences settings2 = context.getSharedPreferences("MyPrefs2", Context.MODE_PRIVATE);
+     		settings2.edit().clear().commit();
+       	 startActivity(new Intent(SignupActivity.this,LoginActivity.class));
+       }
+          
+          });
+      registerValid();
+      next1 = (Button) findViewById(R.id.next);
+      next1.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+        	  
+        	//  startActivity(new Intent(SignupActivity.this,NextActivity.class));
+             if ( checkValidation () )
+                  submitForm();
+              else{
+              	final Dialog dialog = new Dialog(context);
+    			 dialog.setContentView(R.layout.custom_dialog);
+    			 dialog.setTitle("INFO!");
+    			 dialog.setCancelable(false);
+  			 dialog.setCanceledOnTouchOutside(false);
+    			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
+    			  txt.setText("Enter valid details.");
+    			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
+    			  dialogButton.setOnClickListener(new OnClickListener() {
+    				  public void onClick(View vd) {
+    					   dialog.dismiss();
+ 				
+ 				}
+    			});
+    			  dialog.show();
+ 			  }
+          }
+      });
+    
     }
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	  System.out.println("Outsside shared pref");
+        if (sharedpreferences.contains(Name))
+        {
+        	  System.out.println("Inside shared pref");
+        firstname.setText(sharedpreferences.getString(Name, ""));
 
+        }
+        if (sharedpreferences.contains(Phone))
+        {
+        mobile.setText(sharedpreferences.getString(Phone, ""));
+
+        }
+         if (sharedpreferences.contains(Email))
+        {
+        email.setText(sharedpreferences.getString(Email, "")); 
+
+         }
+         if (sharedpreferences.contains(user))
+        {
+        username.setText(sharedpreferences.getString(user, ""));
+
+        }
+    }
+    public void run(View view){
+        String n  = firstname.getText().toString();
+        System.out.println("In run method::"+n);
+        String ph  = mobile.getText().toString();
+        System.out.println("In run method::"+ph);
+        String e  = email.getText().toString();
+        System.out.println("In run method::"+e);
+        String u  = username.getText().toString();
+        System.out.println("In run method::"+u);
+       
+        Editor editor = sharedpreferences.edit();
+        editor.putString(Name, n);
+        editor.putString(Phone, ph);
+        editor.putString(Email, e);
+        editor.putString(user, u);
+       
+
+        editor.commit(); 
+
+     }
 private void registerValid() {
-        firstname = (EditText) findViewById(R.id.firstnam);
+       
         
        firstname.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
-                Validation.hasText(firstname);
+               // Validation.isFirstname(firstname, true);
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count){}
         });
 
-       username = (EditText) findViewById(R.id.frstname);
+       
         
        username.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
-                Validation.hasText(username);
+              //  Validation.isUsername(username, true);
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count){}
@@ -76,18 +177,18 @@ private void registerValid() {
         
       
         
-        email = (EditText) findViewById(R.id.mail);
+       
         email.addTextChangedListener(new TextWatcher() {
          
             public void afterTextChanged(Editable s) {
-                Validation.isEmailAddress(email, true);
+               // Validation.isEmailAddress(email, true);
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count){}
         });
 
-       mobile = (EditText) findViewById(R.id.mobile);
-       InputFilter filter = new InputFilter() {
+     
+      /* InputFilter filter = new InputFilter() {
 
         
 		@Override
@@ -114,19 +215,19 @@ private void registerValid() {
              }
 			return null;
 		}
-        };
+        };*/
 
-        mobile.setFilters(new InputFilter[] { filter });
+       // mobile.setFilters(new InputFilter[] { filter });
       mobile.addTextChangedListener(new TextWatcher() {
             public void afterTextChanged(Editable s) {
-            	System.out.println("mobile number pressed::"+mobile.getText().toString());
-                Validation.isPhoneNumber(mobile, true);
+           // 	System.out.println("mobile number pressed::"+mobile.getText().toString());
+              //  Validation.isPhoneNumber(mobile, true);
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){}
             public void onTextChanged(CharSequence s, int start, int before, int count){}
         });
 
-        next1 = (Button) findViewById(R.id.next);
+       /* next1 = (Button) findViewById(R.id.next);
         next1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,19 +252,37 @@ private void registerValid() {
       			  dialog.show();
    			  }
             }
-        });
+        });*/
     }
     
     private void submitForm() {
-    
+    	 SignupActivity.userInfo.clear();
+    	 String n  = firstname.getText().toString();
+         System.out.println("In run method::"+n);
+         String p = mobile.getText().toString();
+         System.out.println("In run method::"+p);
+         String e  = email.getText().toString();
+         System.out.println("In run method::"+e);
+         String u  = username.getText().toString();
+         System.out.println("In run method::"+u);
+        
+         Editor editor = sharedpreferences.edit();
+         editor.putString(Name, n);
+         editor.putString(user, u);
+         editor.putString(Phone, p);
+         editor.putString(Email, e);
+         
+        
 
+         editor.commit();
+    	//editor.clear();
     	 String uname=username.getText().toString().trim();
     	 String fname=firstname.getText().toString().trim();
     	 String mob=mobile.getText().toString().trim();
     	 String mail=email.getText().toString().trim();
-    	 System.out.println("mobile number in b4 replace submit:::"+mob);
+    	// System.out.println("mobile number in b4 replace submit:::"+mob);
     	 mob = mob.replaceAll("\\D+","");
-        System.out.println("mobile number in submit:::"+mob);
+     //   System.out.println("mobile number in submit:::"+mob);
                 userInfo.add(fname); 
               
                 userInfo.add(uname); 
@@ -181,8 +300,8 @@ private void registerValid() {
     	
         boolean ret = true;
 
-        if (!Validation.hasText(firstname)) ret = false;
-        if (!Validation.hasText1(username)) ret = false;
+        if (!Validation.isFirstname(firstname, true)) ret = false;
+        if (!Validation.isUsername(username, true)) ret = false;
        
         if (!Validation.isEmailAddress(email, true)) ret = false;
         if (!Validation.isPhoneNumber(mobile, true)) ret = false;
@@ -200,6 +319,13 @@ private void registerValid() {
 	 public boolean onOptionsItemSelected(MenuItem item) {
 	     switch (item.getItemId()) {
 	         case android.R.id.home:
+	        	  SharedPreferences settings = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+	         		settings.edit().clear().commit();
+	         	
+	       		SharedPreferences settings1 = context.getSharedPreferences("MyPrefs1", Context.MODE_PRIVATE);
+	       		settings1.edit().clear().commit();
+	       		SharedPreferences settings2 = context.getSharedPreferences("MyPrefs2", Context.MODE_PRIVATE);
+	       		settings2.edit().clear().commit();
 	            
 	             Intent intent = new Intent(this, LoginActivity.class);
 	             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

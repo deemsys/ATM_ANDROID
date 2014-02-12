@@ -40,7 +40,7 @@ public class SideoffActivity extends Activity{
 			public void onClick(View v) {
 				 final Dialog dialog = new Dialog(context);
        			 dialog.setContentView(R.layout.custom_dialog);
-       			 dialog.setTitle("Weekly Survey");
+       			 dialog.setTitle("INFO!");
        			 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
        			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
@@ -67,7 +67,7 @@ public class SideoffActivity extends Activity{
             	 if(!yes1.isChecked()&&!no1.isChecked()){
             		 final Dialog dialog = new Dialog(context);
            			 dialog.setContentView(R.layout.custom_dialog);
-           			 dialog.setTitle("Failed");
+           			 dialog.setTitle("INFO!");
            			 dialog.setCancelable(false);
         			 dialog.setCanceledOnTouchOutside(false);
            			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
@@ -92,7 +92,7 @@ public class SideoffActivity extends Activity{
 	                 	else{
 	                 		 final Dialog dialog = new Dialog(context);
 	               			 dialog.setContentView(R.layout.custom_dialog);
-	               			 dialog.setTitle("Weekly Survey");
+	               			 dialog.setTitle("INFO!");
 	               			 dialog.setCancelable(false);
 	            			 dialog.setCanceledOnTouchOutside(false);
 	               			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
@@ -135,8 +135,8 @@ public class SideoffActivity extends Activity{
 	 public boolean onOptionsItemSelected(MenuItem item) {
 	     switch (item.getItemId()) {
 	         case android.R.id.home:
-	        	 Intent intentSignUP=new Intent(getApplicationContext(),Questionnaire.class);
-	    			startActivity(intentSignUP);  
+	        	// Intent intentSignUP=new Intent(getApplicationContext(),Questionnaire.class);
+	    		//	startActivity(intentSignUP);  
 	            finish();
 	      }
 	     return true;

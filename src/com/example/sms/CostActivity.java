@@ -42,8 +42,8 @@ public class CostActivity extends Activity{
 	 public boolean onOptionsItemSelected(MenuItem item) {
 	     switch (item.getItemId()) {
 	         case android.R.id.home:
-	        	 Intent intentSignUP=new Intent(getApplicationContext(),Questionnaire.class);
-	    			startActivity(intentSignUP);  
+	        	// Intent intentSignUP=new Intent(getApplicationContext(),Questionnaire.class);
+	    		//	startActivity(intentSignUP);  
 	            finish();
 	      }
 	     return true;

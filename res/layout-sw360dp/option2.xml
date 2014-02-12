@@ -7,37 +7,42 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/sideeff"
-        android:layout_width="250sp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:background="@drawable/edittext"
-        android:gravity="center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android1:id="@+id/sideeff"
+        android1:layout_width="250sp"
+        android1:layout_height="wrap_content"
+        android1:layout_alignParentTop="true"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginTop="91dp"
+        android1:gravity="center_vertical"
+        android1:textAppearance="?android:attr/textAppearanceLarge"
+        android1:textColor="#ffffff"
+        android1:textSize="17dp" />
 
     <RadioGroup
         android1:id="@+id/selecty"
         android1:layout_width="wrap_content"
         android1:layout_height="wrap_content"
-        android1:layout_above="@+id/next"
+        android1:layout_below="@+id/sideeff"
         android1:layout_centerHorizontal="true"
-        android1:layout_marginBottom="58dp" >
+        android1:layout_marginTop="160dp" >
 
         <RadioButton
             android1:id="@+id/yesans"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
             android1:button="@drawable/custom_radiobutton"
-            android1:text="@string/yes" />
+            android1:text="@string/yes"
+            android1:textColor="#ffffff"
+            android1:textSize="17dp" />
 
         <RadioButton
             android1:id="@+id/noans"
             android1:layout_width="wrap_content"
             android1:layout_height="wrap_content"
             android1:button="@drawable/custom_radiobutton"
-            android1:text="@string/no" />
+            android1:text="@string/no"
+            android1:textColor="#ffffff"
+            android1:textSize="17dp" />
     </RadioGroup>
 
     <Button
@@ -45,9 +50,9 @@
         style="?android:attr/buttonStyleSmall"
         android1:layout_width="70sp"
         android1:layout_height="40sp"
-        android1:layout_alignParentBottom="true"
+        android1:layout_below="@+id/selecty"
         android1:layout_centerHorizontal="true"
-        android1:layout_marginBottom="67dp"
+        android1:layout_marginTop="75dp"
         android1:background="@drawable/buttonback"
         android1:text="@string/next2"
         android1:textColor="#ffffff" />

@@ -32,44 +32,12 @@
             android:layout_alignTop="@+id/timer3"
             android:background="@drawable/edittext" />
 
-        <Button
-            android:id="@+id/submit"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="70sp"
-            android:layout_height="40sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/group"
-            android:layout_marginBottom="39dp"
-            android:background="@drawable/buttonback"
-            android:text="@string/submit"
-            android:textColor="#ffffff" />
-
-        <Button
-            android:id="@+id/cancel"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="70sp"
-            android:layout_height="40sp"
-            android:layout_alignBaseline="@+id/submit"
-            android:layout_alignBottom="@+id/submit"
-            android:layout_toRightOf="@+id/time3"
-            android:background="@drawable/buttonback"
-            android:text="@string/cancel"
-            android:textColor="#ffffff" />
-
         <Spinner
             android:id="@+id/timer2"
             android:layout_width="150sp"
             android:layout_height="30sp"
             android:layout_alignLeft="@+id/timer1"
             android:layout_alignTop="@+id/time2"
-            android:background="@drawable/edittext" />
-
-        <Spinner
-            android:id="@+id/prospin"
-            android:layout_width="150sp"
-            android:layout_height="30sp"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/cancel"
             android:background="@drawable/edittext" />
 
         <TextView
@@ -147,14 +115,71 @@
             android:text="@string/progroup"
             android:textColor="#ffffff" />
 
+        <Spinner
+            android:id="@+id/prospin"
+            android:layout_width="150sp"
+            android:layout_height="30sp"
+            android:layout_alignRight="@+id/submit"
+            android:layout_centerVertical="true"
+            android:background="@drawable/edittext" />
+
+        <Button
+            android:id="@+id/submit"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70sp"
+            android:layout_height="40sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/meridian3"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/buttonback"
+            android:text="@string/submit"
+            android:textColor="#ffffff" />
+
         <com.example.sms.MultiSelectionSpinner
             android:id="@+id/group"
             android:layout_width="150sp"
             android:layout_height="30sp"
             android:layout_alignLeft="@+id/prospin"
             android:layout_below="@+id/progroup"
-            android:layout_marginTop="17dp"
             android:background="@drawable/edittext"
             android:prompt="@string/selectgroup" />
+
+        <TextView
+            android:id="@+id/selgroup"
+            android:layout_width="150sp"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/group"
+            android:layout_alignLeft="@+id/group"
+            android:layout_alignTop="@+id/group"
+            android:background="@drawable/edittext"
+            android:gravity="center_vertical"
+            android:text="Select Group"
+            android:textColor="#000000"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/cancel"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70sp"
+            android:layout_height="40sp"
+            android:layout_alignBaseline="@+id/reset"
+            android:layout_alignBottom="@+id/reset"
+            android:layout_alignRight="@+id/prolist"
+            android:background="@drawable/buttonback"
+            android:text="@string/cancel"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/reset"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="70sp"
+            android:layout_height="40sp"
+            android:layout_alignBaseline="@+id/submit"
+            android:layout_alignBottom="@+id/submit"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/buttonback"
+            android:text="Reset"
+            android:textColor="#ffffff" />
 
 </RelativeLayout>

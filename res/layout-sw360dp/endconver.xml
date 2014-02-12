@@ -12,18 +12,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="74dp"
+        android:textSize="17dp"
         android:text="@string/converend"
-        android:background="@drawable/edittext"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/theend"
         android:layout_width="160sp"
         android:layout_height="40sp"
-        android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="117dp"
-    
+        android:layout_centerVertical="true"
         android:background="@drawable/buttonback"
         android:text="@string/end"
         android:textColor="#ffffff" />

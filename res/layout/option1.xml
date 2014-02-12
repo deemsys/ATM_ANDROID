@@ -7,13 +7,14 @@
 
     <TextView
         android:id="@+id/opt1"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-  android:background="@drawable/edittext"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+  android:textColor="#ffffff"
+  android:textSize="17dp"
+        />
 
     <Button
         android:id="@+id/next"

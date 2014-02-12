@@ -62,7 +62,7 @@ public class ChangePassActivity extends Activity {
 	        
 	       oldpass.addTextChangedListener(new TextWatcher() {
 	            public void afterTextChanged(Editable s) {
-	                Validation.hasTextOld(oldpass);
+	               // Validation.hasTextOld(oldpass);
 	            }
 	            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	            public void onTextChanged(CharSequence s, int start, int before, int count){}
@@ -72,7 +72,7 @@ public class ChangePassActivity extends Activity {
 	        
 	       newpass.addTextChangedListener(new TextWatcher() {
 	            public void afterTextChanged(Editable s) {
-	                Validation.hasTextNew(newpass);
+	              //  Validation.hasTextNew(newpass);
 	            }
 	            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	            public void onTextChanged(CharSequence s, int start, int before, int count){}
@@ -84,7 +84,7 @@ public class ChangePassActivity extends Activity {
 	        confirmpass.addTextChangedListener(new TextWatcher() {
 	         
 	            public void afterTextChanged(Editable s) {
-	                Validation.hasTextConfirm(confirmpass);
+	              //  Validation.hasTextConfirm(confirmpass);
 	            }
 	            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
 	            public void onTextChanged(CharSequence s, int start, int before, int count){}
@@ -106,11 +106,11 @@ public class ChangePassActivity extends Activity {
               else{
               	final Dialog dialog = new Dialog(context);
     			 dialog.setContentView(R.layout.custom_dialog);
-    			 dialog.setTitle("Update Failed");
+    			 dialog.setTitle("INFO!");
     			 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
     			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-    			  txt.setText("Enter Valid Details.");
+    			  txt.setText("Enter valid details.");
     			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
     			  dialogButton.setOnClickListener(new OnClickListener() {
     				  public void onClick(View vd) {
@@ -125,11 +125,11 @@ public class ChangePassActivity extends Activity {
           else{
         		final Dialog dialog = new Dialog(context);
    			 dialog.setContentView(R.layout.custom_dialog);
-   			 dialog.setTitle("Update Failed");
+   			 dialog.setTitle("INFO!");
    			 dialog.setCancelable(false);
    			 dialog.setCanceledOnTouchOutside(false);
    			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-   			  txt.setText("No Network Connection.");
+   			  txt.setText("No network connection.");
    			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
    			  dialogButton.setOnClickListener(new OnClickListener() {
    				  public void onClick(View vd) {
@@ -155,7 +155,7 @@ public class ChangePassActivity extends Activity {
             userPass.add(newpw); 
             userPass.add(confirm); 
             
-            if(old.equals(olld)||old.equals(newpw)){
+            if(old.equals(olld)){
          
                  new ChangePass().execute();
             }
@@ -163,11 +163,11 @@ public class ChangePassActivity extends Activity {
             {
             	final Dialog dialog = new Dialog(context);
      			 dialog.setContentView(R.layout.custom_dialog);
-     			 dialog.setTitle("Update Failed");
+     			 dialog.setTitle("INFO!");
      			 dialog.setCancelable(false);
     			 dialog.setCanceledOnTouchOutside(false);
      			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-     			  txt.setText("Your Old Password is Incorrect!");
+     			  txt.setText("Invalid old password.");
      			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
      			  dialogButton.setOnClickListener(new OnClickListener() {
      				  public void onClick(View vd) {
@@ -183,7 +183,8 @@ public class ChangePassActivity extends Activity {
          
       private boolean checkValidation() {
           boolean ret = true;
-       
+          if (!Validation.hasTextold(oldpass)) ret = false;
+        //  Validation.hasTextConfirm(confirmpass);
         	  if(!Validation.isEqualpass(newpass,confirmpass,true))
         		  ret=false; 
              
@@ -210,7 +211,7 @@ public class ChangePassActivity extends Activity {
  	        protected void onPreExecute() {
  	            super.onPreExecute();
  	            pDialog = new ProgressDialog(ChangePassActivity.this);
- 	            pDialog.setMessage("Changing Password");
+ 	            pDialog.setMessage("Changing password");
  	            pDialog.setIndeterminate(false);
  	            pDialog.setCancelable(false);
  	            pDialog.show();
@@ -225,7 +226,7 @@ public class ChangePassActivity extends Activity {
  			
  		    String  newpass1 = ChangePassActivity.newpw;
  		  
- 		 olld=newpw;
+ 		
  		  System.out.println("password in post execute:::olld");
  		  String  oldpass1 = ChangePassActivity.old;
  		  
@@ -275,11 +276,11 @@ public class ChangePassActivity extends Activity {
         	 final Dialog dialog = new Dialog(context);
 		     
    			 dialog.setContentView(R.layout.custom_dialog);
-   			 dialog.setTitle("Send Failed");
+   			 dialog.setTitle("INFO!");
    			 dialog.setCancelable(false);
 			 dialog.setCanceledOnTouchOutside(false);
    			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-   			  txt.setText("No Network Connection!");
+   			  txt.setText("No network connection.");
    			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
    			  dialogButton.setOnClickListener(new OnClickListener() {
    				  public void onClick(View vd) {
@@ -293,13 +294,14 @@ public class ChangePassActivity extends Activity {
         else if(successL.equalsIgnoreCase("Yes"))
          {
         	 userPass.clear();
+        	 olld=newpw;
         	 final Dialog dialog = new Dialog(context);
   			 dialog.setContentView(R.layout.custom_dialog);
-  			 dialog.setTitle("Update Success");
+  			 dialog.setTitle("INFO!");
   			 dialog.setCancelable(false);
 			 dialog.setCanceledOnTouchOutside(false);
   			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-  			  txt.setText("Your Password has been Updated Successfully!");
+  			  txt.setText("Your password has been updated successfully.");
   			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
   			  dialogButton.setOnClickListener(new OnClickListener() {
   				  public void onClick(View vd) {
@@ -318,11 +320,11 @@ public class ChangePassActivity extends Activity {
          else{
         	 final Dialog dialog = new Dialog(context);
   			 dialog.setContentView(R.layout.custom_dialog);
-  			 dialog.setTitle("Update Failed");
+  			 dialog.setTitle("INFO!");
   			 dialog.setCancelable(false);
 			 dialog.setCanceledOnTouchOutside(false);
   			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-  			  txt.setText("Your Password does not Updated Successfully!");
+  			  txt.setText("Your password does not updated successfully.");
   			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
   			  dialogButton.setOnClickListener(new OnClickListener() {
   				  public void onClick(View vd) {

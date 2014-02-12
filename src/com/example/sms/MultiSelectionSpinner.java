@@ -29,7 +29,9 @@ OnMultiChoiceClickListener {
 	 public static String mspin1=null;
 	 public static String mspin2=null;
 	 public static int dd=0;
-	 public  static String allr;
+	 public static String allr="";
+	 public static String allr1="";
+	 public static String allr2="";
 	 ArrayAdapter<String> simple_adapter; 
 
 	public MultiSelectionSpinner(Context context) {
@@ -64,6 +66,7 @@ OnMultiChoiceClickListener {
 	 public boolean performClick() {  
 	  AlertDialog.Builder builder = new AlertDialog.Builder(getContext());  
 	  builder.setMultiChoiceItems(_items, mSelection, this);  
+	
 	  builder.show();  
 	  return true;  
 	 }  
@@ -102,9 +105,12 @@ OnMultiChoiceClickListener {
 	  simple_adapter.clear();  
 	//  mspin="";
 	 
-	  mspin=RegisterActivity.prgrouplist.get(0);
+	/*  mspin=RegisterActivity.prgrouplist.get(0);
 	  mspin1=RegisterActivity.prgrouplist.get(0);
-	  mspin2=RegisterActivity.prgridlist.get(0);
+	  mspin2=RegisterActivity.prgridlist.get(0);*/
+	 mspin=MultiSelectionSpinner.allr;
+ 	 mspin1=MultiSelectionSpinner.allr1;
+ 	 mspin2=MultiSelectionSpinner.allr2;
 	  simple_adapter.add(_items[0]); 
 	  Arrays.fill(mSelection, false);  
 	 }  
@@ -304,18 +310,25 @@ OnMultiChoiceClickListener {
 		  }  
 		  
 	allr = sb.toString();
+	allr1=sb1.toString();
+	allr2=sb2.toString();
 	System.out.println("all r is" +allr);
 	if(allr.equals(""))
 		
 	{
-		
+		//allr="Select Group";
 		mspin="";
+		//RegisterActivity.groupn.setVisibility(View.VISIBLE);
+		RegisterActivity.groupn.setText("Select Group");
+		System.out.println("empty selction" + allr);
 		return allr;
 	}
 	else
 	{
 		//EditProfileActivity.pgname.setText(allr);
 		System.out.println("nadakutha???");
+		//RegisterActivity.groupn.setVisibility(View.VISIBLE);
+		RegisterActivity.groupn.setText(allr);
 		  return sb.toString();
 	}
 		/*  boolean foundOne = false; 

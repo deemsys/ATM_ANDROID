@@ -5,41 +5,41 @@
     android:background="@drawable/backgrou"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/end"
+        android:layout_width="250sp"
+        android:layout_height="60sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:text="@string/weeklyend"
+        android:textColor="#ffffff"
+        android:textSize="17dp" />
+
     <RadioGroup
         android:id="@+id/radioGroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/end"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp" >
+        android:layout_marginTop="112dp" >
 
         <RadioButton
             android:id="@+id/yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:textColor="#ffffff"
-           android:button="@drawable/custom_radiobutton"
-            android:text="@string/yes" />
+            android:button="@drawable/custom_radiobutton"
+            android:text="@string/yes"
+            android:textColor="#ffffff" />
 
         <RadioButton
             android:id="@+id/no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             android:textColor="#ffffff"
-              android:button="@drawable/custom_radiobutton"
-            android:text="@string/no" />
+            android:button="@drawable/custom_radiobutton"
+            android:text="@string/no"
+            android:textColor="#ffffff" />
     </RadioGroup>
-
-    <TextView
-        android:id="@+id/end"
-        android:layout_width="250sp"
-        android:layout_height="160sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/edittext"
-        android:text="@string/weeklyend"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/send"
@@ -48,7 +48,7 @@
         android:layout_height="40sp"
         android:layout_below="@+id/radioGroup1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/buttonback"
         android:text="@string/send"
         android:textColor="#ffffff" />

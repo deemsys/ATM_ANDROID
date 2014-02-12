@@ -5,18 +5,6 @@
     android:orientation="vertical" 
     android:background="@drawable/backgrou">
 
-    <Button
-        android:id="@+id/submit"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="80sp"
-        android:layout_height="40sp"
-        android:layout_below="@+id/emailveri"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:text="@string/sub"
-        android:textColor="#ffffff"
-        android:background="@drawable/buttonback" />
-
     <TextView
         android:id="@+id/enteremail"
         android:layout_width="wrap_content"
@@ -34,13 +22,21 @@
         android:layout_height="50dp"
         android:layout_below="@+id/enteremail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/edittext"
         android:ems="10"
-        android:hint="@string/mail"
-        android:inputType="textEmailAddress" >
+        android:inputType="textEmailAddress" />
 
-        <requestFocus />
-    </EditText>
+    <Button
+        android:id="@+id/submit"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="80sp"
+        android:layout_height="40sp"
+        android:layout_below="@+id/emailveri"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp"
+        android:background="@drawable/buttonback"
+        android:text="@string/sub"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

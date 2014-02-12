@@ -46,15 +46,15 @@
 
     <ToggleButton
         android:id="@+id/start"
-        android:layout_width="130sp"
-        android:layout_height="40sp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/msgpref"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
-        android:checked="true"
-          android:textOff=""
-            android:textOn=""
         android:background="@drawable/custom_toggle"
-        android:button="@null" />
+        android:button="@null"
+        android:checked="true"
+        android:textOff=""
+        android:textOn="" />
 
 </RelativeLayout>

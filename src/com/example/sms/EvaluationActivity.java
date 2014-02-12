@@ -68,7 +68,7 @@ public int four=0;
         final Dialog dialog = new Dialog(context);
 	   
 		 dialog.setContentView(R.layout.custom_dialog);
-		dialog.setTitle("Weekly Evaluation");
+		dialog.setTitle("INFO!");
 		 dialog.setCancelable(false);
 		 dialog.setCanceledOnTouchOutside(false);
 		 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
@@ -143,7 +143,7 @@ public void spinvaluate(){
   		        case 1:
   		        	 final Dialog dialog = new Dialog(context);
   	       			 dialog.setContentView(R.layout.custom_dialog);
-  	       			 dialog.setTitle("Weekly Survey");
+  	       			 dialog.setTitle("INFO!");
   	       		dialog.setCancelable(false);
    			 dialog.setCanceledOnTouchOutside(false);
   	       			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
@@ -161,7 +161,7 @@ public void spinvaluate(){
   		        case 2:
   		        	final Dialog dialog1 = new Dialog(context);
   	      			 dialog1.setContentView(R.layout.custom_dialog);
-  	      			 dialog1.setTitle("Weekly Survey");
+  	      			 dialog1.setTitle("INFO!");
   	      			dialog1.setCancelable(false);
        			 dialog1.setCanceledOnTouchOutside(false);
   	      			 TextView txt1 = (TextView) dialog1.findViewById(R.id.errorlog);
@@ -180,7 +180,7 @@ public void spinvaluate(){
   		        case 3:
   		        	final Dialog dialog11 = new Dialog(context);
   	     			 dialog11.setContentView(R.layout.custom_dialog);
-  	     			 dialog11.setTitle("Weekly Survey");
+  	     			 dialog11.setTitle("INFO!");
   	     			dialog11.setCancelable(false);
        			 dialog11.setCanceledOnTouchOutside(false);
   	     			 TextView txt11= (TextView) dialog11.findViewById(R.id.errorlog);
@@ -198,7 +198,7 @@ public void spinvaluate(){
   		        case 4:
   		        	final Dialog dialog2 = new Dialog(context);
   	    			 dialog2.setContentView(R.layout.custom_dialog);
-  	    			 dialog2.setTitle("Weekly Survey");
+  	    			 dialog2.setTitle("INFO!");
   	    			dialog2.setCancelable(false);
        			 dialog2.setCanceledOnTouchOutside(false);
   	    			 TextView txt2= (TextView) dialog2.findViewById(R.id.errorlog);
@@ -216,7 +216,7 @@ public void spinvaluate(){
   		        case 5:
   		        	final Dialog dialog4= new Dialog(context);
   	   			 dialog4.setContentView(R.layout.custom_dialog);
-  	   			 dialog4.setTitle("Weekly Survey");
+  	   			 dialog4.setTitle("INFO!");
   	   		dialog4.setCancelable(false);
 			 dialog4.setCanceledOnTouchOutside(false);
   	   			 TextView txt4= (TextView) dialog4.findViewById(R.id.errorlog);
@@ -234,7 +234,7 @@ public void spinvaluate(){
   		        case 6:
   		        	final Dialog dialog5 = new Dialog(context);
   	   			 dialog5.setContentView(R.layout.custom_dialog);
-  	   			 dialog5.setTitle("Weekly Survey");
+  	   			 dialog5.setTitle("Info!");
   	   		dialog5.setCancelable(false);
 			 dialog5.setCanceledOnTouchOutside(false);
   	   			 TextView txt5= (TextView) dialog5.findViewById(R.id.errorlog);
@@ -251,7 +251,7 @@ public void spinvaluate(){
   		        case 7:
   		        	final Dialog dialog6 = new Dialog(context);
   	   			 dialog6.setContentView(R.layout.custom_dialog);
-  	   			 dialog6.setTitle("Weekly Survey");
+  	   			 dialog6.setTitle("Info!");
   	   		dialog6.setCancelable(false);
 			 dialog6.setCanceledOnTouchOutside(false);
   	   			 TextView txt6= (TextView) dialog6.findViewById(R.id.errorlog);
@@ -268,7 +268,7 @@ public void spinvaluate(){
   		        case 8:
   		        	final Dialog dialog27= new Dialog(context);
   	   			 dialog27.setContentView(R.layout.custom_dialog);
-  	   			 dialog27.setTitle("Weekly Survey");
+  	   			 dialog27.setTitle("Info!");
   	   		dialog27.setCancelable(false);
 			 dialog27.setCanceledOnTouchOutside(false);
   	   			 TextView txt27= (TextView) dialog27.findViewById(R.id.errorlog);
@@ -286,7 +286,7 @@ public void spinvaluate(){
   		        case 9:
   		        	final Dialog dialog28 = new Dialog(context);
   	   			 dialog28.setContentView(R.layout.custom_dialog);
-  	   			 dialog28.setTitle("Weekly Survey");
+  	   			 dialog28.setTitle("Info!");
   	   		dialog28.setCancelable(false);
 			 dialog28.setCanceledOnTouchOutside(false);
   	   			 TextView txt28= (TextView) dialog28.findViewById(R.id.errorlog);
@@ -303,7 +303,7 @@ public void spinvaluate(){
   		        case 10:
   		        	final Dialog dialog9= new Dialog(context);
   	   			 dialog9.setContentView(R.layout.custom_dialog);
-  	   			 dialog9.setTitle("Weekly Survey");
+  	   			 dialog9.setTitle("Info!");
   	   		dialog9.setCancelable(false);
 			 dialog9.setCanceledOnTouchOutside(false);
   	   			 TextView txt9= (TextView) dialog9.findViewById(R.id.errorlog);
@@ -320,7 +320,7 @@ public void spinvaluate(){
   		        case 11:
   		        	final Dialog dialog10 = new Dialog(context);
   	   			 dialog10.setContentView(R.layout.custom_dialog);
-  	   			 dialog10.setTitle("Weekly Survey");
+  	   			 dialog10.setTitle("Info!");
   	   		dialog10.setCancelable(false);
 			 dialog10.setCanceledOnTouchOutside(false);
   	   			 TextView txt10= (TextView) dialog10.findViewById(R.id.errorlog);
@@ -337,7 +337,7 @@ public void spinvaluate(){
   		        case 12:
   		        	final Dialog dialog114= new Dialog(context);
   	   			 dialog114.setContentView(R.layout.custom_dialog);
-  	   			 dialog114.setTitle("Weekly Survey");
+  	   			 dialog114.setTitle("INFO!");
   	   		dialog114.setCancelable(false);
 			 dialog114.setCanceledOnTouchOutside(false);
   	   			 TextView txt114= (TextView) dialog114.findViewById(R.id.errorlog);
@@ -477,11 +477,11 @@ if(day<6){
 		           	 final Dialog dialog = new Dialog(context);
 					     
 		      			 dialog.setContentView(R.layout.custom_dialog);
-		      			 dialog.setTitle("Failed");
+		      			 dialog.setTitle("INFO!");
 		      			 dialog.setCancelable(false);
 		   			 dialog.setCanceledOnTouchOutside(false);
 		      			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-		      			  txt.setText("No Network Connection!");
+		      			  txt.setText("No network connection.");
 		      			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 		      			  dialogButton.setOnClickListener(new OnClickListener() {
 		      				  public void onClick(View vd) {
@@ -561,11 +561,11 @@ class SequenceCheck extends AsyncTask<String,String,String>{
            	 final Dialog dialog = new Dialog(context);
 			     
       			 dialog.setContentView(R.layout.custom_dialog);
-      			 dialog.setTitle("Failed");
+      			 dialog.setTitle("INFO!");
       			 dialog.setCancelable(false);
    			 dialog.setCanceledOnTouchOutside(false);
       			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-      			  txt.setText("No Network Connection!");
+      			  txt.setText("No network connection!");
       			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
       			  dialogButton.setOnClickListener(new OnClickListener() {
       				  public void onClick(View vd) {

@@ -88,7 +88,7 @@ public class ViewProfileActivity extends Activity{
 	          protected void onPreExecute() {
 	              super.onPreExecute();
 	              cDialog = new ProgressDialog(ViewProfileActivity.this);
-	              cDialog.setMessage("Fetching Details");
+	              cDialog.setMessage("Fetching participant details");
 	              cDialog.setIndeterminate(false);
 	              cDialog.setCancelable(false);
 	              cDialog.show();
@@ -182,11 +182,11 @@ public class ViewProfileActivity extends Activity{
 	        	   System.out.println("json yy null value");
 					 final Dialog dialog = new Dialog(context);
 					 dialog.setContentView(R.layout.custom_dialog);
-					 dialog.setTitle("Failed");
+					 dialog.setTitle("INFO!");
 					 dialog.setCancelable(false);
 					 dialog.setCanceledOnTouchOutside(false);
 					 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-					  txt.setText("Server not Connected!");
+					  txt.setText("Server not connected.");
 					  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 					  dialogButton.setOnClickListener(new OnClickListener() {
 						  public void onClick(View vd) {
@@ -267,7 +267,7 @@ public class ViewProfileActivity extends Activity{
 		      }
 		     
 		      if(TextUtils.isEmpty(timee)){
-		    	  timee1.setText("null");
+		    	  timee1.setText("");
 		      }
 		    
 		      else{
@@ -284,7 +284,7 @@ public class ViewProfileActivity extends Activity{
 		      }
 		     
 		      if(TextUtils.isEmpty(time2)){
-		    	  timee2.setText("null");
+		    	  timee2.setText("");
 		      }
 		     
 		      else{
@@ -300,7 +300,7 @@ public class ViewProfileActivity extends Activity{
 		      }
 		     
 		      if(TextUtils.isEmpty(time3)){
-		    	  timee3.setText("null");
+		    	  timee3.setText("");
 		      }
 		     
 		      else{

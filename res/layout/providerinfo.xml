@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="22dp"
         android:layout_marginTop="78dp"
-        android:text="@string/username"
+        android:text="User Name:"
         android:textColor="#ffffff" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:layout_alignBaseline="@+id/textView3"
         android:layout_alignBottom="@+id/textView3"
         android:layout_alignLeft="@+id/mobppro"
-        android:background="@drawable/edittext" />
+         android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/usernamepro"
@@ -54,7 +54,7 @@
         android:layout_alignBottom="@+id/user"
         android:layout_marginLeft="18dp"
         android:layout_toRightOf="@+id/ff"
-        android:background="@drawable/edittext" />
+         android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/textView2pro"
@@ -63,7 +63,7 @@
         android:layout_alignBaseline="@+id/ff"
         android:layout_alignBottom="@+id/ff"
         android:layout_alignLeft="@+id/mobppro"
-        android:background="@drawable/edittext" />
+        android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/ff"
@@ -82,7 +82,7 @@
         android:layout_alignBaseline="@+id/mm"
         android:layout_alignBottom="@+id/mm"
         android:layout_alignLeft="@+id/usernamepro"
-        android:background="@drawable/edittext" />
+         android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/textView4"

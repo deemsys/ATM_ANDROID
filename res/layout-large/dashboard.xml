@@ -31,40 +31,21 @@
 
     <TextView
         android:id="@+id/welcome"
-        android:layout_width="80sp"
+        android:layout_width="wrap_content"
         android:layout_height="30sp"
         android:layout_alignLeft="@+id/daily"
         android:layout_alignParentTop="true"
         android:layout_marginTop="49dp"
-        android:text="@string/welcome"
+        
         android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/signout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/name"
+        android:layout_alignBaseline="@+id/welcome"
         android:layout_toRightOf="@+id/settings"
         android:text="@string/log"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="130sp"
-        android:layout_height="30sp"
-        android:layout_alignBaseline="@+id/welcome"
-        android:layout_alignBottom="@+id/welcome"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView2"
-        android:layout_toRightOf="@+id/week"
-        android:text="@string/settings"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff" />
 
     <TextView
@@ -86,31 +67,6 @@
         android:layout_alignParentLeft="true"
         android:src="@drawable/profileimage" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="60sp"
-        android:layout_height="40sp"
-        android:layout_alignBottom="@+id/viewprof"
-        android:layout_alignLeft="@+id/signout"
-        android:src="@drawable/settings" />
-
-    <TextView
-        android:id="@+id/week"
-        android:layout_width="150sp"
-        android:layout_height="60sp"
-        android:layout_alignBottom="@+id/evaluation"
-        android:layout_alignLeft="@+id/weekly"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/unreaddaily"
-        android:layout_width="150sp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/daily"
-        android:layout_below="@+id/daily"
-        android:layout_marginTop="26dp"
-        android:textColor="#ffffff" />
-
     <TextView
         android:id="@+id/weekly"
         android:layout_width="wrap_content"
@@ -122,6 +78,24 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff" />
 
+    <TextView
+        android:id="@+id/week"
+        android:layout_width="150sp"
+        android:layout_height="60sp"
+        android:layout_alignBaseline="@+id/evaluation"
+        android:layout_alignBottom="@+id/evaluation"
+        android:layout_alignLeft="@+id/weekly"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/unreaddaily"
+        android:layout_width="150sp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/daily"
+        android:layout_below="@+id/daily"
+        android:layout_marginTop="21dp"
+        android:textColor="#ffffff" />
+
     <Button
         android:id="@+id/evaluation"
         style="?android:attr/buttonStyleSmall"
@@ -129,9 +103,27 @@
         android:layout_height="40sp"
         android:layout_alignLeft="@+id/readmsg"
         android:layout_below="@+id/weekly"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="33dp"
         android:background="@drawable/buttonback"
         android:text="@string/eval"
+        android:textColor="#ffffff" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60sp"
+        android:layout_height="40sp"
+        android:layout_alignBottom="@+id/viewprof"
+        android:layout_alignRight="@+id/evaluation"
+        android:src="@drawable/settings" />
+
+    <TextView
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_toLeftOf="@+id/imageView2"
+        android:text="@string/settings"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff" />
 
 </RelativeLayout>

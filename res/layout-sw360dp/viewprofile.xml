@@ -13,7 +13,7 @@
         android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="2dip" >
+        android:padding="3dip" >
 
         <TextView
             android:id="@+id/textView1"
@@ -42,7 +42,7 @@
             android:id="@+id/textView2"
             android:layout_weight="1"
             android:textColor="#ffffff"
-            android:text="@string/username" />
+            android:text="User Name:" />
 
         <TextView
             android:id="@+id/user"
@@ -183,6 +183,7 @@
         android:id="@+id/tableRow9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="3dip"
        >
 
         <TextView

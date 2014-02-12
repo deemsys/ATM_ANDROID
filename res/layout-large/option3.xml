@@ -8,23 +8,25 @@
 
     <TextView
         android:id="@+id/ranout"
-        android:layout_width="200sp"
-        android:layout_height="60sp"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="74dp"
-        android:background="@drawable/edittext"
+        android:textSize="17dp"
+         android:textColor="#ffffff"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-   
     <Button
         android:id="@+id/next"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80sp"
         android:layout_height="40sp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="74dp"
+        android:background="@drawable/buttonback"
         android:text="@string/next2"
-        android:textColor="#ffffff"
-                android:background="@drawable/buttonback" />
+        android:textColor="#ffffff" />
+
 </RelativeLayout>

@@ -6,59 +6,59 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/firstname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="148dp"
-        android:text="@string/firname"
-        android:textColor="#ffffff" />
-
-    <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/mob"
+        android:layout_alignRight="@+id/fname"
         android:layout_below="@+id/mobile"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="33dp"
         android:text="@string/mail"
         android:textColor="#ffffff" />
-
-    <EditText
-        android:id="@+id/mail"
-        android:layout_width="180sp"
-        android:layout_height="40sp"
-        android:layout_alignTop="@+id/email"
-        android:layout_marginLeft="71dp"
-        android:layout_toRightOf="@+id/cler"
-        android:background="@drawable/edittext"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
 
     <Button
         android:id="@+id/next"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="70sp"
         android:layout_height="40sp"
-        android:layout_alignRight="@+id/mail"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/mail"
-        android:layout_marginTop="143dp"
+        android:layout_marginRight="67dp"
+        android:layout_marginTop="125dp"
         android:background="@drawable/buttonback"
         android:text="@string/next2"
         android:textColor="#ffffff" />
 
     <Button
-        android:id="@+id/cler"
+        android:id="@+id/canny"
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="70sp"
-        android:layout_height="40sp"
-        android:layout_alignBaseline="@+id/next"
-        android:layout_alignBottom="@+id/next"
-        android:layout_alignLeft="@+id/email"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@+id/cler"
+        android:layout_alignBottom="@+id/cler"
+        android:layout_alignRight="@+id/mob"
         android:background="@drawable/buttonback"
-        android:text="@string/reset"
+        android:text="Cancel"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/firstname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="109dp"
+        android:text="@string/firname"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firstname"
+        android:layout_below="@+id/firstnam"
+        android:layout_marginTop="32dp"
+        android:text="@string/fname"
         android:textColor="#ffffff" />
 
     <EditText
@@ -69,17 +69,21 @@
         android:layout_alignTop="@+id/firstname"
         android:background="@drawable/edittext"
         android:ems="10"
-        android:inputType="textPersonName" >  <requestFocus /></EditText>
+        android:inputType="textPersonName" >
+         <requestFocus />
+    </EditText>
 
-    <TextView
-        android:id="@+id/fname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/firstname"
-        android:layout_below="@+id/firstnam"
-        android:layout_marginTop="33dp"
-        android:text="@string/fname"
-        android:textColor="#ffffff" />
+    <EditText
+        android:id="@+id/mobile"
+        android:layout_width="180sp"
+        android:layout_height="40sp"
+        android:layout_alignTop="@+id/mob"
+        android:layout_marginLeft="35dp"
+        android:layout_toRightOf="@+id/mob"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="phone"
+        android:maxLength="10" />
 
     <EditText
         android:id="@+id/frstname"
@@ -88,31 +92,43 @@
         android:layout_alignLeft="@+id/mobile"
         android:layout_alignTop="@+id/fname"
         android:background="@drawable/edittext"
+        android:digits="abcdefghijklmnopqrstuvwxyz0123456789.-@_"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName" >
+
+       
+    </EditText>
 
     <TextView
         android:id="@+id/mob"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/fname"
+        android:layout_alignLeft="@+id/fname"
         android:layout_below="@+id/frstname"
-        android:layout_marginTop="33dp"
-        android:text="@string/mobile"
+        android:layout_marginTop="31dp"
+        android:text="@string/uname"
         android:textColor="#ffffff" />
 
     <EditText
-        android:id="@+id/mobile"
+        android:id="@+id/mail"
         android:layout_width="180sp"
         android:layout_height="40sp"
-        android:layout_alignLeft="@+id/mail"
-        android:layout_alignTop="@+id/mob"
+        android:layout_alignLeft="@+id/mobile"
+        android:layout_alignTop="@+id/email"
         android:background="@drawable/edittext"
         android:ems="10"
-        android:inputType="phone"
-        android:maxLength="10" >
+        android:inputType="textEmailAddress" />
 
-      
-    </EditText>
+    <Button
+        android:id="@+id/cler"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="70sp"
+        android:layout_height="40sp"
+        android:layout_alignBaseline="@+id/next"
+        android:layout_alignBottom="@+id/next"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonback"
+        android:text="@string/reset"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

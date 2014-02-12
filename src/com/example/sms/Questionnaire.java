@@ -53,11 +53,11 @@ public class Questionnaire extends Activity{
 	         			 if(!one.isChecked()&&!two.isChecked()&&!three.isChecked()&&!four.isChecked()&&!five.isChecked()&&!six.isChecked()&&!seven.isChecked()&&!eight.isChecked()){
 	         				 final Dialog dialog = new Dialog(context);
 		           			 dialog.setContentView(R.layout.custom_dialog);
-		           			 dialog.setTitle("Failed");
+		           			 dialog.setTitle("Info!");
 		           			 dialog.setCancelable(false);
 		        			 dialog.setCanceledOnTouchOutside(false);
 		           			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-		           			  txt.setText("Select your option!");
+		           			  txt.setText("Select your option.");
 		           			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 		           			  dialogButton.setOnClickListener(new OnClickListener() {
 		           				  public void onClick(View vd) {
@@ -141,11 +141,11 @@ public class Questionnaire extends Activity{
 			
 		default:final Dialog dialog = new Dialog(context);
 			 dialog.setContentView(R.layout.custom_dialog);
-			 dialog.setTitle("Invalid option");
+			 dialog.setTitle("Info!");
 			 dialog.setCancelable(false);
 			 dialog.setCanceledOnTouchOutside(false);
 			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-			  txt.setText("Invalid option selection.Please Select option from 1 to 4");
+			  txt.setText("Invalid option selection.Please select option from 1 to 4.");
 			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 			  dialogButton.setOnClickListener(new OnClickListener() {
 				  public void onClick(View vd) {

@@ -161,11 +161,11 @@ public class SettingsActivity extends Activity {
 	            	  final Dialog dialog = new Dialog(context);
 					     
 		       			 dialog.setContentView(R.layout.custom_dialog);
-		       			 dialog.setTitle("Failed");
+		       			 dialog.setTitle("INFO!");
 		       			 dialog.setCancelable(false);
 		    			 dialog.setCanceledOnTouchOutside(false);
 		       			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-		       			  txt.setText("No Network Connection!");
+		       			  txt.setText("No network connection.");
 		       			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 		       			  dialogButton.setOnClickListener(new OnClickListener() {
 		       				  public void onClick(View vd) {
@@ -204,7 +204,7 @@ public class SettingsActivity extends Activity {
             			am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),60*1000, pendingIntent);
                   	final Dialog dialog = new Dialog(context);
             			 dialog.setContentView(R.layout.custom_dialog);
-            			 dialog.setTitle("Daily Messages");
+            			 dialog.setTitle("INFO!");
             			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
             			  txt.setText("You will receive Messages Daily!");
              			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
@@ -227,7 +227,7 @@ public class SettingsActivity extends Activity {
                   	alarmManager.cancel(sender1);
                   	final Dialog dialog = new Dialog(context);
          			 dialog.setContentView(R.layout.custom_dialog);
-         			 dialog.setTitle("daily Messages");
+         			 dialog.setTitle("INFO!");
          			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
          			  txt.setText("You will not receive Daily Messages.");
          			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
@@ -305,11 +305,11 @@ public class SettingsActivity extends Activity {
 	            	 final Dialog dialog = new Dialog(context);
 				     
 	       			 dialog.setContentView(R.layout.custom_dialog);
-	       			 dialog.setTitle("Send Failed");
+	       			 dialog.setTitle("INFO!");
 	       			 dialog.setCancelable(false);
 	    			 dialog.setCanceledOnTouchOutside(false);
 	       			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-	       			  txt.setText("No Network Connection!");
+	       			  txt.setText("No network connection.");
 	       			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 	       			  dialogButton.setOnClickListener(new OnClickListener() {
 	       				  public void onClick(View vd) {
@@ -397,11 +397,11 @@ public class SettingsActivity extends Activity {
             		 
             		   final Dialog dialog1 = new Dialog(context);
                        dialog1.setContentView(R.layout.custom_dialog);
-                       dialog1.setTitle("Failed");
+                       dialog1.setTitle("INFO!");
                        dialog1.setCancelable(false);
            			 dialog1.setCanceledOnTouchOutside(false);
                        			 TextView txt = (TextView) dialog1.findViewById(R.id.errorlog);
-                       			  txt.setText("Server not Connected");
+                       			  txt.setText("Server not connected.");
                        			  Button dialogButton = (Button) dialog1.findViewById(R.id.release);
                        			  dialogButton.setOnClickListener(new OnClickListener() {
                        				  public void onClick(View vd) {

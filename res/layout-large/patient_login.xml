@@ -7,13 +7,34 @@
    >
 
     <Button
+        android:id="@+id/signin"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/newuser"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/buttonback"
+        android:minHeight="2dp"
+        android:text="@string/signin"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/newuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signup"
+        android:layout_centerHorizontal="true"
+        android:text="@string/newuser"
+        android:textColor="#ffffff" />
+
+    <Button
         android:id="@+id/forget"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="160dp"
         android:layout_height="30dp"
-        android:layout_alignLeft="@+id/newuser"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="176dp"
+        android:layout_alignRight="@+id/newuser"
+        android:layout_marginBottom="186dp"
         android:background="@drawable/buttonback"
         android:text="@string/forget"
         android:textColor="#ffffff" />
@@ -25,9 +46,43 @@
         android:layout_height="30dip"
         android:layout_above="@+id/forget"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="27dp"
         android:background="@drawable/buttonback"
         android:text="@string/signup"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_alignBaseline="@+id/pass"
+        android:layout_alignBottom="@+id/pass"
+        android:layout_alignRight="@+id/newuser"
+        android:background="@drawable/edittext"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/pass"
+        android:layout_width="70dip"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signin"
+        android:layout_alignLeft="@+id/uname"
+        android:layout_marginBottom="84dp"
+        android:text="@string/pass"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/uname"
+        android:layout_width="75dip"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/password"
+        android:layout_marginBottom="35dp"
+        android:layout_toLeftOf="@+id/signup"
+        android:text="@string/username"
         android:textColor="#ffffff" />
 
     <EditText
@@ -39,59 +94,5 @@
         android:background="@drawable/edittext"
         android:ems="10"
         android:inputType="text" />
-
-    <TextView
-        android:id="@+id/pass"
-        android:layout_width="70dip"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/uname"
-        android:layout_alignTop="@+id/password"
-        android:text="@string/pass"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/uname"
-        android:layout_width="75dip"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/pass"
-        android:layout_marginBottom="40dp"
-        android:layout_toLeftOf="@+id/signup"
-        android:text="@string/username"
-        android:textColor="#ffffff" />
-
-    <TextView
-        android:id="@+id/newuser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/signup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
-        android:text="@string/newuser"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/signin"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:layout_above="@+id/newuser"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/buttonback"
-        android:minHeight="2dp"
-        android:text="@string/signin"
-        android:textColor="#ffffff" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="100dp"
-        android:layout_height="20dp"
-        android:layout_above="@+id/signin"
-        android:layout_alignLeft="@+id/signin"
-        android:layout_marginBottom="45dp"
-        android:layout_marginLeft="34dp"
-        android:background="@drawable/edittext"
-        android:ems="10"
-        android:inputType="textPassword" />
 
 </RelativeLayout>

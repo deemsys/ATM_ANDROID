@@ -42,14 +42,14 @@
         <TextView
             android:id="@+id/textView2"
               android:textColor="#ffffff"
-            android:text="@string/username" />
+            android:text="User Name" />
         <TableRow>
         <TextView
             android:id="@+id/useredit"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
          
-         android:textSize="21sp"
+         android:textSize="17sp"
          android:textColor="#ffffff" />
  
 </TableRow>
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/male"
                 android:button="@drawable/custom_radiobutton"
-                android:textColor="#000000" />
+                android:textColor="#ffffff" />
 
             <RadioButton
                 android:id="@+id/rad1"
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/female"
                  android:button="@drawable/custom_radiobutton"
-                android:textColor="#000000" />
+                android:textColor="#ffffff" />
         </RadioGroup>
     </TableRow>
 
@@ -337,7 +337,7 @@
             android:id="@+id/providertext"
             android:layout_width="150sp"
             android:layout_height="30dp"
-          android:textSize="20sp"
+          android:textSize="16sp"
          android:textColor="#ffffff" />
 </TableRow>
     </TableRow>
@@ -350,14 +350,16 @@
 
         <TextView
             android:id="@+id/textView14"
-            android:text="@string/progroup" 
-               android:textColor="#ffffff"/>
+            android:layout_width="150sp"
+            android:text="@string/progroup"
+            android:textColor="#ffffff" />
+
 <TableRow>
         <TextView
             android:id="@+id/progroup"
             android:layout_width="150sp"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textColor="#ffffff"
            
             />
@@ -367,7 +369,8 @@
   
  <TableRow android:id="@+id/tableRow15" 
      android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:padding="3dip">
 
      <TextView
          android:id="@+id/textView15"

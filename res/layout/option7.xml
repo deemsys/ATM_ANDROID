@@ -6,17 +6,6 @@
     android:orientation="vertical" 
     android:background="@drawable/backgrou">
 
-    <TextView
-        android:id="@+id/opt7"
-        android:layout_width="200sp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp"
-        android:background="@drawable/edittext"
-        android:gravity="center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <Button
         android:id="@+id/next"
         style="?android:attr/buttonStyleSmall"
@@ -28,5 +17,17 @@
         android:background="@drawable/buttonback"
         android:text="@string/next2"
         android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/opt7"
+        android:layout_width="250sp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"
+        android:textSize="17dp" />
 
 </RelativeLayout>

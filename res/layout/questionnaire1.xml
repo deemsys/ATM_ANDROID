@@ -13,6 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
         android:text="@string/ques"
+        android:textSize="19dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#ffffff" />
 
@@ -27,6 +28,7 @@
             android:id="@+id/rad0"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="17dp"
             android:button="@drawable/custom_radiobutton"
             android:text="@string/i_forgot"
             android:textColor="#ffffff" />
@@ -35,6 +37,7 @@
             android:id="@+id/rad1"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="17dp"
             android:button="@drawable/custom_radiobutton"
             android:text="Symptoms"
             android:textColor="#ffffff" />
@@ -43,6 +46,7 @@
             android:id="@+id/rad2"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="17dp"
             android:button="@drawable/custom_radiobutton"
             android:text="Health insurance doesn’t cover it "
             android:textColor="#ffffff" />
@@ -51,6 +55,7 @@
             android:id="@+id/rad3"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="17dp"
             android:button="@drawable/custom_radiobutton"
             android:text="Medication/co-payments cost too much "
             android:textColor="#ffffff" />
@@ -59,6 +64,7 @@
             android:id="@+id/rad4"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="17dp"
             android:button="@drawable/custom_radiobutton"
             android:text="Family/friends discouraged me from taking medication "
             android:textColor="#ffffff" />
@@ -67,6 +73,7 @@
             android:id="@+id/rad5"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="17dp"
             android:button="@drawable/custom_radiobutton"
             android:text="I am taking too many medications "
             android:textColor="#ffffff" />
@@ -75,6 +82,7 @@
             android:id="@+id/rad6"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="17dp"
             android:button="@drawable/custom_radiobutton"
             android:text="I don’t like taking medications "
             android:textColor="#ffffff" />
@@ -83,6 +91,7 @@
             android:id="@+id/rad7"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:textSize="17dp"
             android:button="@drawable/custom_radiobutton"
             android:text="Others"
             android:textColor="#ffffff" />

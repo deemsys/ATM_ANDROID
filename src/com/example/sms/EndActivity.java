@@ -46,11 +46,11 @@ public class EndActivity extends Activity {
 			//	dialog.getWindow();
 			 //   dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);    
    			 dialog.setContentView(R.layout.custom_dialog);
-   			 dialog.setTitle("Success");
+   			 dialog.setTitle("INFO!");
    			 dialog.setCancelable(false);
 			 dialog.setCanceledOnTouchOutside(false);
    			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-   			  txt.setText("You have successfully completed your weekly Survey.");
+   			  txt.setText("You have successfully completed your weekly survey.");
    			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
    			  dialogButton.setOnClickListener(new OnClickListener() {
    				  public void onClick(View vd) {
@@ -207,7 +207,7 @@ public class EndActivity extends Activity {
 		        protected void onPreExecute() {
 		            super.onPreExecute();
 		            pDialog = new ProgressDialog(EndActivity.this);
-		            pDialog.setMessage("Submitting weekly Survey");
+		            pDialog.setMessage("Submitting weekly survey");
 		            pDialog.setIndeterminate(false);
 		            pDialog.setCancelable(false);
 		            pDialog.show();
@@ -273,7 +273,7 @@ public class EndActivity extends Activity {
 				EvaluationActivity.evaluation.clear();
 				final Dialog dialog = new Dialog(context);
 				 dialog.setContentView(R.layout.custom_dialog);
-	   			 dialog.setTitle("Success");
+	   			 dialog.setTitle("INFO!");
 	   			 dialog.setCancelable(false);
 				 dialog.setCanceledOnTouchOutside(false);
 	   			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
@@ -293,11 +293,11 @@ public class EndActivity extends Activity {
 				 else{
 					 final Dialog dialog = new Dialog(context);
 					 dialog.setContentView(R.layout.custom_dialog);
-		   			 dialog.setTitle("Failed");
+		   			 dialog.setTitle("INFO!");
 		   			 dialog.setCancelable(false);
 					 dialog.setCanceledOnTouchOutside(false);
 		   			 TextView txt = (TextView) dialog.findViewById(R.id.errorlog);
-		   			  txt.setText("Server not connected.Low Network Connection.");
+		   			  txt.setText("Server not connected.");
 		   			  Button dialogButton = (Button) dialog.findViewById(R.id.release);
 		   			  dialogButton.setOnClickListener(new OnClickListener() {
 		   				  public void onClick(View vd) {
